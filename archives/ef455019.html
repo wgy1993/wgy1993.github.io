@@ -6,15 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wgy1993.gitee.io">
-  <title>Archives: 2020/5 | Wgy的博客</title>
+  <title>Hibernate(一) | Wgy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wgy的博客">
-<meta property="og:url" content="https://wgy1993.gitee.io/archives/2020/05/index.html">
+  <meta name="description" content="1.    Hibernate和ORM的概念1.1    Hibrenate概述它是一个轻量级，企业级，开源的ORM持久层框架。是可以操作数据库的框架。  框架：它就是一个架构。 通常情况下，软件工程的持久层解决方案，一个为主一个为辅。两者并存（写SQL语句的和不写SQL语句的 轻量级：指的是使用时依赖的资源很少。（目前我们使用的阶段，只依赖log4j，c3p0连接池） 企业级：指的是在企业级应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate(一)">
+<meta property="og:url" content="https://wgy1993.gitee.io/archives/ef455019.html">
 <meta property="og:site_name" content="Wgy的博客">
+<meta property="og:description" content="1.    Hibernate和ORM的概念1.1    Hibrenate概述它是一个轻量级，企业级，开源的ORM持久层框架。是可以操作数据库的框架。  框架：它就是一个架构。 通常情况下，软件工程的持久层解决方案，一个为主一个为辅。两者并存（写SQL语句的和不写SQL语句的 轻量级：指的是使用时依赖的资源很少。（目前我们使用的阶段，只依赖log4j，c3p0连接池） 企业级：指的是在企业级应用">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hce6689de20a94fa09b8b22db035878ddF.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H42f3639350de4c93b6ea7af89ff4e03eg.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H235e8a817a344ae88666f2481d83a670J.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H3d632a5388b445b6a0ecacd24cdbfe2fD.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/He495e9b8fdec49f6951d0289a3535993j.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hed677a54476846a58b586d0f6eb6728cE.jpg">
+<meta property="article:published_time" content="2020-05-28T06:17:43.000Z">
+<meta property="article:modified_time" content="2020-06-01T05:39:23.854Z">
 <meta property="article:author" content="Wgy">
+<meta property="article:tag" content="Hibernate">
+<meta property="article:tag" content="ORM">
+<meta property="article:tag" content="框架">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/Hce6689de20a94fa09b8b22db035878ddF.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -155,128 +169,269 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Hibernate-一" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/3e87eb50.html" class="archive-article-date">
-  	<time datetime="2020-05-31T08:27:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/3e87eb50.html">Hibernate(三)</a>
+    <h1 class="article-title" itemprop="name">
+      Hibernate(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/4074cb7b.html" class="archive-article-date">
-  	<time datetime="2020-05-28T16:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/4074cb7b.html">Hibernate(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/ef455019.html" class="archive-article-date">
+        
+        <a href="/archives/ef455019.html" class="archive-article-date">
   	<time datetime="2020-05-28T06:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/ef455019.html">Hibernate(一)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Hibernate和ORM的概念"><a href="#1-Hibernate和ORM的概念" class="headerlink" title="1.    Hibernate和ORM的概念"></a>1.    Hibernate和ORM的概念</h1><h2 id="1-1-Hibrenate概述"><a href="#1-1-Hibrenate概述" class="headerlink" title="1.1    Hibrenate概述"></a>1.1    Hibrenate概述</h2><p>它是一个轻量级，企业级，开源的ORM持久层框架。是可以操作数据库的框架。</p>
+<ul>
+<li>框架：它就是一个架构。</li>
+<li>通常情况下，软件工程的持久层解决方案，一个为主一个为辅。两者并存（写SQL语句的和不写SQL语句的</li>
+<li>轻量级：指的是使用时依赖的资源很少。（目前我们使用的阶段，只依赖log4j，c3p0连接池）</li>
+<li>企业级：指的是在企业级应用中使用的比较多</li>
+<li>开源的：开放源代码。</li>
+<li>ORM的操作方式：建立对象关系映射，实现操作实体类就相当于操作数据库表。</li>
+</ul>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
+<blockquote>
+<p>Hibernate框架是当今主流的Java持久层框架之一，由于它具有简单易学、灵活性强、扩展性强等特点，能够大大地简化程序的代码量，提高工作效率，因此受到广大开发人员的喜爱。</p>
+<p>Hibernate是一个开放源代码的ORM框架，它对JDBC进行了轻量级的对象封装，使得Java开发人员可以使用面向对象的编程思想来操作数据库。</p>
+</blockquote>
+<h2 id="1-2-ORM"><a href="#1-2-ORM" class="headerlink" title="1.2    ORM"></a>1.2    ORM</h2><p>Object Relational Mapping</p>
+<ul>
+<li>对象关系映射</li>
+<li>就是建立实体类和数据库表的对应关系。</li>
+<li>实现操作实体类对象就相当于操作数据库表</li>
+</ul>
+<blockquote>
+<p>Object Relation Mapping 对象关系映射。</p>
+<p>对象-关系映射（OBJECT/RELATIONALMAPPING，简称ORM），是随着面向对象的<a href="http://baike.baidu.com/view/1471861.htm" target="_blank" rel="noopener">软件开发方法</a>发展而产生的。用来把对象模型表示的对象映射到基于S Q L 的关系模型数据库结构中去。这样，我们在具体的操作实体对象的时候，就不需要再去和复杂的 SQ L 语句打交道，只需简单的操作实体对象的属性和方法[2] 。O R M 技术是在对象和关系之间提供了一条桥梁，前台的对象型数据和数据库中的关系型的数据通过这个桥梁来相互转化[1] 。</p>
+<p><strong>简单的说就是把我们程序中的实体类和数据库表建立起来对应关系。</strong></p>
+</blockquote>
+<h2 id="1-3-为什么要学习Hibernate"><a href="#1-3-为什么要学习Hibernate" class="headerlink" title="1.3    为什么要学习Hibernate"></a>1.3    为什么要学习Hibernate</h2><p>与其它操作数据库的技术相比，Hibernate具有以下几点优势：</p>
+<ul>
+<li>Hibernate对JDBC访问数据库的代码做了轻量级封装，大大简化了数据访问层繁琐的重复性代码，并且减少了内存消耗，加快了运行效率。</li>
+<li>Hibernate是一个基于JDBC的主流持久化框架，是一个优秀的ORM实现，它很大程度的简化了DAO（Data Access Object，数据访问对象）层编码工作。</li>
+<li>Hibernate的性能非常好，映射的灵活性很出色。它支持很多关系型数据库，从一对一到多对多的各种复杂关系。</li>
+<li>可扩展性强，由于源代码的开源以及API的开放，当本身功能不够用时，可以自行编码进行扩展。</li>
+</ul>
+<p><strong>明确：</strong></p>
+<p>​    <strong>操作实体类就相当于操作数据库表</strong></p>
+<blockquote>
+<p>使用传统的JDBC开发应用系统时，如果是小型应用系统，并不觉得有什么麻烦，但是对于大型应用系统的开发，使用JDBC就会显得力不从心。例如对几十、几百张包含几十个字段的表进行插入操作时，编写的SQL语句不但很长，而且繁琐，容易出错；在读取数据时，需要写多条getXxx语句从结果集中取出各个字段的信息，不但枯燥重复，并且工作量非常大。为了提高数据访问层的编程效率，Gavin King开发出了一个当今最流行的的ORM框架，它就是Hibernate框架。</p>
+<p>所谓的ORM就是利用描述对象和数据库表之间映射的元数据，自动把Java应用程序中的对象，持久化到关系型数据库的表中。通过操作Java对象，就可以完成对数据库表的操作。可以把ORM理解为关系型数据和对象的一个纽带，开发人员只需要关注纽带一端映射的对象即可。ORM原理如图所示。</p>
+<p><img src="https://ae01.alicdn.com/kf/Hce6689de20a94fa09b8b22db035878ddF.jpg" alt="img"></p>
+</blockquote>
+<h1 id="2-CRM"><a href="#2-CRM" class="headerlink" title="2.    CRM"></a>2.    CRM</h1><p>CRM：客户关系管理系统</p>
+<blockquote>
+<p>CRM（Customer Relationship Management）客户关系管理，是利用相应的信息技术以及互联网技术来协调企业与顾客间在销售、营销和服务上的交互，向客户提供创新式的个性化的客户交互和服务的过程。</p>
+<p>其最终目标是将面向客户的各项信息和活动集成起来，组建一个以客户为中心的企业，实现对面向客户的活动的全面管理。</p>
+</blockquote>
+<h1 id="3-Hibernate快速入门"><a href="#3-Hibernate快速入门" class="headerlink" title="3.    Hibernate快速入门"></a>3.    Hibernate快速入门</h1><h2 id="3-1-需求介绍"><a href="#3-1-需求介绍" class="headerlink" title="3.1    需求介绍"></a>3.1    需求介绍</h2><p>保存一个客户到数据库的客户表中。</p>
+<h2 id="3-2-搭建Hibernate开发环境"><a href="#3-2-搭建Hibernate开发环境" class="headerlink" title="3.2    搭建Hibernate开发环境"></a>3.2    搭建Hibernate开发环境</h2><h3 id="3-2-1-第一步：拷贝必备的jar包到开发目录"><a href="#3-2-1-第一步：拷贝必备的jar包到开发目录" class="headerlink" title="3.2.1    第一步：拷贝必备的jar包到开发目录"></a>3.2.1    第一步：拷贝必备的jar包到开发目录</h3><p>数据库驱动包，如下图：</p>
+<p><img src="https://ae01.alicdn.com/kf/H42f3639350de4c93b6ea7af89ff4e03eg.jpg" alt="image-20200528110301508"></p>
+<p>Hibernate/lib/required/*.jar，如下图：</p>
+<p><img src="https://ae01.alicdn.com/kf/H235e8a817a344ae88666f2481d83a670J.jpg" alt="image-20200528110244430"></p>
+<p>日志记录的包，如下图:</p>
+<p><img src="https://ae01.alicdn.com/kf/H3d632a5388b445b6a0ecacd24cdbfe2fD.jpg" alt="image-20200528110345308"></p>
+<h3 id="3-2-2-第二步：创建数据库和实体类"><a href="#3-2-2-第二步：创建数据库和实体类" class="headerlink" title="3.2.2    第二步：创建数据库和实体类"></a>3.2.2    第二步：创建数据库和实体类</h3><p>持久化类是应用程序中的业务实体类，这里的持久化是指类的对象能够被持久化保存到数据库中。Hibernate使用普通Java对象（Plain Old Java Object），即POJO的编程模式来进行持久化。POJO类中包含的是与数据库表相对应的各个属性，这些属性通过getter和setter方法来访问，对外部隐藏了内部的实现细节。下面就来编写Customer持久化类。</p>
+<p>在项目src目录下，创建cn.wgy.domain包，并在包中创建实体类Customer（对应数据库表cst_customer），Customer类包含与cst_customer数据表字段对应的属性，以及相应的getXxx ()和setXxx ()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*创建客户表*&#x2F;</span><br><span class="line">CREATE TABLE &#96;cst_customer&#96; (</span><br><span class="line">  &#96;cust_id&#96; bigint(32) NOT NULL AUTO_INCREMENT COMMENT &#39;客户编号(主键)&#39;,</span><br><span class="line">  &#96;cust_name&#96; varchar(32) NOT NULL COMMENT &#39;客户名称(公司名称)&#39;,</span><br><span class="line">  &#96;cust_source&#96; varchar(32) DEFAULT NULL COMMENT &#39;客户信息来源&#39;,</span><br><span class="line">  &#96;cust_industry&#96; varchar(32) DEFAULT NULL COMMENT &#39;客户所属行业&#39;,</span><br><span class="line">  &#96;cust_level&#96; varchar(32) DEFAULT NULL COMMENT &#39;客户级别&#39;,</span><br><span class="line">  &#96;cust_address&#96; varchar(128) DEFAULT NULL COMMENT &#39;客户联系地址&#39;,</span><br><span class="line">  &#96;cust_phone&#96; varchar(64) DEFAULT NULL COMMENT &#39;客户联系电话&#39;,</span><br><span class="line">  PRIMARY KEY (&#96;cust_id&#96;)</span><br><span class="line">) ENGINE&#x3D;InnoDB AUTO_INCREMENT&#x3D;94 DEFAULT CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户实体类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long custId;</span><br><span class="line">    <span class="keyword">private</span> String custName;</span><br><span class="line">    <span class="keyword">private</span> String custSource;</span><br><span class="line">    <span class="keyword">private</span> String custIndustry;</span><br><span class="line">    <span class="keyword">private</span> String custLevel;</span><br><span class="line">    <span class="keyword">private</span> String custAddress;</span><br><span class="line">    <span class="keyword">private</span> String custPhone;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-3-第三步：编写映射配置文件（xml）"><a href="#3-2-3-第三步：编写映射配置文件（xml）" class="headerlink" title="3.2.3    第三步：编写映射配置文件（xml）"></a>3.2.3    第三步：编写映射配置文件（xml）</h3><p>实体类Customer目前还不具备持久化操作的能力，而Hibernate需要知道实体类Customer映射到数据库Hibernate中的哪个表，以及类中的哪个属性对应数据库表中的哪个字段，这些都需要在映射文件中配置。</p>
+<p>在实体类Customer所在的包中，创建一个名称为Customer.hbm.xml的映射文件，在该文件中定义了实体类Customer的属性是如何映射到cst_customer表的列上的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!-- 在实体类所在的包下，创建一个xml文件。该文件建议名称为：实体类名称+.hbm+.xml --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 导入约束:dtd约束</span><br><span class="line">        位置：在Hibernate的核心jar包中名称为hibernate-mapping-3.0.dtd</span><br><span class="line">        明确该文件中的内容：</span><br><span class="line">            实体类和表的对应关系</span><br><span class="line">            实体类中属性和表的字段的对应关系</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC </span><br><span class="line">    &quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Mapping DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">    &quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- package属性用于设定包的名称，接下来该配置文件中凡是用到此包中的对象时都可以省略包名 --&gt;</span><br><span class="line">&lt;hibernate-mapping package&#x3D;&quot;com.wgy.domain&quot;&gt;</span><br><span class="line">    </span><br><span class="line">	&lt;!-- class标签</span><br><span class="line">                作用：建立实体类和表的对应关系</span><br><span class="line">                属性：</span><br><span class="line">                    name：指定实体类的名称</span><br><span class="line">                    table：指定数据库表的名称</span><br><span class="line">	 --&gt;</span><br><span class="line">	&lt;class name&#x3D;&quot;Customer&quot; table&#x3D;&quot;cst_customer&quot;&gt;</span><br><span class="line">		</span><br><span class="line">                &lt;!-- id标签</span><br><span class="line">                        作用：用于映射主键</span><br><span class="line">                        属性：</span><br><span class="line">                            name：指定的是属性名称。也就是get&#x2F;set方法后面的部分，并且首字母要转小写。</span><br><span class="line">                            column:指定的是数据库表的字段名称</span><br><span class="line">		--&gt;</span><br><span class="line">		&lt;id name&#x3D;&quot;custId&quot; column&#x3D;&quot;cust_id&quot;&gt;</span><br><span class="line">            </span><br><span class="line">                        &lt;!-- generator标签：</span><br><span class="line">                                作用：配置主键的生成策略。</span><br><span class="line">                                属性：</span><br><span class="line">                                    class:指定生成方式的取值。</span><br><span class="line">                                    取值之一：native。使用本地数据库的自动增长能力。</span><br><span class="line">                                    mysql数据库的自动增长能力是让某一列自动+1。但是不是所有数据库都支持这种方式。</span><br><span class="line">                        --&gt;</span><br><span class="line">			&lt;generator class&#x3D;&quot;native&quot;&gt;&lt;&#x2F;generator&gt;</span><br><span class="line">		&lt;&#x2F;id&gt;</span><br><span class="line">        </span><br><span class="line">		&lt;!-- property标签：</span><br><span class="line">                        作用：映射其他字段</span><br><span class="line">                        属性：</span><br><span class="line">                            name：指定属性的名称。和id标签的name属性含义一致</span><br><span class="line">                            column：指定数据库表的字段名称</span><br><span class="line">		--&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;custName&quot; column&#x3D;&quot;cust_name&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;custLevel&quot; column&#x3D;&quot;cust_level&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;custSource&quot; column&#x3D;&quot;cust_source&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;custIndustry&quot; column&#x3D;&quot;cust_industry&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;custAddress&quot; column&#x3D;&quot;cust_address&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;custPhone&quot; column&#x3D;&quot;cust_phone&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;&#x2F;class&gt;</span><br><span class="line">&lt;&#x2F;hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-4-第四步：编写主配置文件（hibernate-cfg-xml）"><a href="#3-2-4-第四步：编写主配置文件（hibernate-cfg-xml）" class="headerlink" title="3.2.4    第四步：编写主配置文件（hibernate.cfg.xml）"></a>3.2.4    第四步：编写主配置文件（hibernate.cfg.xml）</h3><p>Hibernate的映射文件反映了持久化类和数据库表的映射信息，而Hibernate的配置文件则主要用来配置数据库连接以及Hibernate运行时所需要的各个属性的值。在项目的src下创建一个名称为hibernate.cfg.xml的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!-- 在类的根路径下创建名称为hibernate.cfg.xml的配置文件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 导入dtd约束：</span><br><span class="line">        位置：在核心jar包中的名称为hibernate-configuration-3.0.dtd中</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</span><br><span class="line">	&quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Configuration DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">	&quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-configuration-3.0.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line">	&lt;!-- 配置SessionFactory</span><br><span class="line">                SessionFactory的作用就是用于创建Session对象的。</span><br><span class="line">                Session对象就是hibernate中操作数据库的核心对象。</span><br><span class="line">		此处的配置不要求背，但是要求记住创建SessionFactory必须的三部分信息</span><br><span class="line">                    第一部分：</span><br><span class="line">                        连接数据库的信息</span><br><span class="line">                    第二部分：</span><br><span class="line">                        hibernate的可选配置</span><br><span class="line">                    第三部分：</span><br><span class="line">                        映射文件的位置</span><br><span class="line">	--&gt;</span><br><span class="line">	&lt;session-factory&gt;</span><br><span class="line">		&lt;!-- 第一部分：连接数据库的信息 --&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;&#x2F;property&gt;</span><br><span class="line">                &lt;property name&#x3D;&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;hibernate01&lt;&#x2F;property&gt;</span><br><span class="line">                &lt;property name&#x3D;&quot;hibernate.connection.username&quot;&gt;root&lt;&#x2F;property&gt;</span><br><span class="line">                &lt;property name&#x3D;&quot;hibernate.connection.password&quot;&gt;root&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;!-- 数据库的方言 --&gt;</span><br><span class="line">                &lt;property name&#x3D;&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;&#x2F;property&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 第二部分：hibernate的可选配置 --&gt;</span><br><span class="line">                &lt;!-- 是否显示hibernate生成的SQL语句 --&gt;</span><br><span class="line">                &lt;property name&#x3D;&quot;hibernate.show_sql&quot;&gt;true&lt;&#x2F;property&gt;</span><br><span class="line">                &lt;!-- 是否使用格式化输出sql语句到控制台 --&gt;</span><br><span class="line">                &lt;property name&#x3D;&quot;hibernate.format_sql&quot;&gt;false&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;!-- 是否让hibernate根据表结构的变化来生成DDL语句</span><br><span class="line">			 DDL:数据定义语言</span><br><span class="line">			 hibernate可以根据映射文件来为我们生成数据库的表结构。但是他不能生成数据库。</span><br><span class="line">                         hbm2ddl.auto的取值</span><br><span class="line">                            * none:不用Hibernate自动生成表.</span><br><span class="line">                            * create:每次都会创建一个新的表.(测试)</span><br><span class="line">                            * create-drop:每次都会创建一个新的表，执行程序结束后删除这个表.(测试)</span><br><span class="line">                            * update:如果数据库中有表，使用原来的表，如果没有表，创建一个新表.可以更新表结构。</span><br><span class="line">                            * validate:只会使用原有的表.对映射关系进行校验.</span><br><span class="line">		--&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;&#x2F;property&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 第三部分：映射配置文件的位置 --&gt;</span><br><span class="line">                &lt;mapping resource&#x3D;&quot;com&#x2F;wgy&#x2F;domain&#x2F;Customer.hbm.xml&quot;&#x2F;&gt;</span><br><span class="line">	&lt;&#x2F;session-factory&gt;</span><br><span class="line">&lt;&#x2F;hibernate-configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-实现保存操作"><a href="#3-4-实现保存操作" class="headerlink" title="3.4    实现保存操作"></a>3.4    实现保存操作</h2><p>在项目中新建一个名称为cn.wgy.test的包，然后在包中建立一个名为HibernateDemo1Test.java的文件，该文件是用来测试的类文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * hibernate的入门案例</span></span><br><span class="line"><span class="comment"> * 需求：</span></span><br><span class="line"><span class="comment"> * 实现保存一个客户到数据库</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateDemo1Test</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 步骤分析</span></span><br><span class="line"><span class="comment">     * 1、解析主配置文件</span></span><br><span class="line"><span class="comment">     * 2、根据配置文件创建SessionFactory</span></span><br><span class="line"><span class="comment">     * 3、根据SessionFactory创建Session</span></span><br><span class="line"><span class="comment">     * 4、开启事务</span></span><br><span class="line"><span class="comment">     * 5、执行操作（保存）</span></span><br><span class="line"><span class="comment">     * 6、提交事务</span></span><br><span class="line"><span class="comment">     * 7、释放资源</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Customer customer = <span class="keyword">new</span> Customer();</span><br><span class="line">        customer.setCustName(<span class="string">"测试1"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 1、解析主配置文件</span></span><br><span class="line">        Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line">        configuration.configure();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2、根据配置文件创建SessionFactory</span></span><br><span class="line">        SessionFactory sessionFactory = configuration.buildSessionFactory();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3、根据SessionFactory创建Session</span></span><br><span class="line">        Session session = sessionFactory.openSession();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4、开启事务</span></span><br><span class="line">        Transaction transaction = session.beginTransaction();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5、执行操作（保存）</span></span><br><span class="line">        session.save(customer);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6、提交事务</span></span><br><span class="line">        transaction.commit();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7、释放资源</span></span><br><span class="line">        session.close();</span><br><span class="line">        sessionFactory.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-入门案例的执行过程"><a href="#3-5-入门案例的执行过程" class="headerlink" title="3.5    入门案例的执行过程"></a>3.5    入门案例的执行过程</h2><p>首先创建Configuration类的实例，并通过它来读取并解析配置文件hibernate.cfg.xml。然后创建SessionFactory读取解析映射文件信息，并将Configuration对象中的所有配置信息拷贝到SessionFactory内存中。接下来，打开Session，让SessionFactory提供连接，并开启一个事务，之后创建对象，向对象中添加数据，通过session.save()方法完成向数据库中保存数据的操作。最后提交事务，并关闭资源。</p>
+<p><img src="https://ae01.alicdn.com/kf/He495e9b8fdec49f6951d0289a3535993j.jpg" alt="img"></p>
+<h1 id="4-Hibernate中API介绍"><a href="#4-Hibernate中API介绍" class="headerlink" title="4.    Hibernate中API介绍"></a>4.    Hibernate中API介绍</h1><h2 id="4-1-Configuration对象"><a href="#4-1-Configuration对象" class="headerlink" title="4.1    Configuration对象"></a>4.1    Configuration对象</h2><h3 id="4-1-1-作用"><a href="#4-1-1-作用" class="headerlink" title="4.1.1    作用"></a>4.1.1    作用</h3><p>在使用Hibernate时，首先要创建Configuration实例，Configuration实例主要用于启动、加载、管理hibernate的配置文件信息。在启动Hibernate的过程中，Configuration实例首先确定Hibernate配置文件的位置，然后读取相关配置，最后创建一个唯一的SessionFactory实例。Configuration对象只存在于系统的初始化阶段，它将SessionFactory创建完成后，就完成了自己的使命。</p>
+<p>Hibernate通常使用<code>Configuration config = new Configuration().configure();</code>的方式创建实例，此种方式默认会去src下读取 hibernate.cfg.xml配置文件。如果不想使用默认的hibernate.cfg.xml配置文件，而是使用指定目录下（或自定义）的配置文件，则需要向configure()方法中传递一个文件路径的参数，其代码写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Configuration config &#x3D; new Configuration().configure(&quot;xml文件位置&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>此种写法hibernate会去指定位置查找配置文件，例如，想要使用src下config包中的 hibernate.cfg.xml文件，只需将文件位置加入configure()中即可，其代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Configuration config = <span class="keyword">new</span> Configuration().configure(<span class="string">"/config/hibernate.cfg.xml"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>【加载映射文件】</p>
+<p>Hibernate除了可以使用Configuration对象加载核心配置文件以外，还可以利用该对象加载映射文件。因为如何使用properties文件作为Hibernate的核心配置文件，其他的属性可以使用key=value的格式来设置，但是映射没有办法加载。这时这个对象就有了用武之地。可以在手动编写代码的时候去加载映射文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Configuration configuration &#x3D; new Configuration().configure(&quot;xml文件位置&quot;);</span><br><span class="line"></span><br><span class="line">configuration.addResource(&quot;cn&#x2F;wgy&#x2F;domain&#x2F;Customer.hbm.xml&quot;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-1-2-常用方法"><a href="#4-1-2-常用方法" class="headerlink" title="4.1.2    常用方法"></a>4.1.2    常用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">默认构造函数：</span><br><span class="line">        它只能加载类的根路径下，名称为hibernate.properties的配置文件。不能加载xml</span><br><span class="line">configure()：</span><br><span class="line">        它用于加载类的根路径下，名称为hibernate.cfg.xml的配置文件。</span><br><span class="line">        configuration.configure();</span><br><span class="line">buildSessionFactory()：</span><br><span class="line">        根据配置文件，构建SessionFactory</span><br><span class="line">        SessionFactory sessionFactory &#x3D; configuration.buildSessionFactory();</span><br><span class="line">addResource(String url);</span><br><span class="line">        指定映射文件的位置</span><br><span class="line">        configuration.addResource(&quot;com&#x2F;itheima&#x2F;domain&#x2F;Customer.hbm.xml&quot;);</span><br><span class="line">addClass(Class clazz);</span><br><span class="line">        指定实体类的字节码</span><br><span class="line">        configuration.addClass(Customer.class);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-SessionFactory"><a href="#4-2-SessionFactory" class="headerlink" title="4.2    SessionFactory"></a>4.2    SessionFactory</h2><h3 id="4-2-1-作用"><a href="#4-2-1-作用" class="headerlink" title="4.2.1    作用"></a>4.2.1    作用</h3><p>SessionFactory接口负责Hibernate的初始化和建立Session对象。它在Hibernate中起到一个缓冲区作用，Hibernate可以将自动生成的SQL语句、映射数据以及某些可重复利用的的数据放在这个缓冲区中。同时它还保存了对数据库配置的所有映射关系，维护了当前的二级缓存。</p>
+<p>SessionFactory 实例是通过Configuration对象获取的，其获取方法如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SessionFactory sessionFactory = config.buildSessionFactory();</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-2-常用方法"><a href="#4-2-2-常用方法" class="headerlink" title="4.2.2    常用方法"></a>4.2.2    常用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openSession()：每次都是生成一个新的Session</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-3-细节"><a href="#4-2-3-细节" class="headerlink" title="4.2.3    细节"></a>4.2.3    细节</h3><p>该对象维护了很多信息：</p>
+<ul>
+<li>连接数据库的信息</li>
+<li>hibernate的基本配置</li>
+<li>映射文件的位置，以及映射文件中的配置</li>
+<li>一些预定义的SQL语句（这些语句都是通用的） 比如：全字段保存，根据id的全字段更新，根据id的全字段查询，根据id的删除等等。</li>
+<li>hibernate的二级缓存（了解）</li>
+</ul>
+<p>同时，它是一个线程安全的对象，所有由该工厂生产的Session都共享工厂中维护的数据。</p>
+<h3 id="4-2-4-使用原则"><a href="#4-2-4-使用原则" class="headerlink" title="4.2.4    使用原则"></a>4.2.4    使用原则</h3><p>由于SessionFactory维护了很多信息同时又是线程安全的，一般情况下，一个项目中只需要一个SessionFactory，只有当应用中存在多个数据源时，才为每个数据源建立一个SessionFactory实例。因此，不应该反复的创建和销毁。</p>
+<p>原则：一个应用应该只有一个SessionFactory。在应用加载时创建，应用卸载时销毁。</p>
+<h3 id="4-2-5-在hibernate中使用数据源-连接池"><a href="#4-2-5-在hibernate中使用数据源-连接池" class="headerlink" title="4.2.5    在hibernate中使用数据源(连接池)"></a>4.2.5    在hibernate中使用数据源(连接池)</h3><p>SessionFactory内部还维护了一个连接池，如果我们需要使用第三方的连接池如C3P0，那么需要我们自己手动进行配置</p>
+<p>配置C3P0步骤如下：</p>
+<ol>
+<li><p>导入连接池的jar包</p>
+<p><img src="https://ae01.alicdn.com/kf/Hed677a54476846a58b586d0f6eb6728cE.jpg" alt="image-20200528121944904"></p>
+</li>
+<li><p>在hibernate主配置文件中配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置数据源的提供商 --&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;hibernate.connection.provider_class&quot;&gt;</span><br><span class="line">	org.hibernate.connection.C3P0ConnectionProvider</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="4-3-Session"><a href="#4-3-Session" class="headerlink" title="4.3    Session"></a>4.3    Session</h2><h3 id="4-3-1-作用"><a href="#4-3-1-作用" class="headerlink" title="4.3.1    作用"></a>4.3.1    作用</h3><p>Session 是应用程序与数据库之间交互操作的一个单线程对象，是 Hibernate 运作的中心，它的主要功能是为持久化对象提供创建、读取和删除的能力，所有持久化对象必须在session的管理下才可以进行持久化操作。</p>
+<p>创建SessionFactory实例后，就可以通过它获取Session实例。获取Session实例有两种方式，一种是通过openSession()方法，另一种是通过getCurrentSession()方法。两种方法获取session的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//采用openSession方法创建session</span></span><br><span class="line">Session session = sessionFactory.openSession();</span><br><span class="line"></span><br><span class="line"><span class="comment">//采用getCurrentSession()方法创建session</span></span><br><span class="line">Session session = sessionFactory.getCurrentSession();</span><br></pre></td></tr></table></figure>
+
+<p>以上两种获取session实例方式的主要区别是，采用openSession方法获取Session实例时，SessionFactory直接创建一个新的Session实例，并且在使用完成后需要调用close方法进行手动关闭。而getCurrentSession方法创建的Session实例会被绑定到当前线程中，它在提交或回滚操作时会自动关闭。</p>
+<h3 id="4-3-2-常用方法"><a href="#4-3-2-常用方法" class="headerlink" title="4.3.2    常用方法"></a>4.3.2    常用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">save(Object entity);  ：保存一个实体到数据库</span><br><span class="line"></span><br><span class="line">update(Object entity);：更新一个实体</span><br><span class="line"></span><br><span class="line">delete(Object entity);：删除一个实体</span><br><span class="line"></span><br><span class="line">get(Class clazz,Serializable id);：根据id查询一个实体。参数的含义：Class表示要查询的实体类字节码。Serializable就是查询的条件。</span><br><span class="line"></span><br><span class="line">beginTransaction();：开启事务，并返回事务对象</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-3-细节"><a href="#4-3-3-细节" class="headerlink" title="4.3.3    细节"></a>4.3.3    细节</h3><p>由于SessionFactory已经维护了很多数据，所以Session就维护较少的内容。</p>
+<p>它是一个轻量级对象。并且：它不是线程安全的！！！！！！！</p>
+<p>它维护了hibernate的一级缓存。</p>
+<p>它的反复创建销毁不会消耗太多资源。</p>
+<h3 id="4-3-4-使用原则"><a href="#4-3-4-使用原则" class="headerlink" title="4.3.4    使用原则"></a>4.3.4    使用原则</h3><p>每个线程都只有一个Session对象。</p>
+<h2 id="4-4-Transaction"><a href="#4-4-Transaction" class="headerlink" title="4.4    Transaction"></a>4.4    Transaction</h2><h3 id="4-4-1-作用"><a href="#4-4-1-作用" class="headerlink" title="4.4.1    作用"></a>4.4.1    作用</h3><p>Transaction接口主要用于管理事务，它是Hibernate的数据库事务接口，且对底层的事务接口进行了封装。Transaction接口的事务对象是通过Session对象开启的，其开启方式如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transaction transaction &#x3D; session.beginTransaction();</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-2-常用方法"><a href="#4-4-2-常用方法" class="headerlink" title="4.4.2    常用方法"></a>4.4.2    常用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">commit()：提交事务</span><br><span class="line"></span><br><span class="line">rollback()：回滚事务</span><br></pre></td></tr></table></figure>
+
+<p>Session执行完数据库操作后，要使用Transaction接口的commit()方法进行事务提交，才能真正的将数据操作同步到数据库中。发生异常时，需要使用rollback()方法进行事务回滚，以避免数据发生错误。因此，在持久化操作后，必须调用Transaction接口的commit()方法和rollback()方法。如果没有开启事务，那么每个Session的操作，都相当于一个独立的操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSave1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Customer c = <span class="keyword">new</span> Customer();</span><br><span class="line">    c.setCustName(<span class="string">"测试保存功能"</span>);</span><br><span class="line">    Transaction tx = <span class="keyword">null</span>;</span><br><span class="line">    Session s = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        s = HibernateUtil.openSession();</span><br><span class="line">        tx = s.beginTransaction();</span><br><span class="line">        <span class="comment">//保存客户</span></span><br><span class="line">        s.save(c);</span><br><span class="line">        tx.commit();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    	tx.rollback();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    	s.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-抽取HibernateUtil工具类"><a href="#5-抽取HibernateUtil工具类" class="headerlink" title="5.    抽取HibernateUtil工具类"></a>5.    抽取HibernateUtil工具类</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * hibernate的工具类</span></span><br><span class="line"><span class="comment"> * 	用于生产一个Session对象</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SessionFactory factory;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Configuration cfg = <span class="keyword">new</span> Configuration();</span><br><span class="line">                cfg.configure();</span><br><span class="line">                factory = cfg.buildSessionFactory();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                <span class="comment">//e.printStackTrace();</span></span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ExceptionInInitializerError(<span class="string">"初始化SessionFactory失败"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 获取一个新的Session对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">openSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> factory.openSession();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-案例：使用Hibernate实现CRUD"><a href="#6-案例：使用Hibernate实现CRUD" class="headerlink" title="6.    案例：使用Hibernate实现CRUD"></a>6.    案例：使用Hibernate实现CRUD</h1><h2 id="6-1-保存操作"><a href="#6-1-保存操作" class="headerlink" title="6.1    保存操作"></a>6.1    保存操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Customer c = <span class="keyword">new</span> Customer();</span><br><span class="line">    c.setCustName(<span class="string">"测试保存功能"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.使用工具类获取一个Session</span></span><br><span class="line">    Session session = HibernateUtil.openSession();</span><br><span class="line">    <span class="comment">//2.开启事务</span></span><br><span class="line">    <span class="comment">//Transaction tx = session.beginTransaction();</span></span><br><span class="line">    <span class="comment">//3.保存客户</span></span><br><span class="line">    session.save(c);</span><br><span class="line">    <span class="comment">//4.提交事务</span></span><br><span class="line">    <span class="comment">//tx.commit();</span></span><br><span class="line">    <span class="comment">//5.释放资源</span></span><br><span class="line">    session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-2-查询一个实体"><a href="#6-2-查询一个实体" class="headerlink" title="6.2    查询一个实体"></a>6.2    查询一个实体</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindOne</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.使用工具类获取一个Session</span></span><br><span class="line">    Session session = HibernateUtil.openSession();</span><br><span class="line">    <span class="comment">//2.开启事务</span></span><br><span class="line">    Transaction tx = session.beginTransaction();</span><br><span class="line">    <span class="comment">//3.查询id为2的客户</span></span><br><span class="line">    Customer c = session.get(Customer<span class="class">.<span class="keyword">class</span>, 2<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    <span class="comment">//4.提交事务</span></span><br><span class="line">    tx.commit();</span><br><span class="line">    <span class="comment">//5.释放资源</span></span><br><span class="line">    session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-3-修改操作"><a href="#6-3-修改操作" class="headerlink" title="6.3    修改操作"></a>6.3    修改操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdate</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.使用工具类获取一个Session</span></span><br><span class="line">    Session session = HibernateUtil.openSession();</span><br><span class="line">    <span class="comment">//2.开启事务</span></span><br><span class="line">    Transaction tx = session.beginTransaction();</span><br><span class="line">    <span class="comment">//3.查询id为2的客户</span></span><br><span class="line">    Customer c = session.get(Customer<span class="class">.<span class="keyword">class</span>, 2<span class="title">L</span>)</span>;</span><br><span class="line">    <span class="comment">//修改客户的地址为：湖北省</span></span><br><span class="line">    c.setCustAddress(<span class="string">"湖北省"</span>);</span><br><span class="line">    <span class="comment">//执行更新</span></span><br><span class="line">    session.update(c);</span><br><span class="line">    <span class="comment">//4.提交事务</span></span><br><span class="line">    tx.commit();</span><br><span class="line">    <span class="comment">//5.释放资源</span></span><br><span class="line">    session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-4-删除操作"><a href="#6-4-删除操作" class="headerlink" title="6.4    删除操作"></a>6.4    删除操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDelete</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.使用工具类获取一个Session</span></span><br><span class="line">    Session session = HibernateUtil.openSession();</span><br><span class="line">    <span class="comment">//2.开启事务</span></span><br><span class="line">    Transaction tx = session.beginTransaction();</span><br><span class="line">    <span class="comment">//3.查询id为1的客户</span></span><br><span class="line">    Customer c = session.get(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>;</span><br><span class="line">    <span class="comment">//删除实体</span></span><br><span class="line">    session.delete(c);<span class="comment">//delete from cst_customer where cust_id = ?</span></span><br><span class="line">    <span class="comment">//4.提交事务</span></span><br><span class="line">    tx.commit();</span><br><span class="line">    <span class="comment">//5.释放资源</span></span><br><span class="line">    session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-5-实体查询get和load方法"><a href="#6-5-实体查询get和load方法" class="headerlink" title="6.5    实体查询get和load方法"></a>6.5    实体查询get和load方法</h2><h3 id="6-5-1-实体查询的概念"><a href="#6-5-1-实体查询的概念" class="headerlink" title="6.5.1    实体查询的概念"></a>6.5.1    实体查询的概念</h3><p>所谓实体查询即OID查询，就是使用主键作为条件来查询一个实体。其中涉及的方法是Session对象get方法和load方法。 </p>
+<h3 id="6-5-2-方法的说明"><a href="#6-5-2-方法的说明" class="headerlink" title="6.5.2    方法的说明"></a>6.5.2    方法的说明</h3><p><strong>get方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据id查询一个实体</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> entityType 指的是要查询的实体类字节码对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> id 查询的条件，即主键的值。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回的是实体类对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">get</span><span class="params">(Class&lt;T&gt; entityType, Serializable id)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGet</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.openSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    Customer c = s.get(Customer<span class="class">.<span class="keyword">class</span>, 2<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(<span class="string">"get : "</span>+c.toString());</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>load方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据id查询一个实体</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> theClass 指的是要查询的实体类字节码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> id查询的条件，即主键的值。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回的是实体类对象或者是实体类对象的代理对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">load</span><span class="params">(Class&lt;T&gt; theClass, Serializable id)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLoad</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.openSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    Customer c = s.load(Customer<span class="class">.<span class="keyword">class</span>, 2<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(<span class="string">"load : "</span>+c.toString());</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-5-3-get和load的区别"><a href="#6-5-3-get和load的区别" class="headerlink" title="6.5.3    get和load的区别"></a>6.5.3    get和load的区别</h3><ol>
+<li><p>查询的时机不一样。</p>
+<p>get的查询时机：每次调用get方法时，马上发起查询。       立即加载</p>
+<p>load的查询时机：每次真正使用的时候，发起查询。        延迟加载   懒加载   惰性加载</p>
+</li>
+<li><p>返回的结果不一样。</p>
+<p>get方法返回的对象是实体类类型</p>
+<p>load方法返回的对象是实体类类型的代理对象</p>
+</li>
+</ol>
+<p>load方法默认情况下是延迟，可以通过配置的方式改为立即加载。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 由于load方法是hibernate的方法所以只有XML的方式：--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"Customer"</span> <span class="attr">table</span>=<span class="string">"cst_customer"</span> <span class="attr">lazy</span>=<span class="string">"false"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+      <!-- 添加本文结束标记-->
+      
+           
+             <div class="essayending">
+               <div>
+                <div style="text-align:center;color: #ccc;font-size:22px;">
+                <br/>
+                <br/>
+                -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+                <br/>
+                <br/>
+                 <br/>
+                 <br/>
+                </div>
+               </div>
+             </div>
+           
+       
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare">
+          <strong>本文作者：</strong>
           
+            Wgy
+          
+          <br>
+          <strong>本文标题：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/ef455019.html">Hibernate(一)</a>
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/ef455019.html">https://wgy1993.gitee.io/archives/ef455019.html</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
+        </div>
+      
+      <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -296,61 +451,152 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wgy1993.gitee.io/archives/ef455019.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/52429b60.html" class="archive-article-date">
-  	<time datetime="2020-05-15T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/archives/4074cb7b.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hibernate(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/archives/52429b60.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用hexo+github搭建免费个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/52429b60.html">使用hexo+github搭建免费个人博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Hibernate和ORM的概念"><span class="toc-number">1.</span> <span class="toc-text">1.    Hibernate和ORM的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Hibrenate概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    Hibrenate概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-ORM"><span class="toc-number">1.2.</span> <span class="toc-text">1.2    ORM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-为什么要学习Hibernate"><span class="toc-number">1.3.</span> <span class="toc-text">1.3    为什么要学习Hibernate</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-CRM"><span class="toc-number">2.</span> <span class="toc-text">2.    CRM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Hibernate快速入门"><span class="toc-number">3.</span> <span class="toc-text">3.    Hibernate快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-需求介绍"><span class="toc-number">3.1.</span> <span class="toc-text">3.1    需求介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-搭建Hibernate开发环境"><span class="toc-number">3.2.</span> <span class="toc-text">3.2    搭建Hibernate开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-第一步：拷贝必备的jar包到开发目录"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1    第一步：拷贝必备的jar包到开发目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-第二步：创建数据库和实体类"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2    第二步：创建数据库和实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-第三步：编写映射配置文件（xml）"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3    第三步：编写映射配置文件（xml）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-第四步：编写主配置文件（hibernate-cfg-xml）"><span class="toc-number">3.2.4.</span> <span class="toc-text">3.2.4    第四步：编写主配置文件（hibernate.cfg.xml）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-实现保存操作"><span class="toc-number">3.3.</span> <span class="toc-text">3.4    实现保存操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-入门案例的执行过程"><span class="toc-number">3.4.</span> <span class="toc-text">3.5    入门案例的执行过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Hibernate中API介绍"><span class="toc-number">4.</span> <span class="toc-text">4.    Hibernate中API介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Configuration对象"><span class="toc-number">4.1.</span> <span class="toc-text">4.1    Configuration对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-作用"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1    作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-常用方法"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2    常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-SessionFactory"><span class="toc-number">4.2.</span> <span class="toc-text">4.2    SessionFactory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-作用"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1    作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-常用方法"><span class="toc-number">4.2.2.</span> <span class="toc-text">4.2.2    常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-细节"><span class="toc-number">4.2.3.</span> <span class="toc-text">4.2.3    细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-使用原则"><span class="toc-number">4.2.4.</span> <span class="toc-text">4.2.4    使用原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-在hibernate中使用数据源-连接池"><span class="toc-number">4.2.5.</span> <span class="toc-text">4.2.5    在hibernate中使用数据源(连接池)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-Session"><span class="toc-number">4.3.</span> <span class="toc-text">4.3    Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-作用"><span class="toc-number">4.3.1.</span> <span class="toc-text">4.3.1    作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-常用方法"><span class="toc-number">4.3.2.</span> <span class="toc-text">4.3.2    常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-细节"><span class="toc-number">4.3.3.</span> <span class="toc-text">4.3.3    细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-使用原则"><span class="toc-number">4.3.4.</span> <span class="toc-text">4.3.4    使用原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-Transaction"><span class="toc-number">4.4.</span> <span class="toc-text">4.4    Transaction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-作用"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.4.1    作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-常用方法"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.4.2    常用方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-抽取HibernateUtil工具类"><span class="toc-number">5.</span> <span class="toc-text">5.    抽取HibernateUtil工具类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-案例：使用Hibernate实现CRUD"><span class="toc-number">6.</span> <span class="toc-text">6.    案例：使用Hibernate实现CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-保存操作"><span class="toc-number">6.1.</span> <span class="toc-text">6.1    保存操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-查询一个实体"><span class="toc-number">6.2.</span> <span class="toc-text">6.2    查询一个实体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-修改操作"><span class="toc-number">6.3.</span> <span class="toc-text">6.3    修改操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-删除操作"><span class="toc-number">6.4.</span> <span class="toc-text">6.4    删除操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-实体查询get和load方法"><span class="toc-number">6.5.</span> <span class="toc-text">6.5    实体查询get和load方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-1-实体查询的概念"><span class="toc-number">6.5.1.</span> <span class="toc-text">6.5.1    实体查询的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-2-方法的说明"><span class="toc-number">6.5.2.</span> <span class="toc-text">6.5.2    方法的说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-3-get和load的区别"><span class="toc-number">6.5.3.</span> <span class="toc-text">6.5.3    get和load的区别</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a01b13554e910b682a17',
+  	clientSecret: 'ed78fef4c5012669cf340214fd17d583601a9aa1',
+  	repo: 'wgy1993.github.io',
+  	owner: 'wgy1993',
+  	admin: ['wgy1993'],
+  	id: 'Thu May 28 2020 14:17:43 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+  <br/>
 
 
           </div>
@@ -382,8 +628,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

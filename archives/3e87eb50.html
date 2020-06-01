@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wgy1993.gitee.io">
-  <title>Archives: 2020/5 | Wgy的博客</title>
+  <title>Hibernate(三) | Wgy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wgy的博客">
-<meta property="og:url" content="https://wgy1993.gitee.io/archives/2020/05/index.html">
+  <meta name="description" content="1.    多表设计1.1    表之间的关系划分 一对一 一对多（多对一） 多对多  2.    如何确立和实现数据库中的表关系2.1    一对多的表关系在数据库中如何实现?使用外键约束。我们一般习惯把一的方称为主表，把多的一方称为从表。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate(三)">
+<meta property="og:url" content="https://wgy1993.gitee.io/archives/3e87eb50.html">
 <meta property="og:site_name" content="Wgy的博客">
+<meta property="og:description" content="1.    多表设计1.1    表之间的关系划分 一对一 一对多（多对一） 多对多  2.    如何确立和实现数据库中的表关系2.1    一对多的表关系在数据库中如何实现?使用外键约束。我们一般习惯把一的方称为主表，把多的一方称为从表。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H64f49425b6ea4334b45df98958537583N.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H9827530ea7634df58ad9ee7616cfe92dq.jpg">
+<meta property="article:published_time" content="2020-05-31T08:27:38.000Z">
+<meta property="article:modified_time" content="2020-06-01T05:39:23.856Z">
 <meta property="article:author" content="Wgy">
+<meta property="article:tag" content="Hibernate">
+<meta property="article:tag" content="ORM">
+<meta property="article:tag" content="框架">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/H64f49425b6ea4334b45df98958537583N.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -155,36 +165,213 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Hibernate-三" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Hibernate(三)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/3e87eb50.html" class="archive-article-date">
+
+        
+        <a href="/archives/3e87eb50.html" class="archive-article-date">
   	<time datetime="2020-05-31T08:27:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/3e87eb50.html">Hibernate(三)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-多表设计"><a href="#1-多表设计" class="headerlink" title="1.    多表设计"></a>1.    多表设计</h1><h2 id="1-1-表之间的关系划分"><a href="#1-1-表之间的关系划分" class="headerlink" title="1.1    表之间的关系划分"></a>1.1    表之间的关系划分</h2><ul>
+<li>一对一</li>
+<li>一对多（多对一）</li>
+<li>多对多</li>
+</ul>
+<h1 id="2-如何确立和实现数据库中的表关系"><a href="#2-如何确立和实现数据库中的表关系" class="headerlink" title="2.    如何确立和实现数据库中的表关系"></a>2.    如何确立和实现数据库中的表关系</h1><h2 id="2-1-一对多的表关系在数据库中如何实现"><a href="#2-1-一对多的表关系在数据库中如何实现" class="headerlink" title="2.1    一对多的表关系在数据库中如何实现?"></a>2.1    一对多的表关系在数据库中如何实现?</h2><p>使用外键约束。我们一般习惯把一的方称为主表，把多的一方称为从表。</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
+<p><strong>什么是外键：</strong></p>
+<p>从表中有一列，该列的取值除了null之外，只能来源于主表的主键。默认情况下，外键字段的值是可以重复的。</p>
+<h2 id="2-2-多对多的表关系在数据库中如何实现？"><a href="#2-2-多对多的表关系在数据库中如何实现？" class="headerlink" title="2.2    多对多的表关系在数据库中如何实现？"></a>2.2    多对多的表关系在数据库中如何实现？</h2><p>使用中间表。中间表中只有两个外键，引用两个多对多表的主键。不能有其他字段信息，至于中间表的主键，应该采用联合主键。</p>
+<p>任何一个多方的表和中间表去比较，都是一对多的关系。</p>
+<h2 id="2-3-一对一的表关系在数据库中如何实现？"><a href="#2-3-一对一的表关系在数据库中如何实现？" class="headerlink" title="2.3    一对一的表关系在数据库中如何实现？"></a>2.3    一对一的表关系在数据库中如何实现？</h2><p>有两种：</p>
+<ul>
+<li><p>第一种：建立外键的方式：</p>
+<p>使用外键约束，唯一约束，非空约束。它是把外键字段加了非空和唯一约束。从而实现了一对一。</p>
+</li>
+<li><p>第二种：使用主键的方式：</p>
+<p>让其中一张表既是主键，又是外键。</p>
+</li>
+</ul>
+<h2 id="2-4-如何确立两张表之间的关系："><a href="#2-4-如何确立两张表之间的关系：" class="headerlink" title="2.4    如何确立两张表之间的关系："></a>2.4    如何确立两张表之间的关系：</h2><p>找外键。</p>
+<h1 id="3-学习多表映射配置要遵循的步骤"><a href="#3-学习多表映射配置要遵循的步骤" class="headerlink" title="3.    学习多表映射配置要遵循的步骤"></a>3.    学习多表映射配置要遵循的步骤</h1><ul>
+<li>第一步：确定两张表之间的关系</li>
+<li>第二步：在数据库中实现两张表之间的关系建立</li>
+<li>第三步：在实体类中描述出两个实体之间的关系</li>
+<li>第四步：在映射配置文件中建立两个实体和两张表之间的关系</li>
+</ul>
+<h1 id="4-一对多关系映射配置"><a href="#4-一对多关系映射配置" class="headerlink" title="4.    一对多关系映射配置"></a>4.    一对多关系映射配置</h1><p>示例：客户和联系人两张表</p>
+<h2 id="4-1-确定两张表之间的关系"><a href="#4-1-确定两张表之间的关系" class="headerlink" title="4.1    确定两张表之间的关系"></a>4.1    确定两张表之间的关系</h2><p>一个客户可以包含多个联系人，多个联系人可以属于同一个客户。所以：客户和联系人之间的关系是一对多。</p>
+<h2 id="4-2-在数据库中实现两张表之间的关系建立"><a href="#4-2-在数据库中实现两张表之间的关系建立" class="headerlink" title="4.2    在数据库中实现两张表之间的关系建立"></a>4.2    在数据库中实现两张表之间的关系建立</h2><p>实现一对多的关系，靠外键。客户表是主表，联系人表是从表。我们需要在联系人表中添加外键。</p>
+<p><img src="https://ae01.alicdn.com/kf/H64f49425b6ea4334b45df98958537583N.jpg" alt="img"></p>
+<h2 id="4-3-在实体类中描述出两个实体之间的关系"><a href="#4-3-在实体类中描述出两个实体之间的关系" class="headerlink" title="4.3    在实体类中描述出两个实体之间的关系"></a>4.3    在实体类中描述出两个实体之间的关系</h2><p>主表的实体类应该包含从表实体类的集合引用，从表的实体类应该包含主表实体类的对象引用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户实体类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long custId;</span><br><span class="line">    <span class="keyword">private</span> String custName;</span><br><span class="line">    <span class="keyword">private</span> String custSource;</span><br><span class="line">    <span class="keyword">private</span> String custIndustry;</span><br><span class="line">    <span class="keyword">private</span> String custLevel;</span><br><span class="line">    <span class="keyword">private</span> String custAddress;</span><br><span class="line">    <span class="keyword">private</span> String custPhone;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 一对多关系映射：一的一方</span></span><br><span class="line"><span class="comment">     * 主表实体应该包含从表实体的集合引用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;LinkMan&gt; linkmans = <span class="keyword">new</span> HashSet&lt;LinkMan&gt;(<span class="number">0</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 联系人的实体类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkMan</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long lkmId;</span><br><span class="line">    <span class="keyword">private</span> String lkmName;</span><br><span class="line">    <span class="keyword">private</span> String lkmGender;</span><br><span class="line">    <span class="keyword">private</span> String lkmPhone;</span><br><span class="line">    <span class="keyword">private</span> String lkmMobile;</span><br><span class="line">    <span class="keyword">private</span> String lkmEmail;</span><br><span class="line">    <span class="keyword">private</span> String lkmPosition;</span><br><span class="line">    <span class="keyword">private</span> String lkmMemo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 一对多关系映射，多的一方。</span></span><br><span class="line"><span class="comment">     * 从表实体包含主表实体的对象引用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Customer customer;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-在映射配置文件中建立两个实体和两张表之间的关系"><a href="#4-4-在映射配置文件中建立两个实体和两张表之间的关系" class="headerlink" title="4.4    在映射配置文件中建立两个实体和两张表之间的关系"></a>4.4    在映射配置文件中建立两个实体和两张表之间的关系</h2><p>客户配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 在实体类所在的包下，创建一个xml文件。该文件建议名称为：实体类名称+.hbm+.xml导入约束：dtd约束 --&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Mapping DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;hibernate-mapping package&#x3D;&quot;com.wgy.domain&quot;&gt;</span><br><span class="line">    &lt;class name&#x3D;&quot;Customer&quot; table&#x3D;&quot;cst_customer&quot; lazy&#x3D;&quot;true&quot;&gt;</span><br><span class="line">        &lt;id name&#x3D;&quot;custId&quot; column&#x3D;&quot;cust_id&quot;&gt;</span><br><span class="line">            &lt;generator class&#x3D;&quot;identity&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;id&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;custName&quot; column&#x3D;&quot;cust_name&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;custSource&quot; column&#x3D;&quot;cust_source&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;custIndustry&quot; column&#x3D;&quot;cust_industry&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;custLevel&quot; column&#x3D;&quot;cust_level&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;custAddress&quot; column&#x3D;&quot;cust_address&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;custPhone&quot; column&#x3D;&quot;cust_phone&quot;&#x2F;&gt;</span><br><span class="line">        &lt;!-- 一对多关系映射：主表实体的映射配置</span><br><span class="line">            涉及的标签：</span><br><span class="line">                set：</span><br><span class="line">                    作用：用于配置set集合属性。</span><br><span class="line">                    属性：</span><br><span class="line">                      name：指定实体类中set集合的属性名称。</span><br><span class="line">                      table：指定从表的名称。在一对多配置时可以不写。</span><br><span class="line">                key:</span><br><span class="line">                    作用：用于映射外键字段。</span><br><span class="line">                    属性：</span><br><span class="line">                      column：指定外键字段名称</span><br><span class="line">                one-to-many:</span><br><span class="line">                    作用：用于建立一对多的映射配置</span><br><span class="line">                    属性：</span><br><span class="line">                      class：用于指定从表实体的名称</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;set name&#x3D;&quot;linkmans&quot; table&#x3D;&quot;cst_linkman&quot;&gt;</span><br><span class="line">            &lt;key column&#x3D;&quot;lkm_cust_id&quot;&#x2F;&gt;</span><br><span class="line">            &lt;one-to-many class&#x3D;&quot;LinkMan&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;set&gt;</span><br><span class="line">    &lt;&#x2F;class&gt;</span><br><span class="line">&lt;&#x2F;hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<p>联系人配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Mapping DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;hibernate-mapping package&#x3D;&quot;com.wgy.domain&quot;&gt;</span><br><span class="line">    &lt;class name&#x3D;&quot;LinkMan&quot; table&#x3D;&quot;cst_linkman&quot;&gt;</span><br><span class="line">        &lt;id name&#x3D;&quot;lkmId&quot; column&#x3D;&quot;lkm_id&quot;&gt;</span><br><span class="line">            &lt;generator class&#x3D;&quot;identity&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;id&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmName&quot; column&#x3D;&quot;lkm_name&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmGender&quot; column&#x3D;&quot;lkm_gender&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmPhone&quot; column&#x3D;&quot;lkm_phone&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmMobile&quot; column&#x3D;&quot;lkm_mobile&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmEmail&quot; column&#x3D;&quot;lkm_email&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmPosition&quot; column&#x3D;&quot;lkm_position&quot;&#x2F;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;lkmMemo&quot; column&#x3D;&quot;lkm_memo&quot;&#x2F;&gt;</span><br><span class="line">        &lt;!-- 一对多关系映射：从表实体的映射配置</span><br><span class="line">                涉及的标签：</span><br><span class="line">                    many-to-one：</span><br><span class="line">                        作用：建立多对一的映射配置</span><br><span class="line">                        属性：</span><br><span class="line">                          name：从表实体中引用主表实体对象引用的名称</span><br><span class="line">                          class：指定属性所对应的实体类名称</span><br><span class="line">                          column：指定从表中外键字段的名称</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;many-to-one name&#x3D;&quot;customer&quot; class&#x3D;&quot;Customer&quot; column&#x3D;&quot;lkm_cust_id&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;class&gt;</span><br><span class="line">&lt;&#x2F;hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-多对多关系映射配置"><a href="#5-多对多关系映射配置" class="headerlink" title="5.    多对多关系映射配置"></a>5.    多对多关系映射配置</h1><p>示例：用户和角色</p>
+<h2 id="5-1-确定两张表之间的关系"><a href="#5-1-确定两张表之间的关系" class="headerlink" title="5.1    确定两张表之间的关系"></a>5.1    确定两张表之间的关系</h2><p>一个用户可以有多个角色，一个角色可以赋给多个用户，所以用户和角色之间是多对多。</p>
+<h2 id="5-2-在数据库中实现两张表之间的关系建立"><a href="#5-2-在数据库中实现两张表之间的关系建立" class="headerlink" title="5.2    在数据库中实现两张表之间的关系建立"></a>5.2    在数据库中实现两张表之间的关系建立</h2><p>在数据库中实现多对多要靠中间表。中间表中只能出现用户和角色主键。</p>
+<p><img src="https://ae01.alicdn.com/kf/H9827530ea7634df58ad9ee7616cfe92dq.jpg" alt="img"></p>
+<h2 id="5-3-在实体类中描述出两个实体之间的关系"><a href="#5-3-在实体类中描述出两个实体之间的关系" class="headerlink" title="5.3    在实体类中描述出两个实体之间的关系"></a>5.3    在实体类中描述出两个实体之间的关系</h2><p>各自包含对方一个集合引用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户的实体类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysUser</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long userId;</span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="keyword">private</span> String userPassword;</span><br><span class="line">    <span class="keyword">private</span> Integer userState;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//多对多关系映射：一个用户可以具备多个角色</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;SysRole&gt; roles = <span class="keyword">new</span> HashSet&lt;SysRole&gt;(<span class="number">0</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 角色的实体类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysRole</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long roleId;</span><br><span class="line">    <span class="keyword">private</span> String roleName;</span><br><span class="line">    <span class="keyword">private</span> String roleMemo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//多对多关系映射：一个角色可以赋予多个用户</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;SysUser&gt; users = <span class="keyword">new</span> HashSet&lt;SysUser&gt;(<span class="number">0</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-4-在映射配置文件中建立两个实体和两张表之间的关系"><a href="#5-4-在映射配置文件中建立两个实体和两张表之间的关系" class="headerlink" title="5.4    在映射配置文件中建立两个实体和两张表之间的关系"></a>5.4    在映射配置文件中建立两个实体和两张表之间的关系</h2><p>用户配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Mapping DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;hibernate-mapping package&#x3D;&quot;com.wgy.domain&quot;&gt;</span><br><span class="line">    &lt;class name&#x3D;&quot;SysUser&quot; table&#x3D;&quot;sys_user&quot;&gt;</span><br><span class="line">        &lt;id name&#x3D;&quot;userId&quot; column&#x3D;&quot;user_id&quot;&gt;</span><br><span class="line">            &lt;generator class&#x3D;&quot;identity&quot;&gt;&lt;&#x2F;generator&gt;</span><br><span class="line">        &lt;&#x2F;id&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;userName&quot; column&#x3D;&quot;user_name&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;userPassword&quot; column&#x3D;&quot;user_password&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;userState&quot; column&#x3D;&quot;user_state&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 多对多关系映射</span><br><span class="line">                涉及的标签：</span><br><span class="line">                    set:</span><br><span class="line">                        作用：用于映射set集合属性</span><br><span class="line">                        属性：</span><br><span class="line">                            name：指定集合的名称</span><br><span class="line">                            table：指定的是中间表的名称</span><br><span class="line">                    key:</span><br><span class="line">                        作用：用于映射外键字段</span><br><span class="line">                        属性：</span><br><span class="line">                            column：指定的是当前实体在中间表的外键字段名称</span><br><span class="line">                    many-to-many</span><br><span class="line">                        作用：用于映射多对多的关系</span><br><span class="line">                        属性：</span><br><span class="line">                            class：对方的实体类名称</span><br><span class="line">                            column：对方在中间表的外键字段名称</span><br><span class="line">         --&gt;</span><br><span class="line">        &lt;set name&#x3D;&quot;roles&quot; table&#x3D;&quot;user_role_ref&quot;&gt;</span><br><span class="line">            &lt;key column&#x3D;&quot;user_id&quot;&gt;&lt;&#x2F;key&gt;</span><br><span class="line">            &lt;many-to-many class&#x3D;&quot;SysRole&quot; column&#x3D;&quot;role_id&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;set&gt;</span><br><span class="line">    &lt;&#x2F;class&gt;</span><br><span class="line">&lt;&#x2F;hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<p>角色配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Mapping DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;hibernate-mapping package&#x3D;&quot;com.wgy.domain&quot;&gt;</span><br><span class="line">    &lt;class name&#x3D;&quot;SysRole&quot; table&#x3D;&quot;sys_role&quot;&gt;</span><br><span class="line">        &lt;id name&#x3D;&quot;roleId&quot; column&#x3D;&quot;role_id&quot;&gt;</span><br><span class="line">            &lt;generator class&#x3D;&quot;identity&quot;&gt;&lt;&#x2F;generator&gt;</span><br><span class="line">        &lt;&#x2F;id&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;roleName&quot; column&#x3D;&quot;role_name&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;roleMemo&quot; column&#x3D;&quot;role_memo&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 多对多关系映射 --&gt;</span><br><span class="line">        &lt;set name&#x3D;&quot;users&quot; table&#x3D;&quot;user_role_ref&quot; inverse&#x3D;&quot;true&quot;&gt;</span><br><span class="line">            &lt;key column&#x3D;&quot;role_id&quot;&gt;&lt;&#x2F;key&gt;</span><br><span class="line">            &lt;many-to-many class&#x3D;&quot;SysUser&quot; column&#x3D;&quot;user_id&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;set&gt;</span><br><span class="line">    &lt;&#x2F;class&gt;</span><br><span class="line">&lt;&#x2F;hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-多表增删改操作"><a href="#6-多表增删改操作" class="headerlink" title="6.    多表增删改操作"></a>6.    多表增删改操作</h1><h2 id="6-1-一对多关系的操作"><a href="#6-1-一对多关系的操作" class="headerlink" title="6.1    一对多关系的操作"></a>6.1    一对多关系的操作</h2><h3 id="6-1-1-保存操作"><a href="#6-1-1-保存操作" class="headerlink" title="6.1.1    保存操作"></a>6.1.1    保存操作</h3><h4 id="6-1-1-1-正常保存"><a href="#6-1-1-1-正常保存" class="headerlink" title="6.1.1.1    正常保存"></a>6.1.1.1    正常保存</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存操作</span></span><br><span class="line"><span class="comment"> * 正常的保存：创建一个新的联系人，需要关联一个客户</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    <span class="comment">//1.查询一个客户</span></span><br><span class="line">    Customer c1 = s.get(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>;</span><br><span class="line">    <span class="comment">//2.创建一个新的联系人</span></span><br><span class="line">    LinkMan l = <span class="keyword">new</span> LinkMan();</span><br><span class="line">    l.setLkmName(<span class="string">"一对多的联系人"</span>);</span><br><span class="line">    <span class="comment">//3.建立客户和联系人的关联关系（让联系人知道属于哪个客户即可）</span></span><br><span class="line">    l.setCustomer(c1);</span><br><span class="line">    <span class="comment">//4.保存联系人</span></span><br><span class="line">    s.save(l);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-1-1-2-特殊情况"><a href="#6-1-1-2-特殊情况" class="headerlink" title="6.1.1.2    特殊情况"></a>6.1.1.2    特殊情况</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 特殊的情况：</span></span><br><span class="line"><span class="comment"> * 	 创建一个客户和一个联系人</span></span><br><span class="line"><span class="comment"> * 	 建立联系人和客户的双向关联关系</span></span><br><span class="line"><span class="comment"> *   使用符合原则的保存</span></span><br><span class="line"><span class="comment"> *   	原则是：先保存主表实体，再保存从表实体</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  此时保存会有问题：</span></span><br><span class="line"><span class="comment"> *  	我们保存两个实体，应该只有两条insert语句。</span></span><br><span class="line"><span class="comment"> *  	而执行结果却是多了一条update的语句。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  解决办法：</span></span><br><span class="line"><span class="comment"> *  	让客户在执行操作的时候，放弃维护关联关系的权利。</span></span><br><span class="line"><span class="comment"> *  	配置的方式：</span></span><br><span class="line"><span class="comment"> *  		在Customer的映射配置文件中的set标签上使用inverse属性。</span></span><br><span class="line"><span class="comment"> *  		inverse含义：是否放弃维护关联关系的权利</span></span><br><span class="line"><span class="comment"> *  			true：放弃</span></span><br><span class="line"><span class="comment"> *  			false：不放弃（默认值）</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.创建一个客户</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line">    c1.setCustName(<span class="string">"一对多的客户_4"</span>);</span><br><span class="line">    <span class="comment">//2.创建一个新的联系人</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    LinkMan l = <span class="keyword">new</span> LinkMan();</span><br><span class="line">    l.setLkmName(<span class="string">"一对多的联系人_4"</span>);</span><br><span class="line">    <span class="comment">//3.建立客户和联系人的关联关系(双向)</span></span><br><span class="line">    l.setCustomer(c1);</span><br><span class="line">    c1.getLinkmans().add(l);</span><br><span class="line"></span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.保存，要符合原则</span></span><br><span class="line">    <span class="comment">//持久态  有一级缓存和快照</span></span><br><span class="line">    s.save(c1);</span><br><span class="line">    <span class="comment">//持久态    有一级缓存和快照</span></span><br><span class="line">    s.save(l);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;set name&#x3D;&quot;linkmans&quot; table&#x3D;&quot;cst_linkman&quot; inverse&#x3D;&quot;true&quot;&gt;</span><br><span class="line">    &lt;key column&#x3D;&quot;lkm_cust_id&quot;&#x2F;&gt;</span><br><span class="line">    &lt;one-to-many class&#x3D;&quot;LinkMan&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;set&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-1-1-3-级联保存"><a href="#6-1-1-3-级联保存" class="headerlink" title="6.1.1.3    级联保存"></a>6.1.1.3    级联保存</h4><p>级联操作是指当主控方执行保存、更新或者删除操作时，其关联对象（被控方）也执行相同的操作。</p>
+<p>保存客户</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存操作：</span></span><br><span class="line"><span class="comment"> *  级联保存</span></span><br><span class="line"><span class="comment"> *  使用级联保存，配置的方式，仍然是找到Customer的映射配置文件的Set标签，</span></span><br><span class="line"><span class="comment"> *  也可以配置在many-to-one上。</span></span><br><span class="line"><span class="comment"> *  在上面加入cascade属性</span></span><br><span class="line"><span class="comment"> *  	cascade：配置级联操作</span></span><br><span class="line"><span class="comment"> *  		级联保存更新的取值：save-update</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.创建一个客户</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line">    c1.setCustName(<span class="string">"一对多的客户_5"</span>);</span><br><span class="line">    <span class="comment">//2.创建一个新的联系人</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    LinkMan l = <span class="keyword">new</span> LinkMan();</span><br><span class="line">    l.setLkmName(<span class="string">"一对多的联系人_5"</span>);</span><br><span class="line">    <span class="comment">//3.建立客户和联系人的关联关系(双向)</span></span><br><span class="line">    l.setCustomer(c1);</span><br><span class="line">    c1.getLinkmans().add(l);</span><br><span class="line"></span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.保存，要符合原则</span></span><br><span class="line">    s.save(c1);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;set name&#x3D;&quot;linkmans&quot; table&#x3D;&quot;cst_linkman&quot; inverse&#x3D;&quot;true&quot; cascade&#x3D;&quot;save-update&quot;&gt;</span><br><span class="line">    &lt;key column&#x3D;&quot;lkm_cust_id&quot;&#x2F;&gt;</span><br><span class="line">    &lt;one-to-many class&#x3D;&quot;LinkMan&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;set&gt;</span><br></pre></td></tr></table></figure>
+
+<p>保存联系人</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.创建一个客户</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    Customer c1 = <span class="keyword">new</span> Customer();</span><br><span class="line">    c1.setCustName(<span class="string">"一对多的客户_6"</span>);</span><br><span class="line">    <span class="comment">//2.创建一个新的联系人</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    LinkMan l = <span class="keyword">new</span> LinkMan();</span><br><span class="line">    l.setLkmName(<span class="string">"一对多的联系人_6"</span>);</span><br><span class="line">    <span class="comment">//3.建立客户和联系人的关联关系(双向)</span></span><br><span class="line">    l.setCustomer(c1);</span><br><span class="line">    c1.getLinkmans().add(l);</span><br><span class="line"></span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.保存，要符合原则</span></span><br><span class="line">    s.save(l);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;many-to-one name&#x3D;&quot;customer&quot; class&#x3D;&quot;Customer&quot; column&#x3D;&quot;lkm_cust_id&quot; cascade&#x3D;&quot;save-update&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-1-2-更新操作"><a href="#6-1-2-更新操作" class="headerlink" title="6.1.2    更新操作"></a>6.1.2    更新操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 更新操作</span></span><br><span class="line"><span class="comment"> *  需求：</span></span><br><span class="line"><span class="comment"> *      创建一个新的联系人，查询一个已有客户</span></span><br><span class="line"><span class="comment"> *      联系人新联系人和已有客户的双向关联关系</span></span><br><span class="line"><span class="comment"> *  更新客户</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    <span class="comment">//1.查询一个客户</span></span><br><span class="line">    Customer c1 = s.get(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>;</span><br><span class="line">    <span class="comment">//2.创建一个新的联系人</span></span><br><span class="line">    <span class="comment">//瞬时态</span></span><br><span class="line">    LinkMan l = <span class="keyword">new</span> LinkMan();</span><br><span class="line">    l.setLkmName(<span class="string">"一对多的联系人"</span>);</span><br><span class="line">    <span class="comment">//3.建立客户和联系人的关联关系（双向）</span></span><br><span class="line">    l.setCustomer(c1);</span><br><span class="line">    c1.getLinkmans().add(l);</span><br><span class="line">    <span class="comment">//4.更新客户</span></span><br><span class="line">    s.update(c1);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-1-3-删除操作"><a href="#6-1-3-删除操作" class="headerlink" title="6.1.3    删除操作"></a>6.1.3    删除操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 删除操作</span></span><br><span class="line"><span class="comment"> *      删除从表数据就是单表</span></span><br><span class="line"><span class="comment"> *      删除主表数据：</span></span><br><span class="line"><span class="comment"> * 	    看有没有从表数据引用</span></span><br><span class="line"><span class="comment"> * 	    有引用：</span></span><br><span class="line"><span class="comment"> * 	        在删除是，hibernate会把从表中的外键字段置为null，然后再删除主表数据。</span></span><br><span class="line"><span class="comment"> * 		如果外键字段有非空约束，则hibernate不能更新外键字段为null，会报错。</span></span><br><span class="line"><span class="comment"> * 		如果仍然想删除，此时需要使用级联删除。同时必须配置inverse属性是true。</span></span><br><span class="line"><span class="comment"> * 	    没有引用： 就是单表，直接删</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test6</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    <span class="comment">//1.查询一个客户</span></span><br><span class="line">    Customer c9 = s.get(Customer<span class="class">.<span class="keyword">class</span>, 5<span class="title">L</span>)</span>;</span><br><span class="line">    <span class="comment">//2.删除id为5的客户</span></span><br><span class="line">    s.delete(c9);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;set name&#x3D;&quot;linkmans&quot; table&#x3D;&quot;cst_linkman&quot; inverse&#x3D;&quot;true&quot; cascade&#x3D;&quot;save-update,delete&quot;&gt;</span><br><span class="line">    &lt;key column&#x3D;&quot;lkm_cust_id&quot;&#x2F;&gt;</span><br><span class="line">    &lt;one-to-many class&#x3D;&quot;LinkMan&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;set&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-2-多对多关系的操作"><a href="#6-2-多对多关系的操作" class="headerlink" title="6.2    多对多关系的操作"></a>6.2    多对多关系的操作</h2><h3 id="6-2-1-保存操作"><a href="#6-2-1-保存操作" class="headerlink" title="6.2.1    保存操作"></a>6.2.1    保存操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存操作</span></span><br><span class="line"><span class="comment"> *  需求：</span></span><br><span class="line"><span class="comment"> *      创建2个用户和3个角色</span></span><br><span class="line"><span class="comment"> *      让1号用户具备1号和2号角色</span></span><br><span class="line"><span class="comment"> *      让2号用户具备2号和3号角色</span></span><br><span class="line"><span class="comment"> *      保存用户和角色</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SysUser u1 = <span class="keyword">new</span> SysUser();</span><br><span class="line">    u1.setUserName(<span class="string">"用户1"</span>);</span><br><span class="line">    SysUser u2 = <span class="keyword">new</span> SysUser();</span><br><span class="line">    u2.setUserName(<span class="string">"用户2"</span>);</span><br><span class="line"></span><br><span class="line">    SysRole r1 = <span class="keyword">new</span> SysRole();</span><br><span class="line">    r1.setRoleName(<span class="string">"角色1"</span>);</span><br><span class="line">    SysRole r2 = <span class="keyword">new</span> SysRole();</span><br><span class="line">    r2.setRoleName(<span class="string">"角色2"</span>);</span><br><span class="line">    SysRole r3 = <span class="keyword">new</span> SysRole();</span><br><span class="line">    r3.setRoleName(<span class="string">"角色3"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//建立双向关联关系</span></span><br><span class="line">    <span class="comment">//先建立用户的</span></span><br><span class="line">    u1.getRoles().add(r1);</span><br><span class="line">    u1.getRoles().add(r2);</span><br><span class="line">    u2.getRoles().add(r2);</span><br><span class="line">    u2.getRoles().add(r3);</span><br><span class="line">    <span class="comment">//再建立角色</span></span><br><span class="line">    r1.getUsers().add(u1);</span><br><span class="line">    r2.getUsers().add(u1);</span><br><span class="line">    r2.getUsers().add(u2);</span><br><span class="line">    r3.getUsers().add(u2);</span><br><span class="line"></span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    s.save(u1);</span><br><span class="line">    s.save(u2);</span><br><span class="line">    s.save(r1);</span><br><span class="line">    s.save(r2);</span><br><span class="line">    s.save(r3);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-2-删除操作"><a href="#6-2-2-删除操作" class="headerlink" title="6.2.2    删除操作"></a>6.2.2    删除操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 删除操作</span></span><br><span class="line"><span class="comment"> * 实际开发中：多对多的双向级联删除是禁止使用的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    <span class="comment">//1查询id为3的用户</span></span><br><span class="line">    SysUser u3 = s.get(SysUser<span class="class">.<span class="keyword">class</span>, 3<span class="title">L</span>)</span>;</span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    s.delete(u3);</span><br><span class="line">    tx.commit();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-Hibernate中的多表查询"><a href="#7-Hibernate中的多表查询" class="headerlink" title="7.    Hibernate中的多表查询"></a>7.    Hibernate中的多表查询</h1><h2 id="7-1-对象导航查询"><a href="#7-1-对象导航查询" class="headerlink" title="7.1    对象导航查询"></a>7.1    对象导航查询</h2><h3 id="7-1-1-概述"><a href="#7-1-1-概述" class="headerlink" title="7.1.1    概述"></a>7.1.1    概述</h3><p>对象图导航检索方式是根据已经加载的对象，导航到他的关联对象。它利用类与类之间的关系来检索对象。</p>
+<p>例如：我们通过OID查询方式查出一个客户，可以调用Customer类中的getLinkMans()方法来获取该客户的所有联系人。</p>
+<p> 对象导航查询的使用要求是：两个对象之间必须存在关联关系。</p>
+<h3 id="7-1-2-对象导航检索示例"><a href="#7-1-2-对象导航检索示例" class="headerlink" title="7.1.2    对象导航检索示例"></a>7.1.2    对象导航检索示例</h3><p>查询联系人</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查询id为1的客户下所属联系人</span></span><br><span class="line"><span class="comment"> * 一对多时，根据一的一方查询多的一方时，需要使用延迟加载。（默认配置即可）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    <span class="comment">//查询id为1的客户</span></span><br><span class="line">    Customer c = s.get(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    Set&lt;LinkMan&gt; linkmans = c.getLinkmans();</span><br><span class="line">    System.out.println(linkmans);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查询客户</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查询id为5的联系人属于哪个客户</span></span><br><span class="line"><span class="comment"> * 多对一时，根据多的一方查询一的一方时，不需要使用延迟加载，而是使用立即加载，需要配置一下</span></span><br><span class="line"><span class="comment"> * 需要找到联系人的映射配置文件：在many-to-one标签上使用lazy属性。</span></span><br><span class="line"><span class="comment"> *      取值有：</span></span><br><span class="line"><span class="comment"> *          false：使用立即加载。</span></span><br><span class="line"><span class="comment"> *          proxy：是看load方法是延迟加载还是立即加载</span></span><br><span class="line"><span class="comment"> *          no-proxy：不管</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    LinkMan l = s.get(LinkMan<span class="class">.<span class="keyword">class</span>, 5<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(l);</span><br><span class="line">    Customer c = l.getCustomer();</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;many-to-one name&#x3D;&quot;customer&quot; class&#x3D;&quot;Customer&quot; column&#x3D;&quot;lkm_cust_id&quot; cascade&#x3D;&quot;save-update&quot; lazy&#x3D;&quot;false&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>load方法加载</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 关于load方法改为立即加载的方式</span></span><br><span class="line"><span class="comment"> *      找到查询实体的映射配置文件，它的class标签上也有一个lazy属性。含义是：是否延迟加载</span></span><br><span class="line"><span class="comment"> *          true：延迟加载(默认值)</span></span><br><span class="line"><span class="comment"> *          false：立即加载</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.getCurrentSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    Customer c = s.load(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>class标签的lazy：它只能管load方法是否是延迟加载。</li>
+<li>set标签的lazy：它管查询关联的集合对象是否是延迟加载。</li>
+<li>many-to-one的lazy：它管查询关联的主表实体是否是立即加载。</li>
+</ul>
+
+      
+      <!-- 添加本文结束标记-->
+      
+           
+             <div class="essayending">
+               <div>
+                <div style="text-align:center;color: #ccc;font-size:22px;">
+                <br/>
+                <br/>
+                -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+                <br/>
+                <br/>
+                 <br/>
+                 <br/>
+                </div>
+               </div>
+             </div>
+           
+       
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare">
+          <strong>本文作者：</strong>
           
+            Wgy
+          
+          <br>
+          <strong>本文标题：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/3e87eb50.html">Hibernate(三)</a>
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/3e87eb50.html">https://wgy1993.gitee.io/archives/3e87eb50.html</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
+        </div>
+      
+      <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,153 +391,143 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wgy1993.gitee.io/archives/3e87eb50.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/4074cb7b.html" class="archive-article-date">
-  	<time datetime="2020-05-28T16:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/archives/4074cb7b.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/4074cb7b.html">Hibernate(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-多表设计"><span class="toc-number">1.</span> <span class="toc-text">1.    多表设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-表之间的关系划分"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    表之间的关系划分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-如何确立和实现数据库中的表关系"><span class="toc-number">2.</span> <span class="toc-text">2.    如何确立和实现数据库中的表关系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-一对多的表关系在数据库中如何实现"><span class="toc-number">2.1.</span> <span class="toc-text">2.1    一对多的表关系在数据库中如何实现?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-多对多的表关系在数据库中如何实现？"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    多对多的表关系在数据库中如何实现？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-一对一的表关系在数据库中如何实现？"><span class="toc-number">2.3.</span> <span class="toc-text">2.3    一对一的表关系在数据库中如何实现？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-如何确立两张表之间的关系："><span class="toc-number">2.4.</span> <span class="toc-text">2.4    如何确立两张表之间的关系：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-学习多表映射配置要遵循的步骤"><span class="toc-number">3.</span> <span class="toc-text">3.    学习多表映射配置要遵循的步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-一对多关系映射配置"><span class="toc-number">4.</span> <span class="toc-text">4.    一对多关系映射配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-确定两张表之间的关系"><span class="toc-number">4.1.</span> <span class="toc-text">4.1    确定两张表之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-在数据库中实现两张表之间的关系建立"><span class="toc-number">4.2.</span> <span class="toc-text">4.2    在数据库中实现两张表之间的关系建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-在实体类中描述出两个实体之间的关系"><span class="toc-number">4.3.</span> <span class="toc-text">4.3    在实体类中描述出两个实体之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-在映射配置文件中建立两个实体和两张表之间的关系"><span class="toc-number">4.4.</span> <span class="toc-text">4.4    在映射配置文件中建立两个实体和两张表之间的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-多对多关系映射配置"><span class="toc-number">5.</span> <span class="toc-text">5.    多对多关系映射配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-确定两张表之间的关系"><span class="toc-number">5.1.</span> <span class="toc-text">5.1    确定两张表之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-在数据库中实现两张表之间的关系建立"><span class="toc-number">5.2.</span> <span class="toc-text">5.2    在数据库中实现两张表之间的关系建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-在实体类中描述出两个实体之间的关系"><span class="toc-number">5.3.</span> <span class="toc-text">5.3    在实体类中描述出两个实体之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-在映射配置文件中建立两个实体和两张表之间的关系"><span class="toc-number">5.4.</span> <span class="toc-text">5.4    在映射配置文件中建立两个实体和两张表之间的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-多表增删改操作"><span class="toc-number">6.</span> <span class="toc-text">6.    多表增删改操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-一对多关系的操作"><span class="toc-number">6.1.</span> <span class="toc-text">6.1    一对多关系的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-1-保存操作"><span class="toc-number">6.1.1.</span> <span class="toc-text">6.1.1    保存操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-1-正常保存"><span class="toc-number">6.1.1.1.</span> <span class="toc-text">6.1.1.1    正常保存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-2-特殊情况"><span class="toc-number">6.1.1.2.</span> <span class="toc-text">6.1.1.2    特殊情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1-3-级联保存"><span class="toc-number">6.1.1.3.</span> <span class="toc-text">6.1.1.3    级联保存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-2-更新操作"><span class="toc-number">6.1.2.</span> <span class="toc-text">6.1.2    更新操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-3-删除操作"><span class="toc-number">6.1.3.</span> <span class="toc-text">6.1.3    删除操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-多对多关系的操作"><span class="toc-number">6.2.</span> <span class="toc-text">6.2    多对多关系的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-保存操作"><span class="toc-number">6.2.1.</span> <span class="toc-text">6.2.1    保存操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-删除操作"><span class="toc-number">6.2.2.</span> <span class="toc-text">6.2.2    删除操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-Hibernate中的多表查询"><span class="toc-number">7.</span> <span class="toc-text">7.    Hibernate中的多表查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-对象导航查询"><span class="toc-number">7.1.</span> <span class="toc-text">7.1    对象导航查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-1-概述"><span class="toc-number">7.1.1.</span> <span class="toc-text">7.1.1    概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-2-对象导航检索示例"><span class="toc-number">7.1.2.</span> <span class="toc-text">7.1.2    对象导航检索示例</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/ef455019.html" class="archive-article-date">
-  	<time datetime="2020-05-28T06:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/ef455019.html">Hibernate(一)</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/52429b60.html" class="archive-article-date">
-  	<time datetime="2020-05-15T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/52429b60.html">使用hexo+github搭建免费个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a01b13554e910b682a17',
+  	clientSecret: 'ed78fef4c5012669cf340214fd17d583601a9aa1',
+  	repo: 'wgy1993.github.io',
+  	owner: 'wgy1993',
+  	admin: ['wgy1993'],
+  	id: 'Sun May 31 2020 16:27:38 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+  <br/>
 
 
           </div>
@@ -382,8 +559,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
