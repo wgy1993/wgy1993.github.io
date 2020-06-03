@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://ae01.alicdn.com/kf/He495e9b8fdec49f6951d0289a3535993j.jpg">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/Hed677a54476846a58b586d0f6eb6728cE.jpg">
 <meta property="article:published_time" content="2020-05-28T06:17:43.000Z">
-<meta property="article:modified_time" content="2020-06-01T05:39:23.854Z">
+<meta property="article:modified_time" content="2020-06-03T15:03:13.847Z">
 <meta property="article:author" content="Wgy">
 <meta property="article:tag" content="Hibernate">
 <meta property="article:tag" content="ORM">
@@ -291,15 +291,15 @@
 <p>原则：一个应用应该只有一个SessionFactory。在应用加载时创建，应用卸载时销毁。</p>
 <h3 id="4-2-5-在hibernate中使用数据源-连接池"><a href="#4-2-5-在hibernate中使用数据源-连接池" class="headerlink" title="4.2.5    在hibernate中使用数据源(连接池)"></a>4.2.5    在hibernate中使用数据源(连接池)</h3><p>SessionFactory内部还维护了一个连接池，如果我们需要使用第三方的连接池如C3P0，那么需要我们自己手动进行配置</p>
 <p>配置C3P0步骤如下：</p>
-<ol>
+<ul>
 <li><p>导入连接池的jar包</p>
-<p><img src="https://ae01.alicdn.com/kf/Hed677a54476846a58b586d0f6eb6728cE.jpg" alt="image-20200528121944904"></p>
+<p> <img src="https://ae01.alicdn.com/kf/Hed677a54476846a58b586d0f6eb6728cE.jpg" alt="image-20200528121944904"></p>
 </li>
 <li><p>在hibernate主配置文件中配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置数据源的提供商 --&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;hibernate.connection.provider_class&quot;&gt;</span><br><span class="line">	org.hibernate.connection.C3P0ConnectionProvider</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置数据源的提供商 --&gt;</span><br><span class="line">&lt;property name&#x3D;&quot;hibernate.connection.provider_class&quot;&gt;</span><br><span class="line">	org.hibernate.connection.C3P0ConnectionProvider</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
 
 </li>
-</ol>
+</ul>
 <h2 id="4-3-Session"><a href="#4-3-Session" class="headerlink" title="4.3    Session"></a>4.3    Session</h2><h3 id="4-3-1-作用"><a href="#4-3-1-作用" class="headerlink" title="4.3.1    作用"></a>4.3.1    作用</h3><p>Session 是应用程序与数据库之间交互操作的一个单线程对象，是 Hibernate 运作的中心，它的主要功能是为持久化对象提供创建、读取和删除的能力，所有持久化对象必须在session的管理下才可以进行持久化操作。</p>
 <p>创建SessionFactory实例后，就可以通过它获取Session实例。获取Session实例有两种方式，一种是通过openSession()方法，另一种是通过getCurrentSession()方法。两种方法获取session的代码如下所示：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//采用openSession方法创建session</span></span><br><span class="line">Session session = sessionFactory.openSession();</span><br><span class="line"></span><br><span class="line"><span class="comment">//采用getCurrentSession()方法创建session</span></span><br><span class="line">Session session = sessionFactory.getCurrentSession();</span><br></pre></td></tr></table></figure>
@@ -337,16 +337,16 @@
 <p><strong>load方法：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据id查询一个实体</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> theClass 指的是要查询的实体类字节码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> id查询的条件，即主键的值。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回的是实体类对象或者是实体类对象的代理对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">load</span><span class="params">(Class&lt;T&gt; theClass, Serializable id)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLoad</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Session s = HibernateUtil.openSession();</span><br><span class="line">    Transaction tx = s.beginTransaction();</span><br><span class="line">    Customer c = s.load(Customer<span class="class">.<span class="keyword">class</span>, 2<span class="title">L</span>)</span>;</span><br><span class="line">    System.out.println(<span class="string">"load : "</span>+c.toString());</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-5-3-get和load的区别"><a href="#6-5-3-get和load的区别" class="headerlink" title="6.5.3    get和load的区别"></a>6.5.3    get和load的区别</h3><ol>
+<h3 id="6-5-3-get和load的区别"><a href="#6-5-3-get和load的区别" class="headerlink" title="6.5.3    get和load的区别"></a>6.5.3    get和load的区别</h3><ul>
 <li><p>查询的时机不一样。</p>
-<p>get的查询时机：每次调用get方法时，马上发起查询。       立即加载</p>
-<p>load的查询时机：每次真正使用的时候，发起查询。        延迟加载   懒加载   惰性加载</p>
+<p> get的查询时机：每次调用get方法时，马上发起查询。       立即加载</p>
+<p> load的查询时机：每次真正使用的时候，发起查询。        延迟加载   懒加载   惰性加载</p>
 </li>
 <li><p>返回的结果不一样。</p>
-<p>get方法返回的对象是实体类类型</p>
-<p>load方法返回的对象是实体类类型的代理对象</p>
+<p> get方法返回的对象是实体类类型</p>
+<p> load方法返回的对象是实体类类型的代理对象</p>
 </li>
-</ol>
+</ul>
 <p>load方法默认情况下是延迟，可以通过配置的方式改为立即加载。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 由于load方法是hibernate的方法所以只有XML的方式：--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"Customer"</span> <span class="attr">table</span>=<span class="string">"cst_customer"</span> <span class="attr">lazy</span>=<span class="string">"false"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
