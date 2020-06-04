@@ -6,15 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wgy1993.gitee.io">
-  <title>Archives: 2020/5 | Wgy的博客</title>
+  <title>Struts2(一) | Wgy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wgy的博客">
-<meta property="og:url" content="https://wgy1993.gitee.io/archives/2020/05/index.html">
+  <meta name="description" content="1.    Struts2基本概念1.1    三层架构和三大框架各自的位置1.1.1    三层架构我们的开发架构一般都是基于两种形式，一种是C&#x2F;S架构，也就是客户端&#x2F;服务器，另一种是B&#x2F;S架构，也就是浏览器&#x2F;服务器。在JavaEE开发中，几乎全都是基于B&#x2F;S架构的开发。那么在B&#x2F;S架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多。 三层架构中，每一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Struts2(一)">
+<meta property="og:url" content="https://wgy1993.gitee.io/archives/90bb5282.html">
 <meta property="og:site_name" content="Wgy的博客">
+<meta property="og:description" content="1.    Struts2基本概念1.1    三层架构和三大框架各自的位置1.1.1    三层架构我们的开发架构一般都是基于两种形式，一种是C&#x2F;S架构，也就是客户端&#x2F;服务器，另一种是B&#x2F;S架构，也就是浏览器&#x2F;服务器。在JavaEE开发中，几乎全都是基于B&#x2F;S架构的开发。那么在B&#x2F;S架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多。 三层架构中，每一">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Ha2103ad439dc4b7a8e84a0fe1642c6adx.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H08157693d82c4839a33ef6237a0e3dfaK.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hb7181f3bdc8945acac5856883253282e7.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hcdc6b8b63fe541a7a3b0f6fafca8579cF.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H2a156d974be044ed9e1e56c5d2aff304P.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H5409d3a8a78c4f3394ca8a426e097c14K.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H3380a4a9a4c747cfb692310c63c89496T.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H6938fe09b5054edd9af6ba47175967634.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hef71a9c647a14088a23049d402e1ec3dI.jpg">
+<meta property="article:published_time" content="2020-06-04T15:33:21.000Z">
+<meta property="article:modified_time" content="2020-06-04T15:51:22.393Z">
 <meta property="article:author" content="Wgy">
+<meta property="article:tag" content="框架">
+<meta property="article:tag" content="Struts2">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/Ha2103ad439dc4b7a8e84a0fe1642c6adx.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -155,202 +171,513 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Struts2-一" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Struts2(一)
+    </h1>
+  
+
+        
+        <a href="/archives/90bb5282.html" class="archive-article-date">
+  	<time datetime="2020-06-04T15:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Struts2基本概念"><a href="#1-Struts2基本概念" class="headerlink" title="1.    Struts2基本概念"></a>1.    Struts2基本概念</h1><h2 id="1-1-三层架构和三大框架各自的位置"><a href="#1-1-三层架构和三大框架各自的位置" class="headerlink" title="1.1    三层架构和三大框架各自的位置"></a>1.1    三层架构和三大框架各自的位置</h2><h3 id="1-1-1-三层架构"><a href="#1-1-1-三层架构" class="headerlink" title="1.1.1    三层架构"></a>1.1.1    三层架构</h3><p>我们的开发架构一般都是基于两种形式，一种是C/S架构，也就是客户端/服务器，另一种是B/S架构，也就是浏览器/服务器。在JavaEE开发中，几乎全都是基于B/S架构的开发。那么在B/S架构中，系统标准的三层架构包括：<strong>表现层、业务层、持久层</strong>。三层架构在我们的实际开发中使用的非常多。</p>
+<p>三层架构中，每一层各司其职，接下来我们就说说每层都负责哪些方面：</p>
+<a id="more"></a>
+
+<ul>
+<li><p><strong>表现层：</strong></p>
+<p>也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web层，web需要接收http请求，完成http响应。</p>
+<p>表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。</p>
+<p>表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。</p>
+<p>表现层的设计一般都使用MVC模型。（MVC是表现层的设计模型，和其他层没有关系）</p>
+</li>
+<li><p><strong>业务层：</strong></p>
+<p>也就是我们常说的service层。它负责业务逻辑处理，和我们开发项目的需求息息相关。web层依赖业务层，但是业务层不依赖web层。</p>
+<p>业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，事务应该放到业务层来控制）</p>
+</li>
+<li><p><strong>持久层：</strong></p>
+<p>也就是我们是常说的dao层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库中。</p>
+<p>通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。</p>
+</li>
+</ul>
+<h3 id="1-1-2-三大框架和三层架构的关系"><a href="#1-1-2-三大框架和三层架构的关系" class="headerlink" title="1.1.2    三大框架和三层架构的关系"></a>1.1.2    三大框架和三层架构的关系</h3><p><img src="https://ae01.alicdn.com/kf/Ha2103ad439dc4b7a8e84a0fe1642c6adx.jpg" alt="image-20200604183345906"></p>
+<h2 id="1-2-Struts2概述"><a href="#1-2-Struts2概述" class="headerlink" title="1.2    Struts2概述"></a>1.2    Struts2概述</h2><p>Struts2是一种基于MVC模式的轻量级Web框架，它自问世以来，就受到了广大Web开发者的关注，并广泛应用于各种企业系统的开发中。目前掌握Struts2框架几乎成为Web开发者的必备技能之一。</p>
+<p>在介绍Struts2之前，先来认识一下Struts1。Struts1是最早的基于MVC模式的轻量级Web框架，它能够合理的划分代码结构，并包含验证框架、国际化框架等多种实用工具框架。但是随着技术的进步，Struts1的局限性也越来越多的暴露出来。为了符合更加灵活、高效的开发需求，Struts2框架应运而生。</p>
+<p>Struts2是Struts1的下一代产品，是在 Struts1和WebWork技术的基础上进行合并后的全新框架（WebWork是由OpenSymphony组织开发的，致力于组件化和代码重用的J2EE Web框架，它也是一个MVC框架）。虽然Struts2的名字与Struts1相似，但其设计思想却有很大不同。实质上，Struts2是以WebWork为核心的，它采用拦截器的机制来处理用户的请求。这样的设计也使得业务逻辑控制器能够与<a href="http://baike.baidu.com/view/25169.htm" target="_blank" rel="noopener">Servlet</a>API完全脱离开，所以Struts2可以理解为WebWork的更新产品。</p>
+<p>Struts2拥有优良的设计和功能，其优势具体如下：</p>
+<ul>
+<li>项目开源，使用及拓展方便，天生优势。</li>
+<li>提供Exception处理机制。</li>
+<li>Result方式的页面导航，通过Result标签很方便的实现重定向和页面跳转。</li>
+<li>通过简单、集中的配置来调度业务类，使得配置和修改都非常容易。</li>
+<li>提供简单、统一的表达式语言来访问所有可供访问的数据。</li>
+<li>提供标准、强大的验证框架和国际化框架。</li>
+<li>提供强大的、可以有效减少页面代码的标签。</li>
+<li>提供良好的Ajax支持。</li>
+<li>拥有简单的插件，只需放入相应的JAR包，任何人都可以扩展Struts2框架，比如自定义拦截器、自定义结果类型、自定义标签等，为Struts2定制需要的功能，不需要什么特殊配置，并且可以发布给其他人使用。</li>
+<li>拥有智能的默认设置，不需要另外进行繁琐的设置。使用默认设置就可以完成大多数项目程序开发所需要的功能。</li>
+</ul>
+<h1 id="2-Struts2的入门"><a href="#2-Struts2的入门" class="headerlink" title="2.    Struts2的入门"></a>2.    Struts2的入门</h1><h2 id="2-1-Struts2环境搭建"><a href="#2-1-Struts2环境搭建" class="headerlink" title="2.1    Struts2环境搭建"></a>2.1    Struts2环境搭建</h2><h3 id="2-1-1-下载struts2开发包"><a href="#2-1-1-下载struts2开发包" class="headerlink" title="2.1.1    下载struts2开发包"></a>2.1.1    下载struts2开发包</h3><p>Struts2的官网: <a href="https://struts.apache.org/" target="_blank" rel="noopener">https://struts.apache.org/</a></p>
+<p><img src="https://ae01.alicdn.com/kf/H08157693d82c4839a33ef6237a0e3dfaK.jpg" alt="img"></p>
+<h3 id="2-1-2-Struts2开发包目录介绍"><a href="#2-1-2-Struts2开发包目录介绍" class="headerlink" title="2.1.2    Struts2开发包目录介绍"></a>2.1.2    Struts2开发包目录介绍</h3><p>解压后的目录结构如下：</p>
+<p><img src="https://ae01.alicdn.com/kf/Hb7181f3bdc8945acac5856883253282e7.jpg" alt="image-20200604192426425"></p>
+<h3 id="2-1-3-搭建步骤"><a href="#2-1-3-搭建步骤" class="headerlink" title="2.1.3    搭建步骤"></a>2.1.3    搭建步骤</h3><h4 id="2-1-3-1-第一步：拷贝struts2必备jar包到web工程的lib目录"><a href="#2-1-3-1-第一步：拷贝struts2必备jar包到web工程的lib目录" class="headerlink" title="2.1.3.1    第一步：拷贝struts2必备jar包到web工程的lib目录"></a>2.1.3.1    第一步：拷贝struts2必备jar包到web工程的lib目录</h4><p>要进行struts2的基本的开发，可以参考struts-2.3.24中的apps下的一些示例代码，其中struts2-blank.war是一个struts2的空的工程。我们只需要将struts2-blank.war解压后进入到WEB-INF下的lib中查看。</p>
+<p><img src="https://ae01.alicdn.com/kf/Hcdc6b8b63fe541a7a3b0f6fafca8579cF.jpg" alt="image-20200604192712061"></p>
+<h4 id="2-1-3-2-第二步：在类的根路径下创建一个名称为struts-xml的文件，并导入约束"><a href="#2-1-3-2-第二步：在类的根路径下创建一个名称为struts-xml的文件，并导入约束" class="headerlink" title="2.1.3.2    第二步：在类的根路径下创建一个名称为struts.xml的文件，并导入约束"></a>2.1.3.2    第二步：在类的根路径下创建一个名称为struts.xml的文件，并导入约束</h4><p>在开发中需要将struts.xml文件引入到工程的src下，因为src下内容发布到web服务器中就是WEB-INF下的classes中。</p>
+<p><img src="https://ae01.alicdn.com/kf/H2a156d974be044ed9e1e56c5d2aff304P.jpg" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!-- 导入约束：</span><br><span class="line">    约束的位置：在struts2的核心jar包中</span><br><span class="line">            struts2-core-2.3.24.jar中包含一个名称为：</span><br><span class="line">                struts-2.3.dtd的约束文件</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!DOCTYPE struts PUBLIC</span><br><span class="line">	&quot;-&#x2F;&#x2F;Apache Software Foundation&#x2F;&#x2F;DTD Struts Configuration 2.3&#x2F;&#x2F;EN&quot;</span><br><span class="line">	&quot;http:&#x2F;&#x2F;struts.apache.org&#x2F;dtds&#x2F;struts-2.3.dtd&quot;&gt;</span><br><span class="line">&lt;struts&gt;&lt;&#x2F;struts&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-3-第三步：在web-xml配置struts2的核心控制器"><a href="#2-1-3-3-第三步：在web-xml配置struts2的核心控制器" class="headerlink" title="2.1.3.3    第三步：在web.xml配置struts2的核心控制器"></a>2.1.3.3    第三步：在web.xml配置struts2的核心控制器</h4><p>Struts2框架要想执行，所有的请求都需要经过这个前端控制器（核心过滤器）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns&#x3D;&quot;http:&#x2F;&#x2F;xmlns.jcp.org&#x2F;xml&#x2F;ns&#x2F;javaee&quot;</span><br><span class="line">         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;xmlns.jcp.org&#x2F;xml&#x2F;ns&#x2F;javaee http:&#x2F;&#x2F;xmlns.jcp.org&#x2F;xml&#x2F;ns&#x2F;javaee&#x2F;web-app_4_0.xsd&quot;</span><br><span class="line">         version&#x3D;&quot;4.0&quot;&gt;</span><br><span class="line">    &lt;!-- 配置struts2的核心过滤器 --&gt;</span><br><span class="line">    &lt;filter&gt;</span><br><span class="line">        &lt;filter-name&gt;struts2&lt;&#x2F;filter-name&gt;</span><br><span class="line">        &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;&#x2F;filter-class&gt;</span><br><span class="line">    &lt;&#x2F;filter&gt;</span><br><span class="line"></span><br><span class="line">    &lt;filter-mapping&gt;</span><br><span class="line">        &lt;filter-name&gt;struts2&lt;&#x2F;filter-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;&#x2F;*&lt;&#x2F;url-pattern&gt;</span><br><span class="line">    &lt;&#x2F;filter-mapping&gt;</span><br><span class="line">&lt;&#x2F;web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-4-验证搭建成功与否"><a href="#2-1-3-4-验证搭建成功与否" class="headerlink" title="2.1.3.4    验证搭建成功与否"></a>2.1.3.4    验证搭建成功与否</h4><p>把应用部署到tomcat中，启动tomcat，不报异常则表示搭建成功。</p>
+<h2 id="2-2-Struts2入门案例"><a href="#2-2-Struts2入门案例" class="headerlink" title="2.2    Struts2入门案例"></a>2.2    Struts2入门案例</h2><h3 id="2-2-1-案例需求"><a href="#2-2-1-案例需求" class="headerlink" title="2.2.1    案例需求"></a>2.2.1    案例需求</h3><p>通过点击超链接发送请求，由Struts2中类来负责接收，并且在控制台输出接收到了的语句。</p>
+<h3 id="2-2-2-案例实现"><a href="#2-2-2-案例实现" class="headerlink" title="2.2.2    案例实现"></a>2.2.2    案例实现</h3><h4 id="2-2-2-1-第一步：编写index-jsp"><a href="#2-2-2-1-第一步：编写index-jsp" class="headerlink" title="2.2.2.1    第一步：编写index.jsp"></a>2.2.2.1    第一步：编写index.jsp</h4><p><img src="https://ae01.alicdn.com/kf/H5409d3a8a78c4f3394ca8a426e097c14K.jpg" alt="img"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">         pageEncoding=<span class="string">"UTF-8"</span> %&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;struts2的入门案例&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%--struts2的核心控制默认会处理以.action为后缀的url，或者是没有任何后缀的url --%&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/hello"&gt;访问第一个struts2应用&lt;/a&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/hello.action"&gt;访问第一个struts2应用.action&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-2-第二步：编写Class"><a href="#2-2-2-2-第二步：编写Class" class="headerlink" title="2.2.2.2    第二步：编写Class"></a>2.2.2.2    第二步：编写Class</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 我们的第一个动作类。 </span></span><br><span class="line"><span class="comment"> * 动作类： </span></span><br><span class="line"><span class="comment"> *    它就是一个概念。它就是struts2框架中用于处理请求的类。</span></span><br><span class="line"><span class="comment"> *    我们以后处理请求都写动作类。</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloAction</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 我们的第一个动作方法</span></span><br><span class="line"><span class="comment">	 * 动作方法：</span></span><br><span class="line"><span class="comment">	 * 	 动作类中用于处理请求的方法</span></span><br><span class="line"><span class="comment">	 * 动作方法有编写规范：</span></span><br><span class="line"><span class="comment">	 * 	1、访问修饰符都是public</span></span><br><span class="line"><span class="comment">	 * 	2、方法的返回值一般都是String(但是可以是void)</span></span><br><span class="line"><span class="comment">	 *  3、方法都没有参数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"HelloAction的sayHello方法执行了。。。。"</span>+<span class="keyword">this</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-3-第三步：在配置文件中配置我们的动作类"><a href="#2-2-2-3-第三步：在配置文件中配置我们的动作类" class="headerlink" title="2.2.2.3    第三步：在配置文件中配置我们的动作类"></a>2.2.2.3    第三步：在配置文件中配置我们的动作类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE struts PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Apache Software Foundation&#x2F;&#x2F;DTD Struts Configuration 2.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;struts.apache.org&#x2F;dtds&#x2F;struts-2.0.dtd&quot;&gt;</span><br><span class="line">&lt;struts&gt;</span><br><span class="line">    &lt;!-- 配置文件 --&gt;</span><br><span class="line">    &lt;package name&#x3D;&quot;p1&quot; extends&#x3D;&quot;struts-default&quot;&gt;</span><br><span class="line">        &lt;action name&#x3D;&quot;hello&quot; class&#x3D;&quot;com.wgy.web.action.HelloAction&quot; method&#x3D;&quot;sayHello&quot;&gt;</span><br><span class="line">            &lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">        &lt;&#x2F;action&gt;</span><br><span class="line">    &lt;&#x2F;package&gt;</span><br><span class="line">&lt;&#x2F;struts&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-4-第四步：编写success-jsp"><a href="#2-2-2-4-第四步：编写success-jsp" class="headerlink" title="2.2.2.4    第四步：编写success.jsp"></a>2.2.2.4    第四步：编写success.jsp</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">         pageEncoding=<span class="string">"UTF-8"</span> %&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;执行结果页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;执行成功！</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-5-第五步：启动tomcat测试访问结果"><a href="#2-2-2-5-第五步：启动tomcat测试访问结果" class="headerlink" title="2.2.2.5    第五步：启动tomcat测试访问结果"></a>2.2.2.5    第五步：启动tomcat测试访问结果</h4><h2 id="2-3-Struts2的执行过程"><a href="#2-3-Struts2的执行过程" class="headerlink" title="2.3    Struts2的执行过程"></a>2.3    Struts2的执行过程</h2><h3 id="2-3-1-执行时序"><a href="#2-3-1-执行时序" class="headerlink" title="2.3.1    执行时序"></a>2.3.1    执行时序</h3><p>首先是，启动tomcat服务器，这时候会加载web.xml，当读到filter标签时，会创建过滤器对象。</p>
+<p>Struts2的核心过滤器（StrutsPrepareAndExecuteFilter）会负责加载类路径下的struts.xml配置文件。</p>
+<p>接下来，从客户端发送请求过来 先经过前端控制器（核心过滤器StrutsPrepareAndExecuteFilter），前端控制器会根据请求的名称在struts.xml中找到对应的配置，创建我们的动作类对象（每次访问时都会创建新的Action对象），然后执行指定的方法，根据方法的返回值找到Result的配置进行页面的跳转.最后响应浏览器。</p>
+<p><img src="https://ae01.alicdn.com/kf/H3380a4a9a4c747cfb692310c63c89496T.jpg" alt="image-20200604200648417"></p>
+<h3 id="2-3-2-内部执行流程"><a href="#2-3-2-内部执行流程" class="headerlink" title="2.3.2    内部执行流程"></a>2.3.2    内部执行流程</h3><p>Struts2框架在默认情况下核心控制器（StrutsPrepareAndExecuteFilter）默认会拦截以.action为后缀的请求，或者是没有任何后缀的请求。当拦截下来后，送入Struts2的核心内部。如下图所示：</p>
+<p><img src="https://ae01.alicdn.com/kf/H6938fe09b5054edd9af6ba47175967634.jpg" alt="image-20200604200635414"></p>
+<p>我们通过上面的图解，应该明确在实际开发中我们用struts2要做哪些：</p>
+<ol>
+<li>写动作类</li>
+<li>写jsp</li>
+<li>写配置文件</li>
+</ol>
+<p>其中，又以配置文件为重。</p>
+<h1 id="3-Struts2的配置文件详解"><a href="#3-Struts2的配置文件详解" class="headerlink" title="3.    Struts2的配置文件详解"></a>3.    Struts2的配置文件详解</h1><h2 id="3-1-Struts2中的配置文件"><a href="#3-1-Struts2中的配置文件" class="headerlink" title="3.1    Struts2中的配置文件"></a>3.1    Struts2中的配置文件</h2><h3 id="3-1-1-配置文件说明"><a href="#3-1-1-配置文件说明" class="headerlink" title="3.1.1    配置文件说明"></a>3.1.1    配置文件说明</h3><p>在struts2中给我们提供了6个配置文件。他们的加载时机是tomcat启动服务一加载我们的应用时，就加载struts2的配置文件。</p>
+<p>他们的加载顺序入如下：</p>
+<table>
+<thead>
+<tr>
+<th>顺序</th>
+<th>配置文件名</th>
+<th>所在位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>default.properties</td>
+<td>struts2-core-2.3.15.3.jar\org\apache\struts2</td>
+<td>不能修改</td>
+</tr>
+<tr>
+<td>2</td>
+<td>struts-default.xml</td>
+<td>struts2-core-2.3.15.3.jar</td>
+<td>不能修改</td>
+</tr>
+<tr>
+<td>3</td>
+<td>strtuts-plugin.xml</td>
+<td>在struts2提供的插件jar包中</td>
+<td>不能修改</td>
+</tr>
+<tr>
+<td>4</td>
+<td>struts.xml</td>
+<td>我们的应用中</td>
+<td>我们修改的：推荐</td>
+</tr>
+<tr>
+<td>5</td>
+<td>struts.properties</td>
+<td>我们的应用中</td>
+<td>我们修改的</td>
+</tr>
+<tr>
+<td>6</td>
+<td>web.xml</td>
+<td>我们的应用中</td>
+<td>我们修改的，可以给过滤器配置参数</td>
+</tr>
+</tbody></table>
+<h3 id="3-1-2-配置文件的注意事项"><a href="#3-1-2-配置文件的注意事项" class="headerlink" title="3.1.2    配置文件的注意事项"></a>3.1.2    配置文件的注意事项</h3><ol>
+<li>Struts2提供了两种配置的方式。一种是key=value的方式，即使用.properties文件。另一种是xml文件配置。我们推荐使用xml文件（它能描述层级关系）。</li>
+<li>当多个配置文件中，有相同的参数，后加载的会把前面的值给覆盖了。</li>
+</ol>
+<h3 id="3-1-3-Struts2中的常用常量"><a href="#3-1-3-Struts2中的常用常量" class="headerlink" title="3.1.3    Struts2中的常用常量"></a>3.1.3    Struts2中的常用常量</h3><p>常量定义在了default.properties配置文件中，体现形式都是key=value。所有的struts2应用都会用到这些常量。</p>
+<p>常用的：</p>
+<table>
+<thead>
+<tr>
+<th>常量名</th>
+<th>常量值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>struts.i18n.encoding</td>
+<td>UTF-8</td>
+<td>应用中使用的编码</td>
+</tr>
+<tr>
+<td>struts.objectFactory.spring.autoWire</td>
+<td>name</td>
+<td>和spring框架整合有关</td>
+</tr>
+<tr>
+<td>struts.multipart.parser</td>
+<td>jakarta</td>
+<td>指定文件上传用的组件</td>
+</tr>
+<tr>
+<td>struts.multipart.maxSize</td>
+<td>2097152</td>
+<td>文件上传总文件大小限制：2M</td>
+</tr>
+<tr>
+<td>struts.action.extension</td>
+<td>action,,</td>
+<td>能进入Struts2框架内部的url地址后缀名。多个值用逗号分隔</td>
+</tr>
+<tr>
+<td>struts.enable.DynamicMethodInvocation</td>
+<td>false</td>
+<td>是否允许动态方法调用</td>
+</tr>
+<tr>
+<td>struts.devMode</td>
+<td>false</td>
+<td>是否是开发模式。开发模式：改了配置文件，不需要重启。输出更多的错误信息。开发阶段建议为true</td>
+</tr>
+<tr>
+<td>struts.ui.theme</td>
+<td>xhtml</td>
+<td>页面展示用的主题</td>
+</tr>
+</tbody></table>
+<h2 id="3-2-Struts-xml中的标签详解"><a href="#3-2-Struts-xml中的标签详解" class="headerlink" title="3.2    Struts.xml中的标签详解"></a>3.2    Struts.xml中的标签详解</h2><h3 id="3-2-1-constant标签"><a href="#3-2-1-constant标签" class="headerlink" title="3.2.1    constant标签"></a>3.2.1    constant标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- constant标签：</span><br><span class="line">    作用：</span><br><span class="line">        用于修改struts2中的常量</span><br><span class="line">    属性：</span><br><span class="line">        name：指定常量的key</span><br><span class="line">        value：指定常量的值</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!-- 开启开发者模式 --&gt;</span><br><span class="line">&lt;constant name&#x3D;&quot;struts.devMode&quot; value&#x3D;&quot;true&quot;&gt;&lt;&#x2F;constant&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-2-package标签"><a href="#3-2-2-package标签" class="headerlink" title="3.2.2    package标签"></a>3.2.2    package标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- package标签：</span><br><span class="line">    作用：给访问的action进行分包管理。把配置文件按照面向对象的思想来管理。</span><br><span class="line">    属性：</span><br><span class="line">        name：指定包的名称。必须写，并且必须唯一。</span><br><span class="line">        extends：指定当前包的父包。子包自动具备父包所定义的配置。我们的包一般都需要继承struts-default包。</span><br><span class="line">        该包在struts-defaul.xml文件中定义着。如果不继承该包，则不能使用struts2的核心功能。</span><br><span class="line">        abstract：把当前包声明为抽象包。抽象包就是用来被继承的。里面定义一般都是公共的配置。</span><br><span class="line">                  只有没有action标签的包，才能定义为抽象包。</span><br><span class="line">        namespace：指定当前包的名称空间。它可以让我们的访问URL模块化。当我们指定了该属性，访问URL就变成了：名称空间+&#x2F;hello</span><br><span class="line">                   名称空间的写法：第一个字符必须是&#x2F;，后面紧跟的字符必须是一个字母。其余内容可以是字母，也可以是数字。</span><br><span class="line">                    例如：我们访问用户</span><br><span class="line">                        &#x2F;user&#x2F;addUser.action</span><br><span class="line">                        &#x2F;user&#x2F;updateUser.action</span><br><span class="line">                    名称空间有默认值。默认值是：&quot;&quot;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;package name&#x3D;&quot;p1&quot; extends&#x3D;&quot;struts-default&quot; namespace&#x3D;&quot;&#x2F;n1&quot;&gt;</span><br><span class="line">	&lt;action name&#x3D;&quot;hello&quot; class&#x3D;&quot;com.wgy.web.action.HelloAction&quot; method&#x3D;&quot;sayHello&quot;&gt;</span><br><span class="line">		&lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">	&lt;&#x2F;action&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-3-action标签"><a href="#3-2-3-action标签" class="headerlink" title="3.2.3    action标签"></a>3.2.3    action标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- action标签：</span><br><span class="line">	作用：建立动作名称，动作类和动作方法的对应关系</span><br><span class="line">	属性：</span><br><span class="line">        name:指定动作名称。它是唯一的</span><br><span class="line">        class:指定动作类的全限定类名</span><br><span class="line">        method：指定动作方法名称</span><br><span class="line">--&gt;</span><br><span class="line">&lt;action name&#x3D;&quot;hello&quot; class&#x3D;&quot;com.wgy.web.action.HelloAction&quot; method&#x3D;&quot;sayHello&quot;&gt;</span><br><span class="line">	&lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">&lt;&#x2F;action&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-action的三种创建方式"><a href="#3-3-action的三种创建方式" class="headerlink" title="3.3    action的三种创建方式"></a>3.3    action的三种创建方式</h2><h3 id="3-3-1-第一种：无侵入式创建-实际开发中基本不用"><a href="#3-3-1-第一种：无侵入式创建-实际开发中基本不用" class="headerlink" title="3.3.1    第一种：无侵入式创建(实际开发中基本不用)"></a>3.3.1    第一种：无侵入式创建(实际开发中基本不用)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 我们的第一个动作类</span></span><br><span class="line"><span class="comment"> * 动作类的第一种创建方式：</span></span><br><span class="line"><span class="comment"> *  无侵入式的创建。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloAction</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="keyword">this</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloAction中的sayHello方法执行了。。。。"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;action name&#x3D;&quot;hello&quot; class&#x3D;&quot;com.wgy.web.action.HelloAction&quot; method&#x3D;&quot;sayHello&quot;&gt;</span><br><span class="line">	&lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">&lt;&#x2F;action&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-2-第二种：实现Action接口的定义方式-实际开发中用的也不多"><a href="#3-3-2-第二种：实现Action接口的定义方式-实际开发中用的也不多" class="headerlink" title="3.3.2    第二种：实现Action接口的定义方式   (实际开发中用的也不多)"></a>3.3.2    第二种：实现Action接口的定义方式   (实际开发中用的也不多)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过实现接口的方式创建动作类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello2Action</span> <span class="keyword">implements</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello2Action的execute方法执行了。。。。"</span>);</span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 默认动作方法：当我们要是执行的是execute方法时，method属性可以不写。 --&gt;</span><br><span class="line">&lt;action name&#x3D;&quot;hello2&quot; class&#x3D;&quot;com.wgy.web.action.Hello2Action&quot;&gt;</span><br><span class="line">	&lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">&lt;&#x2F;action&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Action接口中的常量</p>
+<p><strong>SUCCESS</strong>：一般多用于成功</p>
+<p><strong>ERROR</strong>：一般多用于动作方法执行失败</p>
+<p><strong>LOGIN</strong>：一般多用于返回登录页面</p>
+<p><strong>NONE</strong>：一般用于不返回任何结果视图，和return null作用是一样的</p>
+<p><strong>INPUT</strong>：一般多用于数据回显，也是struts2中数据回显时的默认返回值。   </p>
+<h3 id="3-3-3-第三种：继承ActionSupport-实际开发中采用的方式"><a href="#3-3-3-第三种：继承ActionSupport-实际开发中采用的方式" class="headerlink" title="3.3.3    第三种：继承ActionSupport (实际开发中采用的方式)"></a>3.3.3    第三种：继承ActionSupport (实际开发中采用的方式)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过继承ActionSupport的方式创建动作类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello3Action</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;action name&#x3D;&quot;hello3&quot; class&#x3D;&quot;com.wgy.web.action.Hello3Action&quot;&gt;</span><br><span class="line">	&lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">&lt;&#x2F;action&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-4-默认动作类：ActionSupport类"><a href="#3-3-4-默认动作类：ActionSupport类" class="headerlink" title="3.3.4    默认动作类：ActionSupport类"></a>3.3.4    默认动作类：ActionSupport类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通过struts-default.xml中我们知道默认的动作类是ActionSupport，所以如果实现该类的execute方法，则可以不用指定class和method属性 --&gt;</span><br><span class="line">&lt;action name&#x3D;&quot;hello4&quot;&gt;</span><br><span class="line">	&lt;result name&#x3D;&quot;success&quot; type&#x3D;&quot;dispatcher&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">&lt;&#x2F;action&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-action的三种访问方式"><a href="#3-4-action的三种访问方式" class="headerlink" title="3.4    action的三种访问方式"></a>3.4    action的三种访问方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户的动作类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"保存了用户"</span>);</span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">updateUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"更新了用户"</span>);</span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">deleteUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"删除了用户"</span>);</span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">findUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"查询了用户"</span>);</span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-1-第一种：全匹配配置访问方式"><a href="#3-4-1-第一种：全匹配配置访问方式" class="headerlink" title="3.4.1    第一种：全匹配配置访问方式"></a>3.4.1    第一种：全匹配配置访问方式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/addUser"&gt;添加用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/updateUser"&gt;更新用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/deleteUser"&gt;删除用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/findUser"&gt;查询用户&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;package name&#x3D;&quot;user&quot; extends&#x3D;&quot;struts-default&quot;&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;addUser&quot; class&#x3D;&quot;com.wgy.web.action.UserAction&quot; method&#x3D;&quot;addUser&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">    &lt;&#x2F;action&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;updateUser&quot; class&#x3D;&quot;com.wgy.web.action.UserAction&quot; method&#x3D;&quot;updateUser&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">    &lt;&#x2F;action&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;deleteUser&quot; class&#x3D;&quot;com.wgy.web.action.UserAction&quot; method&#x3D;&quot;deleteUser&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">    &lt;&#x2F;action&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;findUser&quot; class&#x3D;&quot;com.wgy.web.action.UserAction&quot; method&#x3D;&quot;findUser&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">    &lt;&#x2F;action&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-2-第二种：使用通配符的方式"><a href="#3-4-2-第二种：使用通配符的方式" class="headerlink" title="3.4.2    第二种：使用通配符的方式*"></a>3.4.2    第二种：使用通配符的方式*</h3><ul>
+<li>通配符基本用法</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/addUser"&gt;添加用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/updateUser"&gt;更新用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/deleteUser"&gt;删除用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/findUser"&gt;查询用户&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通配符基本用法 --&gt;</span><br><span class="line">&lt;package name&#x3D;&quot;user&quot; extends&#x3D;&quot;struts-default&quot;&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;*&quot; class&#x3D;&quot;com.wgy.web.action.UserAction&quot; method&#x3D;&quot;&#123;1&#125;&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">    &lt;&#x2F;action&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通配符的高级用法</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/add_User"&gt;添加用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/update_User"&gt;更新用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/delete_User"&gt;删除用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/find_User"&gt;查询用户&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通配符的高级用法 --&gt;</span><br><span class="line">&lt;package name&#x3D;&quot;user&quot; extends&#x3D;&quot;struts-default&quot;&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;*_*&quot; class&#x3D;&quot;com.wgy.web.action.&#123;2&#125;Action&quot; method&#x3D;&quot;&#123;1&#125;&#123;2&#125;&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">    &lt;&#x2F;action&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-3-第三种：使用动态方法调用的方式"><a href="#3-4-3-第三种：使用动态方法调用的方式" class="headerlink" title="3.4.3    第三种：使用动态方法调用的方式"></a>3.4.3    第三种：使用动态方法调用的方式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/user!addUser"&gt;添加用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/user!updateUser"&gt;更新用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/user!deleteUser"&gt;删除用户&lt;/a&gt;</span><br><span class="line">&lt;hr/&gt;</span><br><span class="line">&lt;a href="$&#123;pageContext.request.contextPath&#125;/user!findUser"&gt;查询用户&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 使用动态方法调用的方式 --&gt;</span><br><span class="line">&lt;constant name&#x3D;&quot;struts.enable.DynamicMethodInvocation&quot; value&#x3D;&quot;true&quot;&#x2F;&gt;</span><br><span class="line">&lt;package name&#x3D;&quot;user&quot; extends&#x3D;&quot;struts-default&quot;&gt;</span><br><span class="line">    &lt;action name&#x3D;&quot;user&quot; class&#x3D;&quot;com.wgy.web.action.UserAction&quot;&gt;</span><br><span class="line">    	&lt;result name&#x3D;&quot;success&quot;&gt;&#x2F;success.jsp&lt;&#x2F;result&gt;</span><br><span class="line">	&lt;&#x2F;action&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-案例：Strut2-Hibernate查询客户列表"><a href="#4-案例：Strut2-Hibernate查询客户列表" class="headerlink" title="4.    案例：Strut2+Hibernate查询客户列表"></a>4.    案例：Strut2+Hibernate查询客户列表</h1><h2 id="4-1-第一步：搭建hibernate开发环境并准备实体类和映射配置"><a href="#4-1-第一步：搭建hibernate开发环境并准备实体类和映射配置" class="headerlink" title="4.1    第一步：搭建hibernate开发环境并准备实体类和映射配置"></a>4.1    第一步：搭建hibernate开发环境并准备实体类和映射配置</h2><p>可参考Hibernate环境搭建。</p>
+<p>Hibernate开发环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Hibernate&#x2F;Hibernate Configuration DTD 3.0&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;www.hibernate.org&#x2F;dtd&#x2F;hibernate-configuration-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line">    &lt;!-- 配置SessionFactory--&gt;</span><br><span class="line">    &lt;session-factory&gt;</span><br><span class="line">        &lt;!-- 第一部分：连接数据库的信息 --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;struts2&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.connection.username&quot;&gt;root&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.connection.password&quot;&gt;root&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 数据库的方言 --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;&#x2F;property&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 第二部分：hibernate的可选配置 --&gt;</span><br><span class="line">        &lt;!-- 是否显示hibernate生成的SQL语句 --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.show_sql&quot;&gt;true&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 是否使用格式化输出sql语句到控制台 --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.format_sql&quot;&gt;false&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 配置hibernate采用何种方式生成DDL语句 --&gt;</span><br><span class="line">        &lt;!-- update表示检测实体类的映射配置和数据库的表结构是否一致，如果不一致，更新表结构 --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 设置hibernate的连接池提供商 --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.c3p0.internal.C3P0ConnectionProvider&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;!-- 把session和线程绑定，从而实现一个线程只有一个Session --&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;&#x2F;property&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 第三部分：映射配置文件的位置 --&gt;</span><br><span class="line">        &lt;mapping class&#x3D;&quot;com.wgy.domain.Customer&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;session-factory&gt;</span><br><span class="line">&lt;&#x2F;hibernate-configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>实体类和映射配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户的实体类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"cst_customer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_id"</span>)</span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">    <span class="keyword">private</span> Long custId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_name"</span>)</span><br><span class="line">    <span class="keyword">private</span> String custName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_source"</span>)</span><br><span class="line">    <span class="keyword">private</span> String custSource;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_industry"</span>)</span><br><span class="line">    <span class="keyword">private</span> String custIndustry;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_level"</span>)</span><br><span class="line">    <span class="keyword">private</span> String custLevel;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_address"</span>)</span><br><span class="line">    <span class="keyword">private</span> String custAddress;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"cust_phone"</span>)</span><br><span class="line">    <span class="keyword">private</span> String custPhone;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-第二步：搭建struts2环境"><a href="#4-2-第二步：搭建struts2环境" class="headerlink" title="4.2    第二步：搭建struts2环境"></a>4.2    第二步：搭建struts2环境</h2><p>参考2.1.3章节的步骤去做。</p>
+<h2 id="4-3-第三步：导入crm的jsp页面"><a href="#4-3-第三步：导入crm的jsp页面" class="headerlink" title="4.3    第三步：导入crm的jsp页面"></a>4.3    第三步：导入crm的jsp页面</h2><p>把下图中红框内文件夹下所有内容都拷贝到WebContent目录中</p>
+<p><img src="https://ae01.alicdn.com/kf/Hef71a9c647a14088a23049d402e1ec3dI.jpg" alt="img"></p>
+<h2 id="4-4-第四步：修改menu-jsp"><a href="#4-4-第四步：修改menu-jsp" class="headerlink" title="4.4    第四步：修改menu.jsp"></a>4.4    第四步：修改menu.jsp</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TR&gt; </span><br><span class="line">    &lt;TD <span class="class"><span class="keyword">class</span></span>=menuSmall&gt;</span><br><span class="line">        &lt;A class=style2 href="$&#123;pageContext.request.contextPath&#125;/customer/findAllCustomer.action" target=main&gt;－ 客户列表&lt;/A&gt;</span><br><span class="line">    &lt;/TD&gt;</span><br><span class="line">&lt;/TR&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-5-第五步：在配置文件中配置findAllCustomer-action"><a href="#4-5-第五步：在配置文件中配置findAllCustomer-action" class="headerlink" title="4.5    第五步：在配置文件中配置findAllCustomer.action"></a>4.5    第五步：在配置文件中配置findAllCustomer.action</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE struts PUBLIC</span><br><span class="line">        &quot;-&#x2F;&#x2F;Apache Software Foundation&#x2F;&#x2F;DTD Struts Configuration 2.3&#x2F;&#x2F;EN&quot;</span><br><span class="line">        &quot;http:&#x2F;&#x2F;struts.apache.org&#x2F;dtds&#x2F;struts-2.3.dtd&quot;&gt;</span><br><span class="line">&lt;struts&gt;</span><br><span class="line">    &lt;!-- 开启开发者模式 --&gt;</span><br><span class="line">    &lt;constant name&#x3D;&quot;struts.devMode&quot; value&#x3D;&quot;true&quot;&gt;&lt;&#x2F;constant&gt;</span><br><span class="line">    &lt;!--  动作配置 --&gt;</span><br><span class="line">    &lt;package name&#x3D;&quot;customer&quot; extends&#x3D;&quot;struts-default&quot; namespace&#x3D;&quot;&#x2F;customer&quot;&gt;</span><br><span class="line">        &lt;action name&#x3D;&quot;findAllCustomer&quot; class&#x3D;&quot;com.wgy.web.action.CustomerAction&quot; method&#x3D;&quot;findAllCustomer&quot;&gt;</span><br><span class="line">            &lt;result name&#x3D;&quot;findAllCustomer&quot;&gt;&#x2F;jsp&#x2F;customer&#x2F;list.jsp&lt;&#x2F;result&gt;</span><br><span class="line">        &lt;&#x2F;action&gt;</span><br><span class="line">    &lt;&#x2F;package&gt;</span><br><span class="line">&lt;&#x2F;struts&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-6-第六步：创建动作类并提供动作方法"><a href="#4-6-第六步：创建动作类并提供动作方法" class="headerlink" title="4.6    第六步：创建动作类并提供动作方法"></a>4.6    第六步：创建动作类并提供动作方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户的动作类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ICustomerService customerService = <span class="keyword">new</span> CustomerServiceImpl();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有客户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">findAllCustomer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//1.调用service查询客户</span></span><br><span class="line">        List&lt;Customer&gt; customers = customerService.findAllCustomer();</span><br><span class="line">        <span class="comment">//2.获取request对象</span></span><br><span class="line">        HttpServletRequest request = ServletActionContext.getRequest();</span><br><span class="line">        <span class="comment">//3.把查询的结果存入请求域中</span></span><br><span class="line">        request.setAttribute(<span class="string">"customers"</span>, customers);</span><br><span class="line">        <span class="comment">//4.返回</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"findAllCustomer"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-7-第七步：编写service接口和实现类"><a href="#4-7-第七步：编写service接口和实现类" class="headerlink" title="4.7    第七步：编写service接口和实现类"></a>4.7    第七步：编写service接口和实现类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户的业务层接口</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICustomerService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有客户</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">List&lt;Customer&gt; <span class="title">findAllCustomer</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户的业务层实现类</span></span><br><span class="line"><span class="comment"> * 事务控制在业务层的</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerServiceImpl</span> <span class="keyword">implements</span> <span class="title">ICustomerService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ICustomerDao customerDao = <span class="keyword">new</span> CustomerDaoImpl();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Customer&gt; <span class="title">findAllCustomer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Session s = <span class="keyword">null</span>;</span><br><span class="line">        Transaction tx = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//1.获取Session</span></span><br><span class="line">            s = HibernateUtil.getCurrentSession();</span><br><span class="line">            <span class="comment">//2.开启事务</span></span><br><span class="line">            tx = s.beginTransaction();</span><br><span class="line">            <span class="comment">//3.执行操作</span></span><br><span class="line">            List&lt;Customer&gt; customers = customerDao.findAllCustomer();</span><br><span class="line">            <span class="comment">//4.提交事务</span></span><br><span class="line">            tx.commit();</span><br><span class="line">            <span class="comment">//5.返回结果</span></span><br><span class="line">            <span class="keyword">return</span> customers;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">//回滚事务</span></span><br><span class="line">            tx.rollback();</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-8-第八步：编写dao接口和实现类"><a href="#4-8-第八步：编写dao接口和实现类" class="headerlink" title="4.8    第八步：编写dao接口和实现类"></a>4.8    第八步：编写dao接口和实现类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户的持久层接口</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICustomerDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有客户</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">List&lt;Customer&gt; <span class="title">findAllCustomer</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户的持久层实现类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerDaoImpl</span> <span class="keyword">implements</span> <span class="title">ICustomerDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Customer&gt; <span class="title">findAllCustomer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> HibernateUtil.getCurrentSession().createQuery(<span class="string">"from Customer"</span>).list();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-9-第九步：页面展示jsp-customer-list-jsp"><a href="#4-9-第九步：页面展示jsp-customer-list-jsp" class="headerlink" title="4.9    第九步：页面展示jsp/customer/list.jsp"></a>4.9    第九步：页面展示jsp/customer/list.jsp</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"$&#123;customers&#125;"</span> <span class="keyword">var</span>=<span class="string">"customer"</span>&gt;</span><br><span class="line">    &lt;TR&gt;</span><br><span class="line">        &lt;TD&gt;$&#123;customer.custName &#125;&lt;/TD&gt;</span><br><span class="line">        &lt;TD&gt;$&#123;customer.custLevel &#125;&lt;/TD&gt;</span><br><span class="line">        &lt;TD&gt;$&#123;customer.custSource &#125;&lt;/TD&gt;</span><br><span class="line">        &lt;TD&gt;$&#123;customer.custIndustry &#125;&lt;/TD&gt;</span><br><span class="line">        &lt;TD&gt;$&#123;customer.custAddress &#125;&lt;/TD&gt;</span><br><span class="line">        &lt;TD&gt;$&#123;customer.custPhone &#125;&lt;/TD&gt;</span><br><span class="line">    &lt;/TR&gt;	</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- 添加本文结束标记-->
+      
+           
+             <div class="essayending">
+               <div>
+                <div style="text-align:center;color: #ccc;font-size:22px;">
+                <br/>
+                <br/>
+                -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+                <br/>
+                <br/>
+                 <br/>
+                 <br/>
+                </div>
+               </div>
+             </div>
+           
+       
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/3e87eb50.html" class="archive-article-date">
-  	<time datetime="2020-05-31T08:27:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/3e87eb50.html">Hibernate(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        <div class="declare">
+          <strong>本文作者：</strong>
           
+            Wgy
+          
+          <br>
+          <strong>本文标题：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/90bb5282.html">Struts2(一)</a>
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/90bb5282.html">https://wgy1993.gitee.io/archives/90bb5282.html</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
+        </div>
+      
+      <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/4074cb7b.html" class="archive-article-date">
-  	<time datetime="2020-05-28T16:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/4074cb7b.html">Hibernate(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wgy1993.gitee.io/archives/90bb5282.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/ef455019.html" class="archive-article-date">
-  	<time datetime="2020-05-28T06:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/archives/c4c4045f.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate(四)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/ef455019.html">Hibernate(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Struts2基本概念"><span class="toc-number">1.</span> <span class="toc-text">1.    Struts2基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-三层架构和三大框架各自的位置"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    三层架构和三大框架各自的位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-三层架构"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1    三层架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-三大框架和三层架构的关系"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2    三大框架和三层架构的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Struts2概述"><span class="toc-number">1.2.</span> <span class="toc-text">1.2    Struts2概述</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Struts2的入门"><span class="toc-number">2.</span> <span class="toc-text">2.    Struts2的入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Struts2环境搭建"><span class="toc-number">2.1.</span> <span class="toc-text">2.1    Struts2环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-下载struts2开发包"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1    下载struts2开发包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-Struts2开发包目录介绍"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2    Struts2开发包目录介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-搭建步骤"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3    搭建步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-1-第一步：拷贝struts2必备jar包到web工程的lib目录"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">2.1.3.1    第一步：拷贝struts2必备jar包到web工程的lib目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-2-第二步：在类的根路径下创建一个名称为struts-xml的文件，并导入约束"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">2.1.3.2    第二步：在类的根路径下创建一个名称为struts.xml的文件，并导入约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-3-第三步：在web-xml配置struts2的核心控制器"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">2.1.3.3    第三步：在web.xml配置struts2的核心控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-4-验证搭建成功与否"><span class="toc-number">2.1.3.4.</span> <span class="toc-text">2.1.3.4    验证搭建成功与否</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Struts2入门案例"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    Struts2入门案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-案例需求"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1    案例需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-案例实现"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2    案例实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-1-第一步：编写index-jsp"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">2.2.2.1    第一步：编写index.jsp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-2-第二步：编写Class"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">2.2.2.2    第二步：编写Class</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-3-第三步：在配置文件中配置我们的动作类"><span class="toc-number">2.2.2.3.</span> <span class="toc-text">2.2.2.3    第三步：在配置文件中配置我们的动作类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-4-第四步：编写success-jsp"><span class="toc-number">2.2.2.4.</span> <span class="toc-text">2.2.2.4    第四步：编写success.jsp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-5-第五步：启动tomcat测试访问结果"><span class="toc-number">2.2.2.5.</span> <span class="toc-text">2.2.2.5    第五步：启动tomcat测试访问结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Struts2的执行过程"><span class="toc-number">2.3.</span> <span class="toc-text">2.3    Struts2的执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-执行时序"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1    执行时序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-内部执行流程"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2    内部执行流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Struts2的配置文件详解"><span class="toc-number">3.</span> <span class="toc-text">3.    Struts2的配置文件详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Struts2中的配置文件"><span class="toc-number">3.1.</span> <span class="toc-text">3.1    Struts2中的配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-配置文件说明"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1    配置文件说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-配置文件的注意事项"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2    配置文件的注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-Struts2中的常用常量"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3    Struts2中的常用常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Struts-xml中的标签详解"><span class="toc-number">3.2.</span> <span class="toc-text">3.2    Struts.xml中的标签详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-constant标签"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1    constant标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-package标签"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2    package标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-action标签"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3    action标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-action的三种创建方式"><span class="toc-number">3.3.</span> <span class="toc-text">3.3    action的三种创建方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-第一种：无侵入式创建-实际开发中基本不用"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1    第一种：无侵入式创建(实际开发中基本不用)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-第二种：实现Action接口的定义方式-实际开发中用的也不多"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2    第二种：实现Action接口的定义方式   (实际开发中用的也不多)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-第三种：继承ActionSupport-实际开发中采用的方式"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3.3    第三种：继承ActionSupport (实际开发中采用的方式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-默认动作类：ActionSupport类"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.3.4    默认动作类：ActionSupport类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-action的三种访问方式"><span class="toc-number">3.4.</span> <span class="toc-text">3.4    action的三种访问方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-第一种：全匹配配置访问方式"><span class="toc-number">3.4.1.</span> <span class="toc-text">3.4.1    第一种：全匹配配置访问方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2-第二种：使用通配符的方式"><span class="toc-number">3.4.2.</span> <span class="toc-text">3.4.2    第二种：使用通配符的方式*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-3-第三种：使用动态方法调用的方式"><span class="toc-number">3.4.3.</span> <span class="toc-text">3.4.3    第三种：使用动态方法调用的方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-案例：Strut2-Hibernate查询客户列表"><span class="toc-number">4.</span> <span class="toc-text">4.    案例：Strut2+Hibernate查询客户列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-第一步：搭建hibernate开发环境并准备实体类和映射配置"><span class="toc-number">4.1.</span> <span class="toc-text">4.1    第一步：搭建hibernate开发环境并准备实体类和映射配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-第二步：搭建struts2环境"><span class="toc-number">4.2.</span> <span class="toc-text">4.2    第二步：搭建struts2环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-第三步：导入crm的jsp页面"><span class="toc-number">4.3.</span> <span class="toc-text">4.3    第三步：导入crm的jsp页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-第四步：修改menu-jsp"><span class="toc-number">4.4.</span> <span class="toc-text">4.4    第四步：修改menu.jsp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-第五步：在配置文件中配置findAllCustomer-action"><span class="toc-number">4.5.</span> <span class="toc-text">4.5    第五步：在配置文件中配置findAllCustomer.action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-第六步：创建动作类并提供动作方法"><span class="toc-number">4.6.</span> <span class="toc-text">4.6    第六步：创建动作类并提供动作方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-第七步：编写service接口和实现类"><span class="toc-number">4.7.</span> <span class="toc-text">4.7    第七步：编写service接口和实现类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-第八步：编写dao接口和实现类"><span class="toc-number">4.8.</span> <span class="toc-text">4.8    第八步：编写dao接口和实现类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-第九步：页面展示jsp-customer-list-jsp"><span class="toc-number">4.9.</span> <span class="toc-text">4.9    第九步：页面展示jsp&#x2F;customer&#x2F;list.jsp</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/52429b60.html" class="archive-article-date">
-  	<time datetime="2020-05-15T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/52429b60.html">使用hexo+github搭建免费个人博客</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a01b13554e910b682a17',
+  	clientSecret: 'ed78fef4c5012669cf340214fd17d583601a9aa1',
+  	repo: 'wgy1993.github.io',
+  	owner: 'wgy1993',
+  	admin: ['wgy1993'],
+  	id: 'Thu Jun 04 2020 23:33:21 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+  <br/>
 
 
           </div>
@@ -382,8 +709,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
