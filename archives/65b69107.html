@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wgy1993.gitee.io">
-  <title>Wgy的博客</title>
+  <title>Nginx | Wgy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wgy的博客">
-<meta property="og:url" content="https://wgy1993.gitee.io/page/3/index.html">
+  <meta name="description" content="1.    Nginx1.1    什么是NginxNginx 是一款高性能的 http 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx">
+<meta property="og:url" content="https://wgy1993.gitee.io/archives/65b69107.html">
 <meta property="og:site_name" content="Wgy的博客">
+<meta property="og:description" content="1.    Nginx1.1    什么是NginxNginx 是一款高性能的 http 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hc3e74747366642008e7e27664d36487eP.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hea22292ee9c1434e933c6ec0f4508aaf1.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H239a050689fd46dea8a679bf62647d61P.jpg">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H66577ecf727e4ac791d0751399195474N.jpg">
+<meta property="article:published_time" content="2020-03-25T07:01:45.000Z">
+<meta property="article:modified_time" content="2020-07-04T07:13:55.478Z">
 <meta property="article:author" content="Wgy">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/Hc3e74747366642008e7e27664d36487eP.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -155,42 +166,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Spring-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Nginx" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/680971a4.html">Spring(三)</a>
+    <h1 class="article-title" itemprop="name">
+      Nginx
     </h1>
   
 
         
-        <a href="/archives/680971a4.html" class="archive-article-date">
-  	<time datetime="2020-06-13T10:27:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+        <a href="/archives/65b69107.html" class="archive-article-date">
+  	<time datetime="2020-03-25T07:01:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-AOP的相关概念"><a href="#1-AOP的相关概念" class="headerlink" title="1.    AOP的相关概念"></a>1.    AOP的相关概念</h1><h2 id="1-1-AOP概述"><a href="#1-1-AOP概述" class="headerlink" title="1.1    AOP概述"></a>1.1    AOP概述</h2><h3 id="1-1-1-什么是AOP"><a href="#1-1-1-什么是AOP" class="headerlink" title="1.1.1    什么是AOP"></a>1.1.1    什么是AOP</h3><blockquote>
-<p>在软件业，AOP为Aspect Oriented Programming的缩写，意为：<a href="https://baike.baidu.com/item/面向切面编程/6016335" target="_blank" rel="noopener">面向切面编程</a>，通过<a href="https://baike.baidu.com/item/预编译/3191547" target="_blank" rel="noopener">预编译</a>方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP是<a href="https://baike.baidu.com/item/OOP" target="_blank" rel="noopener">OOP</a>的延续，是软件开发中的一个热点，也是<a href="https://baike.baidu.com/item/Spring" target="_blank" rel="noopener">Spring</a>框架中的一个重要内容，是<a href="https://baike.baidu.com/item/函数式编程/4035031" target="_blank" rel="noopener">函数式编程</a>的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的<a href="https://baike.baidu.com/item/耦合度/2603938" target="_blank" rel="noopener">耦合度</a>降低，提高程序的可重用性，同时提高了开发的效率。</p>
-</blockquote>
-        
+        <h1 id="1-Nginx"><a href="#1-Nginx" class="headerlink" title="1.    Nginx"></a>1.    Nginx</h1><h2 id="1-1-什么是Nginx"><a href="#1-1-什么是Nginx" class="headerlink" title="1.1    什么是Nginx"></a>1.1    什么是Nginx</h2><p>Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。</p>
+<a id="more"></a>
+
+<h2 id="1-2-Nginx应用场景"><a href="#1-2-Nginx应用场景" class="headerlink" title="1.2    Nginx应用场景"></a>1.2    Nginx应用场景</h2><ul>
+<li>http 服务器。Nginx 是一个 http 服务可以独立提供 http 服务。可以做网页静态服务器。</li>
+<li>虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</li>
+<li>反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用 nginx 做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。</li>
+</ul>
+<h1 id="2-Nginx的安装与启动"><a href="#2-Nginx的安装与启动" class="headerlink" title="2.    Nginx的安装与启动"></a>2.    Nginx的安装与启动</h1><h2 id="2-1-在Linux下的安装Nginx"><a href="#2-1-在Linux下的安装Nginx" class="headerlink" title="2.1    在Linux下的安装Nginx"></a>2.1    在Linux下的安装Nginx</h2><h3 id="2-1-1-环境准备"><a href="#2-1-1-环境准备" class="headerlink" title="2.1.1    环境准备"></a>2.1.1    环境准备</h3><h4 id="2-1-1-1-需要安装-gcc-的环境"><a href="#2-1-1-1-需要安装-gcc-的环境" class="headerlink" title="2.1.1.1    需要安装 gcc 的环境"></a>2.1.1.1    需要安装 gcc 的环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-1-2-第三方的开发包"><a href="#2-1-1-2-第三方的开发包" class="headerlink" title="2.1.1.2    第三方的开发包"></a>2.1.1.2    第三方的开发包</h4><p><strong>PCRE:</strong></p>
+<p>PCRE(Perl Compatible Regular Expressions)是一个 Perl 库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
+<p>注：pcre-devel 是使用 pcre 开发的一个二次开发库。nginx 也需要此库。</p>
+<p><strong>zlib:</strong></p>
+<p>zlib 库提供了很多种压缩和解压缩的方式，nginx 使用 zlib 对 http 包的内容进行 gzip。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure>
+
+<p><strong>OpenSSL:</strong></p>
+<p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。nginx 不仅支持 http 协议，还支持 https（即在 ssl 协议上传输 http）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-2-Nginx下载"><a href="#2-1-2-Nginx下载" class="headerlink" title="2.1.2    Nginx下载"></a>2.1.2    Nginx下载</h3><p>官方网站下载 nginx：<a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+<h3 id="2-1-3-Nginx安装"><a href="#2-1-3-Nginx安装" class="headerlink" title="2.1.3    Nginx安装"></a>2.1.3    Nginx安装</h3><p>1、把 nginx 的源码包nginx-1.8.0.tar.gz上传到 linux 系统</p>
+<p>2、解压缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.8.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>3、进入nginx-1.8.0目录，使用 configure 命令创建makeFile 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure \</span><br><span class="line">--prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx \</span><br><span class="line">--pid-path&#x3D;&#x2F;var&#x2F;run&#x2F;nginx&#x2F;nginx.pid \</span><br><span class="line">--lock-path&#x3D;&#x2F;var&#x2F;lock&#x2F;nginx.lock \</span><br><span class="line">--error-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log \</span><br><span class="line">--http-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--http-client-body-temp-path&#x3D;&#x2F;var&#x2F;temp&#x2F;nginx&#x2F;client \</span><br><span class="line">--http-proxy-temp-path&#x3D;&#x2F;var&#x2F;temp&#x2F;nginx&#x2F;proxy \</span><br><span class="line">--http-fastcgi-temp-path&#x3D;&#x2F;var&#x2F;temp&#x2F;nginx&#x2F;fastcgi \</span><br><span class="line">--http-uwsgi-temp-path&#x3D;&#x2F;var&#x2F;temp&#x2F;nginx&#x2F;uwsgi \</span><br><span class="line">--http-scgi-temp-path&#x3D;&#x2F;var&#x2F;temp&#x2F;nginx&#x2F;scgi</span><br></pre></td></tr></table></figure>
+
+<p>执行后可以看到Makefile文件</p>
+<p><img src="https://ae01.alicdn.com/kf/Hc3e74747366642008e7e27664d36487eP.jpg" alt="image-20200704122326149"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Makefile是一种配置文件， Makefile 一个工程中的源文件不计数，其按类型、功能、模块分别放在若干个目录中，</span><br><span class="line">makefile定义了一系列的规则来指定，哪些文件需要先编译，哪些文件需要后编译，哪些文件需要重新编译，</span><br><span class="line">甚至于进行更复杂的功能操作，因为 makefile就像一个Shell脚本一样，其中也可以执行操作系统的命令。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">configure参数</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">--prefix&#x3D;&#x2F;usr \                                         指向安装目录</span><br><span class="line">--sbin-path&#x3D;&#x2F;usr&#x2F;sbin&#x2F;nginx \                           指向（执行）程序文件（nginx）</span><br><span class="line">--conf-path&#x3D;&#x2F;etc&#x2F;nginx&#x2F;nginx.conf \                     指向配置文件</span><br><span class="line">--error-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log \             指向log</span><br><span class="line">--http-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log \             指向http-log</span><br><span class="line">--pid-path&#x3D;&#x2F;var&#x2F;run&#x2F;nginx&#x2F;nginx.pid \                   指向pid</span><br><span class="line">--lock-path&#x3D;&#x2F;var&#x2F;lock&#x2F;nginx.lock \                      安装文件锁定，防止安装文件被别人利用，或自己误操作。</span><br><span class="line">--user&#x3D;nginx \</span><br><span class="line">--group&#x3D;nginx \</span><br><span class="line">--with-http_ssl_module \                                启用ngx_http_ssl_module支持（使支持https请求，需已安装openssl）</span><br><span class="line">--with-http_flv_module \                                启用ngx_http_flv_module支持（提供寻求内存使用基于时间的偏移量文件）</span><br><span class="line">--with-http_stub_status_module \                        启用ngx_http_stub_status_module支持（获取nginx自上次启动以来的工作状态）</span><br><span class="line">--with-http_gzip_static_module \                        启用ngx_http_gzip_static_module支持（在线实时压缩输出数据流）</span><br><span class="line">--http-client-body-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;client&#x2F; \   设定http客户端请求临时文件路径</span><br><span class="line">--http-proxy-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;proxy&#x2F; \          设定http代理临时文件路径</span><br><span class="line">--http-fastcgi-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;fcgi&#x2F; \         设定http fastcgi临时文件路径</span><br><span class="line">--http-uwsgi-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;uwsgi \           设定http uwsgi临时文件路径</span><br><span class="line">--http-scgi-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;scgi \             设定http scgi临时文件路径</span><br><span class="line">--with-pcre                                             启用pcre库</span><br></pre></td></tr></table></figure>
+
+<p>4、编译安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-Nginx启动与访问"><a href="#2-2-Nginx启动与访问" class="headerlink" title="2.2    Nginx启动与访问"></a>2.2    Nginx启动与访问</h2><p>注意：启动nginx 之前，上边将临时文件目录指定为/var/temp/nginx/client， 需要在/var 下创建此目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;var&#x2F;temp&#x2F;nginx&#x2F;client -p</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动Nginx：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;ngiux&#x2F;sbin</span><br><span class="line"></span><br><span class="line">.&#x2F;nginx</span><br><span class="line"></span><br><span class="line">ps aux|grep nginx		启动后查看进程</span><br></pre></td></tr></table></figure>
+
+<p>地址栏输入虚拟机的IP即可访问（默认为80端口）</p>
+<p><strong>关闭 nginx：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;nginx -s stop</span><br><span class="line">或者</span><br><span class="line">.&#x2F;nginx -s quit</span><br></pre></td></tr></table></figure>
+
+<p><strong>重启 nginx：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;nginx -s reload	先关闭后启动，刷新配置文件</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-Nginx静态网站部署"><a href="#3-Nginx静态网站部署" class="headerlink" title="3.    Nginx静态网站部署"></a>3.    Nginx静态网站部署</h1><h2 id="3-1-静态网站的部署"><a href="#3-1-静态网站的部署" class="headerlink" title="3.1    静态网站的部署"></a>3.1    静态网站的部署</h2><p>将静态页面上传到服务器的/usr/local/nginx/html目录下即可访问</p>
+<h2 id="3-2-配置虚拟主机"><a href="#3-2-配置虚拟主机" class="headerlink" title="3.2    配置虚拟主机"></a>3.2    配置虚拟主机</h2><p>虚拟主机，也叫“网站空间”，就是把一台运行在互联网上的物理服务器划分成多个“虚拟”服务器。虚拟主机技术极大的促进了网络技术的应用和普及。同时虚拟主机的租用服务也成了网络时代的一种新型经济形式。</p>
+<h3 id="3-2-1-端口绑定"><a href="#3-2-1-端口绑定" class="headerlink" title="3.2.1    端口绑定"></a>3.2.1    端口绑定</h3><h4 id="3-2-1-1-上传静态网站"><a href="#3-2-1-1-上传静态网站" class="headerlink" title="3.2.1.1    上传静态网站"></a>3.2.1.1    上传静态网站</h4><p>将/资料/静态页面/index目录上传至 /usr/local/nginx/index下</p>
+<p>将/资料/静态页面/regist目录上传至 /usr/local/nginx/regist下</p>
+<h4 id="3-2-1-2-修改Nginx-的配置文件"><a href="#3-2-1-2-修改Nginx-的配置文件" class="headerlink" title="3.2.1.2    修改Nginx 的配置文件"></a>3.2.1.2    修改Nginx 的配置文件</h4><p>/usr/local/nginx/conf/nginx.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       81; # 监听的端口</span><br><span class="line">    server_name  localhost; # 域名或ip</span><br><span class="line">    location &#x2F; &#123;	# 访问路径配置</span><br><span class="line">        root   index;# 根目录</span><br><span class="line">        index  index.html index.htm; # 默认首页</span><br><span class="line">    &#125;</span><br><span class="line">    error_page   500 502 503 504  &#x2F;50x.html;	# 错误页面</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">    	root   html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       82; # 监听的端口</span><br><span class="line">    server_name  localhost; # 域名或ip</span><br><span class="line">    location &#x2F; &#123;	# 访问路径配置</span><br><span class="line">        root   regist;# 根目录</span><br><span class="line">        index  regist.html; # 默认首页</span><br><span class="line">    &#125;</span><br><span class="line">    error_page   500 502 503 504  &#x2F;50x.html;	# 错误页面</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">    	root   html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-1-3-访问测试"><a href="#3-2-1-3-访问测试" class="headerlink" title="3.2.1.3    访问测试"></a>3.2.1.3    访问测试</h4><p>地址栏输入：http://虚拟主机IP/:81 可以看到首页面</p>
+<p>地址栏输入：http://虚拟主机IP/:82 可以看到注册页面</p>
+<h3 id="3-2-2-域名绑定"><a href="#3-2-2-域名绑定" class="headerlink" title="3.2.2    域名绑定"></a>3.2.2    域名绑定</h3><h4 id="3-2-2-1-什么是域名"><a href="#3-2-2-1-什么是域名" class="headerlink" title="3.2.2.1    什么是域名"></a>3.2.2.1    什么是域名</h4><p>域名（Domain Name），是由一串用“点”分隔的字符组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位（有时也指地理位置，地理上的域名，指代有行政自主权的一个地方区域）。域名是一个IP地址上有“面具” 。域名的目的是便于记忆和沟通的一组服务器的地址（网站)，电子邮件，FTP等）。域名作为力所能及难忘的互联网参与者的名称。域名按域名系统（DNS）的规则流程组成。在DNS中注册的任何名称都是域名。域名用于各种网络环境和应用程序特定的命名和寻址目的。通常，域名表示互联网协议（IP）资源，例如用于访问因特网的个人计算机，托管网站的服务器计算机，或网站本身或通过因特网传送的任何其他服务。世界上第一个注册的域名是在1985年1月注册的。</p>
+<h4 id="3-2-2-2-域名与IP绑定"><a href="#3-2-2-2-域名与IP绑定" class="headerlink" title="3.2.2.2    域名与IP绑定"></a>3.2.2.2    域名与IP绑定</h4><p>一个域名对应一个 ip 地址，一个 ip 地址可以被多个域名绑定。</p>
+<p>本地测试可以修改 hosts 文件（C:\Windows\System32\drivers\etc）</p>
+<p>可以配置域名和 ip 的映射关系，如果 hosts 文件中配置了域名和 ip 的对应关系，不需要走dns 服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">虚拟主机IP	www.hmtravel.com</span><br><span class="line">虚拟主机IP	regist.hmtravel.com</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改nginx配置文件：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  www.hmtravel.com;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root   index;</span><br><span class="line">        index  index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  regist.hmtravel.com;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root   regist;</span><br><span class="line">        index  regist.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试：</strong></p>
+<p>地址栏输入<a href="http://www.hmtravel.com/、http://regist.hmtravel.com/" target="_blank" rel="noopener">http://www.hmtravel.com/、http://regist.hmtravel.com/</a> </p>
+<h1 id="4-Nginx反向代理与负载均衡"><a href="#4-Nginx反向代理与负载均衡" class="headerlink" title="4.    Nginx反向代理与负载均衡"></a>4.    Nginx反向代理与负载均衡</h1><h2 id="4-1-反向代理"><a href="#4-1-反向代理" class="headerlink" title="4.1    反向代理"></a>4.1    反向代理</h2><h3 id="4-1-1-什么是反向代理"><a href="#4-1-1-什么是反向代理" class="headerlink" title="4.1.1    什么是反向代理"></a>4.1.1    什么是反向代理</h3><p>反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
+<p>正向代理</p>
+<p><img src="https://ae01.alicdn.com/kf/Hea22292ee9c1434e933c6ec0f4508aaf1.jpg" alt="image-20200704143520669"></p>
+<p>正向代理是针对你的客户端，而反向代理是针对服务器的</p>
+<p><img src="https://ae01.alicdn.com/kf/H239a050689fd46dea8a679bf62647d61P.jpg" alt="image-20200704143601678"></p>
+<h3 id="4-1-2-配置反向代理"><a href="#4-1-2-配置反向代理" class="headerlink" title="4.1.2    配置反向代理"></a>4.1.2    配置反向代理</h3><p>准备工作：</p>
+<ul>
+<li><p>将travel案例部署到tomcat中（ROOT目录），上传到服务器。</p>
+</li>
+<li><p>启动TOMCAT，输入网址http://虚拟主机IP:8080 可以看到网站首页</p>
+</li>
+</ul>
+<p>在Nginx主机修改 Nginx配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcat-travel&#123;</span><br><span class="line">	server 192.168.177.129:8080;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80; # 监听的端口</span><br><span class="line">    server_name  www.hmtravel.com; # 域名或ip</span><br><span class="line">    location &#x2F; &#123;	# 访问路径配置</span><br><span class="line">        # root   index;# 根目录</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;tomcat-travel;</span><br><span class="line">        index  index.html index.htm; # 默认首页</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/H66577ecf727e4ac791d0751399195474N.jpg" alt="image-20200704144307613"></p>
+<h2 id="4-2-负载均衡"><a href="#4-2-负载均衡" class="headerlink" title="4.2    负载均衡"></a>4.2    负载均衡</h2><h3 id="4-2-1-什么是负载均衡"><a href="#4-2-1-什么是负载均衡" class="headerlink" title="4.2.1    什么是负载均衡"></a>4.2.1    什么是负载均衡</h3><p>负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。</p>
+<p>负载均衡，英文名称为Load Balance，其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。</p>
+<p>准备工作：</p>
+<ul>
+<li><p>将刚才的存放工程的tomcat复制三份，修改端口分别为8080 ，8081，8082 </p>
+</li>
+<li><p>分别启动这三个tomcat服务</p>
+</li>
+<li><p>为了能够区分是访问哪个服务器的网站，可以在首页标题加上标记以便区分</p>
+</li>
+</ul>
+<p>修改 Nginx配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcat-travel &#123;</span><br><span class="line">    server 192.168.177.129:8080;</span><br><span class="line">    server 192.168.177.129:8081;</span><br><span class="line">    server 192.168.177.129:8082;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80; # 监听的端口</span><br><span class="line">    server_name  www.hmtravel.com; # 域名或ip</span><br><span class="line">    location &#x2F; &#123;	# 访问路径配置</span><br><span class="line">        # root   index;# 根目录</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;tomcat-travel;</span><br><span class="line">        index  index.html index.htm; # 默认首页</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    error_page   500 502 503 504  &#x2F;50x.html;	# 错误页面</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">    	root   html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>地址栏输入http:// <a href="http://www.hmtravel.com" target="_blank" rel="noopener">www.hmtravel.com</a> / 刷新观察每个网页的标题，看是否不同。</p>
+<p>经过测试，三台服务器出现的概率各为33.3333333%，交替显示。</p>
+<p>如果其中一台服务器性能比较好，想让其承担更多的压力，可以设置权重。</p>
+<p>比如想让NO.1出现次数是其它服务器的2倍，则修改配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcat-travel &#123;</span><br><span class="line">    server 192.168.177.129:8080;</span><br><span class="line">    server 192.168.177.129:8081 weight&#x3D;2;</span><br><span class="line">    server 192.168.177.129:8082;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
       <!-- 添加本文结束标记-->
       
+           
+             <div class="essayending">
+               <div>
+                <div style="text-align:center;color: #ccc;font-size:22px;">
+                <br/>
+                <br/>
+                -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+                <br/>
+                <br/>
+                 <br/>
+                 <br/>
+                </div>
+               </div>
+             </div>
+           
+       
        <!-- 添加完成 -->
       <!-- 增加版权声明 -->
       
       
-        <div class="declare" hidden="hidden"></div>
+        <div class="declare">
+          <strong>本文作者：</strong>
+          
+            Wgy
+          
+          <br>
+          <strong>本文标题：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/65b69107.html">Nginx</a>
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/65b69107.html">https://wgy1993.gitee.io/archives/65b69107.html</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
+        </div>
       
       <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -201,11 +380,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
         		</li>
       		
 		</ul>
@@ -214,16 +393,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/680971a4.html">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wgy1993.gitee.io/archives/65b69107.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/archives/52429b60.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用hexo+github搭建免费个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/archives/be6dfc49.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -238,450 +485,57 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/16fa518f.html">Spring(二)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/16fa518f.html" class="archive-article-date">
-  	<time datetime="2020-06-11T06:53:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-基于注解的IOC配置"><a href="#1-基于注解的IOC配置" class="headerlink" title="1.    基于注解的IOC配置"></a>1.    基于注解的IOC配置</h1><h2 id="1-1-写在最前"><a href="#1-1-写在最前" class="headerlink" title="1.1    写在最前"></a>1.1    写在最前</h2><p>学习基于注解的IoC配置，大家脑海里首先得有一个认知，即注解配置和xml配置要实现的功能都是一样的，都是要降低程序间的耦合。只是配置的形式不一样。</p>
-<p>关于实际的开发中到底使用xml还是注解，每家公司有着不同的使用习惯。所以这两种配置方式我们都需要掌握。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/16fa518f.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Nginx"><span class="toc-number">1.</span> <span class="toc-text">1.    Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-什么是Nginx"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    什么是Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Nginx应用场景"><span class="toc-number">1.2.</span> <span class="toc-text">1.2    Nginx应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Nginx的安装与启动"><span class="toc-number">2.</span> <span class="toc-text">2.    Nginx的安装与启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-在Linux下的安装Nginx"><span class="toc-number">2.1.</span> <span class="toc-text">2.1    在Linux下的安装Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-环境准备"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1    环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-1-需要安装-gcc-的环境"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">2.1.1.1    需要安装 gcc 的环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-2-第三方的开发包"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">2.1.1.2    第三方的开发包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-Nginx下载"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2    Nginx下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-Nginx安装"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3    Nginx安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Nginx启动与访问"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    Nginx启动与访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Nginx静态网站部署"><span class="toc-number">3.</span> <span class="toc-text">3.    Nginx静态网站部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-静态网站的部署"><span class="toc-number">3.1.</span> <span class="toc-text">3.1    静态网站的部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-配置虚拟主机"><span class="toc-number">3.2.</span> <span class="toc-text">3.2    配置虚拟主机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-端口绑定"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1    端口绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-1-上传静态网站"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">3.2.1.1    上传静态网站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-2-修改Nginx-的配置文件"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">3.2.1.2    修改Nginx 的配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-3-访问测试"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">3.2.1.3    访问测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-域名绑定"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2    域名绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-1-什么是域名"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">3.2.2.1    什么是域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-2-域名与IP绑定"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">3.2.2.2    域名与IP绑定</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Nginx反向代理与负载均衡"><span class="toc-number">4.</span> <span class="toc-text">4.    Nginx反向代理与负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-反向代理"><span class="toc-number">4.1.</span> <span class="toc-text">4.1    反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-什么是反向代理"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1    什么是反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-配置反向代理"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2    配置反向代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-负载均衡"><span class="toc-number">4.2.</span> <span class="toc-text">4.2    负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-什么是负载均衡"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1    什么是负载均衡</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Spring-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/b9cbcaed.html">Spring(一)</a>
-    </h1>
   
 
-        
-        <a href="/archives/b9cbcaed.html" class="archive-article-date">
-  	<time datetime="2020-06-10T15:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Spring概述"><a href="#1-Spring概述" class="headerlink" title="1.    Spring概述"></a>1.    Spring概述</h1><h2 id="1-1-Spring概述"><a href="#1-1-Spring概述" class="headerlink" title="1.1    Spring概述"></a>1.1    Spring概述</h2><h3 id="1-1-1-Spring介绍"><a href="#1-1-1-Spring介绍" class="headerlink" title="1.1.1    Spring介绍"></a>1.1.1    Spring介绍</h3><p>Spring是分层的Java SE/EE应用 full-stack轻量级开源框架，以IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层Spring MVC和持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE企业应用开源框架。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/b9cbcaed.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Struts2-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/bb3a06c4.html">Struts2(四)</a>
-    </h1>
   
 
-        
-        <a href="/archives/bb3a06c4.html" class="archive-article-date">
-  	<time datetime="2020-06-08T07:27:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Struts2中的拦截器"><a href="#1-Struts2中的拦截器" class="headerlink" title="1.    Struts2中的拦截器"></a>1.    Struts2中的拦截器</h1><h2 id="1-1-Struts2的拦截器基本概念"><a href="#1-1-Struts2的拦截器基本概念" class="headerlink" title="1.1    Struts2的拦截器基本概念"></a>1.1    Struts2的拦截器基本概念</h2><h3 id="1-1-1-拦截器概述"><a href="#1-1-1-拦截器概述" class="headerlink" title="1.1.1    拦截器概述"></a>1.1.1    拦截器概述</h3><p>在Webwork的中文文档的解释为——拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者在定义的action执行的前后加入执行的代码，也可以在一个action执行前阻止其执行。也就是说它提供了一种可以<strong>提取action中可重用代码，统一管理和执行的方式</strong>。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/bb3a06c4.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Struts2-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/4179e9cb.html">Struts2(三)</a>
-    </h1>
   
 
-        
-        <a href="/archives/4179e9cb.html" class="archive-article-date">
-  	<time datetime="2020-06-07T11:48:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-OGNL表达式"><a href="#1-OGNL表达式" class="headerlink" title="1.    OGNL表达式"></a>1.    OGNL表达式</h1><h2 id="1-1-OGNL表达式概述"><a href="#1-1-OGNL表达式概述" class="headerlink" title="1.1    OGNL表达式概述"></a>1.1    OGNL表达式概述</h2><h3 id="1-1-1-什么是OGNL表达式"><a href="#1-1-1-什么是OGNL表达式" class="headerlink" title="1.1.1    什么是OGNL表达式"></a>1.1.1    什么是OGNL表达式</h3><p>OGNL的全称是对象图导航语言（Object-Graph Navigation Language），它是一种功能强大的<strong>开源表达式语言</strong>，使用这种表达式语言，可以通过某种表达式语法，<strong>存取Java对象的任意属性</strong>，<strong>调用Java对象的方法</strong>，同时能够自动<strong>实现必要的类型转换</strong>。如果把表达式看作是一个带有语义的字符串，那么OGNL无疑成为了这个语义字符串与Java对象之间沟通的桥梁。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/4179e9cb.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Struts2-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/3f8ac9e0.html">Struts2(二)</a>
-    </h1>
   
 
-        
-        <a href="/archives/3f8ac9e0.html" class="archive-article-date">
-  	<time datetime="2020-06-05T09:14:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-结果视图的配置"><a href="#1-结果视图的配置" class="headerlink" title="1.    结果视图的配置"></a>1.    结果视图的配置</h1><h2 id="1-1-result标签"><a href="#1-1-result标签" class="headerlink" title="1.1    result标签"></a>1.1    result标签</h2><p>在sturts.xml文件中，Result的配置非常简单，使用<result>元素来配置Result逻辑视图与物理视图之间的映射，<result>元素可以有name和type属性，但这两种属性都不是必选的。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/3f8ac9e0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
-    </nav>
   
 
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a01b13554e910b682a17',
+  	clientSecret: 'ed78fef4c5012669cf340214fd17d583601a9aa1',
+  	repo: 'wgy1993.github.io',
+  	owner: 'wgy1993',
+  	admin: ['wgy1993'],
+  	id: 'Wed Mar 25 2020 15:01:45 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+  <br/>
 
 
           </div>
@@ -712,8 +566,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
