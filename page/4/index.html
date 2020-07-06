@@ -622,27 +622,37 @@
 
 
   
-    <article id="post-MySQL高级教程-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MySQL高级教程-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/cd2a02be.html">MySQL高级教程(一)</a>
+      <a class="article-title" href="/archives/621b99dc.html">MySQL高级教程(二)</a>
     </h1>
   
 
         
-        <a href="/archives/cd2a02be.html" class="archive-article-date">
-  	<time datetime="2020-05-18T03:20:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+        <a href="/archives/621b99dc.html" class="archive-article-date">
+  	<time datetime="2020-05-19T09:27:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-索引"><a href="#1-索引" class="headerlink" title="1.    索引"></a>1.    索引</h1><h2 id="1-1-索引概述"><a href="#1-1-索引概述" class="headerlink" title="1.1    索引概述"></a>1.1    索引概述</h2><p>MySQL官方对索引的定义为：索引（index）是帮助MySQL高效获取数据的数据结构（有序）。在数据之外，数据库系统还维护者满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据， 这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</p>
+        <h1 id="1-Mysql的体系结构概览"><a href="#1-Mysql的体系结构概览" class="headerlink" title="1.    Mysql的体系结构概览"></a>1.    Mysql的体系结构概览</h1><p>整个MySQL Server由以下组成</p>
+<ul>
+<li>Connection Pool : 连接池组件</li>
+<li>Management Services &amp; Utilities : 管理服务和工具组件</li>
+<li>SQL Interface : SQL接口组件</li>
+<li>Parser : 查询分析器组件</li>
+<li>Optimizer : 优化器组件</li>
+<li>Caches &amp; Buffers : 缓冲池组件</li>
+<li>Pluggable Storage Engines : 存储引擎</li>
+<li>File System : 文件系统</li>
+</ul>
         
       
       <!-- 添加本文结束标记-->
@@ -678,7 +688,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/cd2a02be.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/621b99dc.html">展开全文 >></a>
         </p>
       
 
