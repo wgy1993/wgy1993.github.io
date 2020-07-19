@@ -15,21 +15,21 @@
 <meta property="og:site_name" content="Wgy的博客">
 <meta property="og:description" content="1.    rpm1.1    概述RPM（RedHat Package Manager），Rethat软件包管理工具，类似windows里面的setup.exe， 是Linux这系列操作系统里面的打包安装工具，它虽然是RedHat的标志，但理念是通用的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ae01.alicdn.com/kf/Hf24c0b5df6724edc970b1aa3221d2334Y.jpg">
+<meta property="og:image" content="https://p.pstatp.com/origin/1373c00010537165e2ba2">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H4acdf545022f4fb59bfa91521c5dfbbcG.jpg">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/He8e46ac2b7324ed5aa76a37a6a22c94eB.jpg">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H28982ac50abf422183e177d9710891c5f.jpg">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/Hdb69705615924a86af2bfd3e86fd9810C.jpg">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/H868489d2931c43768deebb3f7f2387189.jpg">
-<meta property="og:image" content="https://ae01.alicdn.com/kf/H7523e1c50819412d82052292c1489b4dx.jpg">
+<meta property="og:image" content="https://p.pstatp.com/origin/ff7d000260b79a95c86c">
 <meta property="og:image" content="https://ae01.alicdn.com/kf/He412c728334f490fa6c869056b18b1ceV.jpg">
 <meta property="article:published_time" content="2020-03-24T09:09:35.000Z">
-<meta property="article:modified_time" content="2020-07-03T09:17:08.805Z">
+<meta property="article:modified_time" content="2020-07-19T12:39:27.115Z">
 <meta property="article:author" content="Wgy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ae01.alicdn.com/kf/Hf24c0b5df6724edc970b1aa3221d2334Y.jpg">
+<meta name="twitter:image" content="https://p.pstatp.com/origin/1373c00010537165e2ba2">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -216,7 +216,7 @@
 
 <h2 id="2-3-关联网络yum源"><a href="#2-3-关联网络yum源" class="headerlink" title="2.3    关联网络yum源"></a>2.3    关联网络yum源</h2><h3 id="2-3-1-前期文件准备"><a href="#2-3-1-前期文件准备" class="headerlink" title="2.3.1    前期文件准备"></a>2.3.1    前期文件准备</h3><p>前提条件linux系统必须可以联网</p>
 <p>在Linux环境环境中访问该网络地址：<a href="http://mirrors.163.com/.help/centos.html，在使用说明中点击CentOS6-&gt;再点击保存" target="_blank" rel="noopener">http://mirrors.163.com/.help/centos.html，在使用说明中点击CentOS6-&gt;再点击保存</a></p>
-<p><img src="https://ae01.alicdn.com/kf/Hf24c0b5df6724edc970b1aa3221d2334Y.jpg" alt="image-20200702234125514"></p>
+<p><img src="https://p.pstatp.com/origin/1373c00010537165e2ba2" alt="image-20200702234125514"></p>
 <h3 id="2-3-2-替换本地yum文件"><a href="#2-3-2-替换本地yum文件" class="headerlink" title="2.3.2    替换本地yum文件"></a>2.3.2    替换本地yum文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.  把下载的文件移动到&#x2F;etc&#x2F;yum.repos.d&#x2F;目录</span><br><span class="line">    mv CentOS6-Base-163.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;</span><br><span class="line">	</span><br><span class="line">2.  备份CentOS-Base.repo</span><br><span class="line">    cp CentOS-Base.repo CentOS-Base.repo.bak</span><br><span class="line"></span><br><span class="line">3.  用CentOS6-Base-163.repo替换CentOS-Base.repo</span><br><span class="line">    mv CentOS6-Base-163.repo  CentOS-Base.repo</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-3-3-安装命令"><a href="#2-3-3-安装命令" class="headerlink" title="2.3.3    安装命令"></a>2.3.3    安装命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum clean all	清除所有缓存</span><br><span class="line"></span><br><span class="line">yum makecache	生成缓存</span><br></pre></td></tr></table></figure>
@@ -247,7 +247,7 @@
 <h3 id="3-2-3-sftp"><a href="#3-2-3-sftp" class="headerlink" title="3.2.3    sftp"></a>3.2.3    sftp</h3><p>SecureCRT使用alt + p 组合键打开sftp窗口</p>
 <p><img src="https://ae01.alicdn.com/kf/H868489d2931c43768deebb3f7f2387189.jpg" alt="image-20200703000320947"></p>
 <p><strong>使用put 命令上传：</strong></p>
-<p><img src="https://ae01.alicdn.com/kf/H7523e1c50819412d82052292c1489b4dx.jpg" alt="image-20200703000350292"></p>
+<p><img src="https://p.pstatp.com/origin/ff7d000260b79a95c86c" alt="image-20200703000350292"></p>
 <p><strong>使用get命令下载：</strong></p>
 <p>默认下载位置在当前计算的的文档位置</p>
 <p><img src="https://ae01.alicdn.com/kf/He412c728334f490fa6c869056b18b1ceV.jpg" alt="image-20200703000419566"></p>

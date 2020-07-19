@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="Wgy的博客">
 <meta property="og:description" content="1.    Git 简介1.1    版本控制版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。  本地版本控制系统：采用某种简单的数据库来记录文件的历次更新差异（RCS）； 集中化的版本控制系统（ CVCS）：有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新 分布式版本控制系统（DVCS）：客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ae01.alicdn.com/kf/H8fc0f65d7ee140dbade3c39323a46b59t.jpg">
-<meta property="og:image" content="https://ae01.alicdn.com/kf/Hbd726fd5847d467ba5eae1d5f800848dg.jpg">
+<meta property="og:image" content="https://p.pstatp.com/origin/137a00000fc3916ad3aac">
+<meta property="og:image" content="https://p.pstatp.com/origin/137dd00000a18b3c1b21f">
 <meta property="article:published_time" content="2020-04-22T10:07:41.000Z">
-<meta property="article:modified_time" content="2020-07-10T10:10:21.480Z">
+<meta property="article:modified_time" content="2020-07-19T06:24:18.381Z">
 <meta property="article:author" content="Wgy">
 <meta property="article:tag" content="项目管理">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ae01.alicdn.com/kf/H8fc0f65d7ee140dbade3c39323a46b59t.jpg">
+<meta name="twitter:image" content="https://p.pstatp.com/origin/137a00000fc3916ad3aac">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -203,7 +203,7 @@
 <li><p>Git保证完整性</p>
 </li>
 </ul>
-<h1 id="2-Git-使用交互流程"><a href="#2-Git-使用交互流程" class="headerlink" title="2.    Git 使用交互流程"></a>2.    Git 使用交互流程</h1><p><img src="https://ae01.alicdn.com/kf/H8fc0f65d7ee140dbade3c39323a46b59t.jpg" alt="image-20200710171330971"></p>
+<h1 id="2-Git-使用交互流程"><a href="#2-Git-使用交互流程" class="headerlink" title="2.    Git 使用交互流程"></a>2.    Git 使用交互流程</h1><p><img src="https://p.pstatp.com/origin/137a00000fc3916ad3aac" alt="image-20200710171330971"></p>
 <h1 id="3-安装和配置-Git-环境"><a href="#3-安装和配置-Git-环境" class="headerlink" title="3.    安装和配置 Git 环境"></a>3.    安装和配置 Git 环境</h1><p>下载地址：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
 <p>环境配置：Git安装bin目录加入系统patch中</p>
 <h1 id="4-初始化配置"><a href="#4-初始化配置" class="headerlink" title="4.    初始化配置"></a>4.    初始化配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置用户名</span></span><br><span class="line">git config --global user.name <span class="string">"你的名字"</span></span><br><span class="line"><span class="comment"># 配置用户邮箱</span></span><br><span class="line">git config --global user.email <span class="string">"你的常用邮箱"</span></span><br><span class="line"><span class="comment"># 设置 gitk 图形查看工具中文显示默认编码（防止乱码）</span></span><br><span class="line">git config --global gui.encoding utf-8</span><br><span class="line"><span class="comment"># 查看配置列表项</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
@@ -231,7 +231,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --<span class="built_in">set</span>-upstream wgy master</span><br></pre></td></tr></table></figure>
 
 <p>这样就可以直接使用 <code>git pish</code> 进行提交而不需要指定 <code>wgy master</code> 了</p>
-<h1 id="6-Git-工作流程：分支策略"><a href="#6-Git-工作流程：分支策略" class="headerlink" title="6.    Git 工作流程：分支策略"></a>6.    Git 工作流程：分支策略</h1><h2 id="6-1-Git-Flow"><a href="#6-1-Git-Flow" class="headerlink" title="6.1    Git Flow"></a>6.1    Git Flow</h2><p><img src="https://ae01.alicdn.com/kf/Hbd726fd5847d467ba5eae1d5f800848dg.jpg" alt="image-20200710175722979"></p>
+<h1 id="6-Git-工作流程：分支策略"><a href="#6-Git-工作流程：分支策略" class="headerlink" title="6.    Git 工作流程：分支策略"></a>6.    Git 工作流程：分支策略</h1><h2 id="6-1-Git-Flow"><a href="#6-1-Git-Flow" class="headerlink" title="6.1    Git Flow"></a>6.1    Git Flow</h2><p><img src="https://p.pstatp.com/origin/137dd00000a18b3c1b21f" alt="image-20200710175722979"></p>
 <h2 id="6-2-Github-Collabrators"><a href="#6-2-Github-Collabrators" class="headerlink" title="6.2    Github Collabrators"></a>6.2    Github Collabrators</h2><p>这种方式公司团队项目使用居多</p>
 <h2 id="6-3-Github-Flow"><a href="#6-3-Github-Flow" class="headerlink" title="6.3    Github Flow"></a>6.3    Github Flow</h2><p>这种方式开源项目使用居多</p>
 <ul>
