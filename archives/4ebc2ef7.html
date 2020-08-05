@@ -6,15 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wgy1993.gitee.io">
-  <title>Wgy的博客</title>
+  <title>zookeeper(二) | Wgy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wgy的博客">
-<meta property="og:url" content="https://wgy1993.gitee.io/index.html">
+  <meta name="description" content="1.    zookeeper源码解析1.1    下载zookeeper源码，导入IDEA中下载地址：https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;zookeeper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zookeeper(二)">
+<meta property="og:url" content="https://wgy1993.gitee.io/archives/4ebc2ef7.html">
 <meta property="og:site_name" content="Wgy的博客">
+<meta property="og:description" content="1.    zookeeper源码解析1.1    下载zookeeper源码，导入IDEA中下载地址：https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;zookeeper">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p.pstatp.com/origin/1383e0000188928d52ee3">
+<meta property="og:image" content="https://p.pstatp.com/origin/1373c00013304b76e41b4">
+<meta property="og:image" content="https://p.pstatp.com/origin/137cd00006d7a815eb690">
+<meta property="og:image" content="https://p.pstatp.com/origin/ff550002d3a73938034c">
+<meta property="og:image" content="https://p.pstatp.com/origin/fe760002b77afcb137ba">
+<meta property="og:image" content="https://p.pstatp.com/origin/137d20000b60cf8a6dcd4">
+<meta property="og:image" content="https://p.pstatp.com/origin/1379f00007439636871cf">
+<meta property="og:image" content="https://p.pstatp.com/origin/1000b0002714c665df7a5">
+<meta property="og:image" content="https://p.pstatp.com/origin/13758000235878cc9c24c">
+<meta property="og:image" content="https://p.pstatp.com/origin/1383c00001a486232479b">
+<meta property="og:image" content="https://p.pstatp.com/origin/10003000272c3d6417543">
+<meta property="article:published_time" content="2020-08-05T08:55:24.000Z">
+<meta property="article:modified_time" content="2020-08-05T08:59:52.816Z">
 <meta property="article:author" content="Wgy">
+<meta property="article:tag" content="分布式架构方案">
+<meta property="article:tag" content="zookeeper">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p.pstatp.com/origin/1383e0000188928d52ee3">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -155,16 +173,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-zookeeper-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-zookeeper-二" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/4ebc2ef7.html">zookeeper(二)</a>
+    <h1 class="article-title" itemprop="name">
+      zookeeper(二)
     </h1>
   
 
@@ -178,17 +194,244 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-zookeeper源码解析"><a href="#1-zookeeper源码解析" class="headerlink" title="1.    zookeeper源码解析"></a>1.    zookeeper源码解析</h1><h2 id="1-1-下载zookeeper源码，导入IDEA中"><a href="#1-1-下载zookeeper源码，导入IDEA中" class="headerlink" title="1.1    下载zookeeper源码，导入IDEA中"></a>1.1    下载zookeeper源码，导入IDEA中</h2><p>下载地址：<a href="https://github.com/apache/zookeeper" target="_blank" rel="noopener">https://github.com/apache/zookeeper</a></p>
-        
+<a id="more"></a>
+
+<h2 id="1-2-启动"><a href="#1-2-启动" class="headerlink" title="1.2    启动"></a>1.2    启动</h2><p>根据bin目录下的启动脚本zkServer.sh中加载启动类：<code>QuorumPeerMain</code>类</p>
+<p><img src="https://p.pstatp.com/origin/1383e0000188928d52ee3" alt="image-20200803143136525"></p>
+<p><code>QuorumPeerMain</code> 中<code>main</code>方法执行<code>initializeAndRun</code>方法</p>
+<p><img src="https://p.pstatp.com/origin/1373c00013304b76e41b4" alt="image-20200803143219426"></p>
+<p>跟进 <code>initializeAndRun</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initializeAndRun</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ConfigException, IOException, AdminServerException </span>&#123;</span><br><span class="line">    <span class="comment">//1.加载配置文件</span></span><br><span class="line">    QuorumPeerConfig config = <span class="keyword">new</span> QuorumPeerConfig();</span><br><span class="line">    <span class="keyword">if</span> (args.length == <span class="number">1</span>) &#123;</span><br><span class="line">        config.parse(args[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Start and schedule the the purge task</span></span><br><span class="line">    <span class="comment">//2.启动清除任务 主要清除旧的快照和日志文件</span></span><br><span class="line">    DatadirCleanupManager purgeMgr = <span class="keyword">new</span> DatadirCleanupManager(config.getDataDir(), config.getDataLogDir(), config.getSnapRetainCount(), config.getPurgeInterval());</span><br><span class="line">    purgeMgr.start();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 启动zk zookeeper启动方式分为两种：单机启动和集群启动</span></span><br><span class="line">    <span class="keyword">if</span> (args.length == <span class="number">1</span> &amp;&amp; config.isDistributed()) &#123;</span><br><span class="line">        <span class="comment">//启动集群</span></span><br><span class="line">        runFromConfig(config);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        LOG.warn(<span class="string">"Either no config or no quorum defined in config, running "</span></span><br><span class="line">                 + <span class="string">" in standalone mode"</span>);</span><br><span class="line">        <span class="comment">// there is only server in the quorum -- run as standalone</span></span><br><span class="line">        <span class="comment">//启动单机</span></span><br><span class="line">        ZooKeeperServerMain.main(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>initializeAndRun</code>方法中主要做了三件事</p>
+<ul>
+<li><p>加载解析配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">File configFile = (<span class="keyword">new</span> VerifyingFileFactory.Builder(LOG).warnForRelativePath().failForNonExistingPath().build()).create(path);</span><br><span class="line"></span><br><span class="line">Properties cfg = <span class="keyword">new</span> Properties();</span><br><span class="line">FileInputStream in = <span class="keyword">new</span> FileInputStream(configFile);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    cfg.load(in);</span><br><span class="line">    configFileStr = path;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    in.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Read entire config file as initial configuration */</span></span><br><span class="line">initialConfig = <span class="keyword">new</span> String(Files.readAllBytes(configFile.toPath()));</span><br><span class="line"></span><br><span class="line">parseProperties(cfg);</span><br></pre></td></tr></table></figure>
+
+<p>将配置文件加载到 <code>Properties cfg</code>对象中，解析cfg对象。zookeeper所有配置信息封装到一个<code>QuorumPeerConfig</code>对象中</p>
+</li>
+<li><p>启动定时清除任务</p>
+<p><code>PurgeTask</code>继承<code>TimeTask</code>，定时执行<code>run</code>方法中的<code>purge</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">PurgeTask</span> <span class="keyword">extends</span> <span class="title">TimerTask</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> File logsDir;</span><br><span class="line">    <span class="keyword">private</span> File snapsDir;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> snapRetainCount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PurgeTask</span><span class="params">(File dataDir, File snapDir, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">        logsDir = dataDir;</span><br><span class="line">        snapsDir = snapDir;</span><br><span class="line">        snapRetainCount = count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LOG.info(<span class="string">"Purge task started."</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PurgeTxnLog.purge(logsDir, snapsDir, snapRetainCount);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            LOG.error(<span class="string">"Error occurred while purging."</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">        LOG.info(<span class="string">"Purge task completed."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>purge</code> 方法主要清除旧的快照和日志文件</p>
+</li>
+<li><p>启动 zk</p>
+<p>zookeeper启动方式分为两种：单机启动和集群启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (args.length == <span class="number">1</span> &amp;&amp; config.isDistributed()) &#123;</span><br><span class="line">    <span class="comment">//启动集群</span></span><br><span class="line">    runFromConfig(config);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    LOG.warn(<span class="string">"Either no config or no quorum defined in config, running "</span></span><br><span class="line">             + <span class="string">" in standalone mode"</span>);</span><br><span class="line">    <span class="comment">// there is only server in the quorum -- run as standalone</span></span><br><span class="line">    <span class="comment">//启动单机</span></span><br><span class="line">    ZooKeeperServerMain.main(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先我们看看单机启动的源码 <code>main</code>方法调用<code>initializeAndRun</code>方法，<code>initializeAndRun</code>首先加载配置文件，然后执行<code>runFromConfig(config)</code>方法，我们看看<code>runFromConfig</code>具体执行了什么操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runFromConfig</span><span class="params">(ServerConfig config)</span> <span class="keyword">throws</span> IOException, AdminServerException </span>&#123;</span><br><span class="line">    LOG.info(<span class="string">"Starting server"</span>);</span><br><span class="line">    FileTxnSnapLog txnLog = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1.首先开启一下metrics监控</span></span><br><span class="line">            metricsProvider = MetricsProviderBootstrap.startMetricsProvider(config.getMetricsProviderClassName(), config.getMetricsProviderConfiguration());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (MetricsProviderLifeCycleException error) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"Cannot boot MetricsProvider "</span> + config.getMetricsProviderClassName(), error);</span><br><span class="line">        &#125;</span><br><span class="line">        ServerMetrics.metricsProviderInitialized(metricsProvider);</span><br><span class="line">        <span class="comment">// Note that this thread isn't going to be doing anything else,</span></span><br><span class="line">        <span class="comment">// so rather than spawning another thread, we will just call</span></span><br><span class="line">        <span class="comment">// run() in this thread.</span></span><br><span class="line">        <span class="comment">// create a file logger url from the command line args</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//2. 创建了FileTxnLog实例和FIleSnap实例，并保存刚启动时候日志数据</span></span><br><span class="line">        txnLog = <span class="keyword">new</span> FileTxnSnapLog(config.dataLogDir, config.dataDir);</span><br><span class="line">        JvmPauseMonitor jvmPauseMonitor = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (config.jvmPauseMonitorToRun) &#123;</span><br><span class="line">            jvmPauseMonitor = <span class="keyword">new</span> JvmPauseMonitor(config);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">final</span> ZooKeeperServer zkServer = <span class="keyword">new</span> ZooKeeperServer(jvmPauseMonitor, txnLog, config.tickTime, config.minSessionTimeout, config.maxSessionTimeout, config.listenBacklog, <span class="keyword">null</span>, config.initialConfig);</span><br><span class="line">        txnLog.setServerStats(zkServer.serverStats());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Registers shutdown handler which will be used to know the</span></span><br><span class="line">        <span class="comment">// server error or shutdown state changes.</span></span><br><span class="line">        <span class="keyword">final</span> CountDownLatch shutdownLatch = <span class="keyword">new</span> CountDownLatch(<span class="number">1</span>);</span><br><span class="line">        zkServer.registerServerShutdownHandler(<span class="keyword">new</span> ZooKeeperServerShutdownHandler(shutdownLatch));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Start Admin server</span></span><br><span class="line">        <span class="comment">//3. 启动adminServer</span></span><br><span class="line">        adminServer = AdminServerFactory.createAdminServer();</span><br><span class="line">        adminServer.setZooKeeperServer(zkServer);</span><br><span class="line">        adminServer.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4. 启动NIOServerCnxnFactory</span></span><br><span class="line">        <span class="keyword">boolean</span> needStartZKServer = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">//4.1从解析出的配置中配置NIOServerCnxnFactory</span></span><br><span class="line">        <span class="keyword">if</span> (config.getClientPortAddress() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            cnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">            cnxnFactory.configure(config.getClientPortAddress(), config.getMaxClientCnxns(), config.getClientPortListenBacklog(), <span class="keyword">false</span>);</span><br><span class="line">            <span class="comment">//4.2启动ZookeeperServer，</span></span><br><span class="line">            cnxnFactory.startup(zkServer);</span><br><span class="line">            <span class="comment">// zkServer has been started. So we don't need to start it again in secureCnxnFactory.</span></span><br><span class="line">            needStartZKServer = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (config.getSecureClientPortAddress() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            secureCnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">            secureCnxnFactory.configure(config.getSecureClientPortAddress(), config.getMaxClientCnxns(), config.getClientPortListenBacklog(), <span class="keyword">true</span>);</span><br><span class="line">            secureCnxnFactory.startup(zkServer, needStartZKServer);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        containerManager = <span class="keyword">new</span> ContainerManager(zkServer.getZKDatabase(), zkServer.firstProcessor,</span><br><span class="line">                                                Integer.getInteger(<span class="string">"znode.container.checkIntervalMs"</span>, (<span class="keyword">int</span>) TimeUnit.MINUTES.toMillis(<span class="number">1</span>)),</span><br><span class="line">                                                Integer.getInteger(<span class="string">"znode.container.maxPerMinute"</span>, <span class="number">10000</span>)</span><br><span class="line">                                               );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        containerManager.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Watch status of ZooKeeper server. It will do a graceful shutdown</span></span><br><span class="line">        <span class="comment">// if the server is not running or hits an internal error.</span></span><br><span class="line">        shutdownLatch.await();</span><br><span class="line"></span><br><span class="line">        shutdown();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (cnxnFactory != <span class="keyword">null</span>) &#123;</span><br><span class="line">            cnxnFactory.join();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (secureCnxnFactory != <span class="keyword">null</span>) &#123;</span><br><span class="line">            secureCnxnFactory.join();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (zkServer.canShutdown()) &#123;</span><br><span class="line">            zkServer.shutdown(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        <span class="comment">// warn, but generally this is ok</span></span><br><span class="line">        LOG.warn(<span class="string">"Server interrupted"</span>, e);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (txnLog != <span class="keyword">null</span>) &#123;</span><br><span class="line">            txnLog.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (metricsProvider != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                metricsProvider.stop();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable error) &#123;</span><br><span class="line">                LOG.warn(<span class="string">"Error while stopping metrics"</span>, error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动过程首先开启一下 <code>metrics</code>监控,然后启动<code>admin server</code>,然后启动<code>zk server</code>，我们来看看启动过程</p>
+<p><code>ServerCnxnFactory</code>中<code>startup</code>方法调用<code>NettyServerCnxnFactory</code>实现类启动方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startup</span><span class="params">(ZooKeeperServer zks, <span class="keyword">boolean</span> startServer)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">    start();</span><br><span class="line">    setZooKeeperServer(zks);</span><br><span class="line">    <span class="keyword">if</span> (startServer) &#123;</span><br><span class="line">        zks.startdata();</span><br><span class="line">        zks.startup();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动方法执行操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (sessionTracker == <span class="keyword">null</span>) &#123;</span><br><span class="line">        createSessionTracker();</span><br><span class="line">    &#125;</span><br><span class="line">    startSessionTracker();</span><br><span class="line">    setupRequestProcessors();</span><br><span class="line"></span><br><span class="line">    startRequestThrottler();</span><br><span class="line"></span><br><span class="line">    registerJMX();</span><br><span class="line"></span><br><span class="line">    startJvmPauseMonitor();</span><br><span class="line"></span><br><span class="line">    registerMetrics();</span><br><span class="line"></span><br><span class="line">    setState(State.RUNNING);</span><br><span class="line">    requestPathMetricsCollector.start();</span><br><span class="line">    notifyAll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们看看集群启动过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runFromConfig</span><span class="params">(QuorumPeerConfig config)</span> <span class="keyword">throws</span> IOException, AdminServerException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ManagedUtil.registerLog4jMBeans();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (JMException e) &#123;</span><br><span class="line">        LOG.warn(<span class="string">"Unable to register log4j JMX control"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    LOG.info(<span class="string">"Starting quorum peer"</span>);</span><br><span class="line">    MetricsProvider metricsProvider;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        metricsProvider = MetricsProviderBootstrap.startMetricsProvider(config.getMetricsProviderClassName(), config.getMetricsProviderConfiguration());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MetricsProviderLifeCycleException error) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"Cannot boot MetricsProvider "</span> + config.getMetricsProviderClassName(), error);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ServerMetrics.metricsProviderInitialized(metricsProvider);</span><br><span class="line">        ServerCnxnFactory cnxnFactory = <span class="keyword">null</span>;</span><br><span class="line">        ServerCnxnFactory secureCnxnFactory = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (config.getClientPortAddress() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            cnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">            cnxnFactory.configure(config.getClientPortAddress(), config.getMaxClientCnxns(), config.getClientPortListenBacklog(), <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (config.getSecureClientPortAddress() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            secureCnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">            secureCnxnFactory.configure(config.getSecureClientPortAddress(), config.getMaxClientCnxns(), config.getClientPortListenBacklog(), <span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        quorumPeer = getQuorumPeer();</span><br><span class="line">        quorumPeer.setTxnFactory(<span class="keyword">new</span> FileTxnSnapLog(config.getDataLogDir(), config.getDataDir()));</span><br><span class="line">        quorumPeer.enableLocalSessions(config.areLocalSessionsEnabled());</span><br><span class="line">        quorumPeer.enableLocalSessionsUpgrading(config.isLocalSessionsUpgradingEnabled());</span><br><span class="line">        <span class="comment">//quorumPeer.setQuorumPeers(config.getAllMembers());</span></span><br><span class="line">        quorumPeer.setElectionType(config.getElectionAlg());</span><br><span class="line">        quorumPeer.setMyid(config.getServerId());</span><br><span class="line">        quorumPeer.setTickTime(config.getTickTime());</span><br><span class="line">        quorumPeer.setMinSessionTimeout(config.getMinSessionTimeout());</span><br><span class="line">        quorumPeer.setMaxSessionTimeout(config.getMaxSessionTimeout());</span><br><span class="line">        quorumPeer.setInitLimit(config.getInitLimit());</span><br><span class="line">        quorumPeer.setSyncLimit(config.getSyncLimit());</span><br><span class="line">        quorumPeer.setConnectToLearnerMasterLimit(config.getConnectToLearnerMasterLimit());</span><br><span class="line">        quorumPeer.setObserverMasterPort(config.getObserverMasterPort());</span><br><span class="line">        quorumPeer.setConfigFileName(config.getConfigFilename());</span><br><span class="line">        quorumPeer.setClientPortListenBacklog(config.getClientPortListenBacklog());</span><br><span class="line">        quorumPeer.setZKDatabase(<span class="keyword">new</span> ZKDatabase(quorumPeer.getTxnFactory()));</span><br><span class="line">        quorumPeer.setQuorumVerifier(config.getQuorumVerifier(), <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">if</span> (config.getLastSeenQuorumVerifier() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            quorumPeer.setLastSeenQuorumVerifier(config.getLastSeenQuorumVerifier(), <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        quorumPeer.initConfigInZKDatabase();</span><br><span class="line">        quorumPeer.setCnxnFactory(cnxnFactory);</span><br><span class="line">        quorumPeer.setSecureCnxnFactory(secureCnxnFactory);</span><br><span class="line">        quorumPeer.setSslQuorum(config.isSslQuorum());</span><br><span class="line">        quorumPeer.setUsePortUnification(config.shouldUsePortUnification());</span><br><span class="line">        quorumPeer.setLearnerType(config.getPeerType());</span><br><span class="line">        quorumPeer.setSyncEnabled(config.getSyncEnabled());</span><br><span class="line">        quorumPeer.setQuorumListenOnAllIPs(config.getQuorumListenOnAllIPs());</span><br><span class="line">        <span class="keyword">if</span> (config.sslQuorumReloadCertFiles) &#123;</span><br><span class="line">            quorumPeer.getX509Util().enableCertFileReloading();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sets quorum sasl authentication configurations</span></span><br><span class="line">        quorumPeer.setQuorumSaslEnabled(config.quorumEnableSasl);</span><br><span class="line">        <span class="keyword">if</span> (quorumPeer.isQuorumSaslAuthEnabled()) &#123;</span><br><span class="line">            quorumPeer.setQuorumServerSaslRequired(config.quorumServerRequireSasl);</span><br><span class="line">            quorumPeer.setQuorumLearnerSaslRequired(config.quorumLearnerRequireSasl);</span><br><span class="line">            quorumPeer.setQuorumServicePrincipal(config.quorumServicePrincipal);</span><br><span class="line">            quorumPeer.setQuorumServerLoginContext(config.quorumServerLoginContext);</span><br><span class="line">            quorumPeer.setQuorumLearnerLoginContext(config.quorumLearnerLoginContext);</span><br><span class="line">        &#125;</span><br><span class="line">        quorumPeer.setQuorumCnxnThreadsSize(config.quorumCnxnThreadsSize);</span><br><span class="line">        quorumPeer.initialize();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (config.jvmPauseMonitorToRun) &#123;</span><br><span class="line">            quorumPeer.setJvmPauseMonitor(<span class="keyword">new</span> JvmPauseMonitor(config));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        quorumPeer.start();</span><br><span class="line">        quorumPeer.join();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        <span class="comment">// warn, but generally this is ok</span></span><br><span class="line">        LOG.warn(<span class="string">"Quorum Peer interrupted"</span>, e);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (metricsProvider != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                metricsProvider.stop();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable error) &#123;</span><br><span class="line">                LOG.warn(<span class="string">"Error while stopping metrics"</span>, error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>runFromConfig</code>执行过程中主要是<code>QuorumPeer</code>对象属性的赋值并执行<code>start</code>方法，通过查看<code>QuorumPeer</code>类的源码，发现<code>QuorumPeer</code>继承了<code>ZooKeeperThread</code>，而<code>ZooKeeperThread</code>继承了<code>Thread</code>,通过<code>start</code>方法启动了<code>QuorumPeer</code>线程，线程运行执行线程的<code>run</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Main loop 主循环：集群启动的核心代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">while</span> (running) &#123;</span><br><span class="line">    <span class="keyword">switch</span> (getPeerState()) &#123;</span><br><span class="line">        <span class="keyword">case</span> LOOKING:</span><br><span class="line">            LOG.info(<span class="string">"LOOKING"</span>);</span><br><span class="line">            ServerMetrics.getMetrics().LOOKING_COUNT.add(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (Boolean.getBoolean(<span class="string">"readonlymode.enabled"</span>)) &#123;</span><br><span class="line">                LOG.info(<span class="string">"Attempting to start ReadOnlyZooKeeperServer"</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Create read-only server but don't start it immediately</span></span><br><span class="line">                <span class="keyword">final</span> ReadOnlyZooKeeperServer roZk = <span class="keyword">new</span> ReadOnlyZooKeeperServer(logFactory, <span class="keyword">this</span>, <span class="keyword">this</span>.zkDb);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Instead of starting roZk immediately, wait some grace</span></span><br><span class="line">                <span class="comment">// period before we decide we're partitioned.</span></span><br><span class="line">                <span class="comment">//</span></span><br><span class="line">                <span class="comment">// Thread is used here because otherwise it would require</span></span><br><span class="line">                <span class="comment">// changes in each of election strategy classes which is</span></span><br><span class="line">                <span class="comment">// unnecessary code coupling.</span></span><br><span class="line">                Thread roZkMgr = <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            <span class="comment">// lower-bound grace period to 2 secs</span></span><br><span class="line">                            sleep(Math.max(<span class="number">2000</span>, tickTime));</span><br><span class="line">                            <span class="keyword">if</span> (ServerState.LOOKING.equals(getPeerState())) &#123;</span><br><span class="line">                                roZk.startup();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                            LOG.info(<span class="string">"Interrupted while attempting to start ReadOnlyZooKeeperServer, not started"</span>);</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                            LOG.error(<span class="string">"FAILED to start ReadOnlyZooKeeperServer"</span>, e);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    roZkMgr.start();</span><br><span class="line">                    reconfigFlagClear();</span><br><span class="line">                    <span class="keyword">if</span> (shuttingDownLE) &#123;</span><br><span class="line">                        shuttingDownLE = <span class="keyword">false</span>;</span><br><span class="line">                        startLeaderElection();</span><br><span class="line">                    &#125;</span><br><span class="line">                    setCurrentVote(makeLEStrategy().lookForLeader());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    LOG.warn(<span class="string">"Unexpected exception"</span>, e);</span><br><span class="line">                    setPeerState(ServerState.LOOKING);</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="comment">// If the thread is in the the grace period, interrupt</span></span><br><span class="line">                    <span class="comment">// to come out of waiting.</span></span><br><span class="line">                    roZkMgr.interrupt();</span><br><span class="line">                    roZk.shutdown();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    reconfigFlagClear();</span><br><span class="line">                    <span class="keyword">if</span> (shuttingDownLE) &#123;</span><br><span class="line">                        shuttingDownLE = <span class="keyword">false</span>;</span><br><span class="line">                        startLeaderElection();</span><br><span class="line">                    &#125;</span><br><span class="line">                    setCurrentVote(makeLEStrategy().lookForLeader());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    LOG.warn(<span class="string">"Unexpected exception"</span>, e);</span><br><span class="line">                    setPeerState(ServerState.LOOKING);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> OBSERVING:</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                LOG.info(<span class="string">"OBSERVING"</span>);</span><br><span class="line">                setObserver(makeObserver(logFactory));</span><br><span class="line">                observer.observeLeader();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                LOG.warn(<span class="string">"Unexpected exception"</span>, e);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                observer.shutdown();</span><br><span class="line">                setObserver(<span class="keyword">null</span>);</span><br><span class="line">                updateServerState();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Add delay jitter before we switch to LOOKING</span></span><br><span class="line">                <span class="comment">// state to reduce the load of ObserverMaster</span></span><br><span class="line">                <span class="keyword">if</span> (isRunning()) &#123;</span><br><span class="line">                    Observer.waitForObserverElectionDelay();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> FOLLOWING:</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                LOG.info(<span class="string">"FOLLOWING"</span>);</span><br><span class="line">                setFollower(makeFollower(logFactory));</span><br><span class="line">                follower.followLeader();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                LOG.warn(<span class="string">"Unexpected exception"</span>, e);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                follower.shutdown();</span><br><span class="line">                setFollower(<span class="keyword">null</span>);</span><br><span class="line">                updateServerState();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LEADING:</span><br><span class="line">            LOG.info(<span class="string">"LEADING"</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                setLeader(makeLeader(logFactory));</span><br><span class="line">                leader.lead();</span><br><span class="line">                setLeader(<span class="keyword">null</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                LOG.warn(<span class="string">"Unexpected exception"</span>, e);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (leader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    leader.shutdown(<span class="string">"Forcing shutdown"</span>);</span><br><span class="line">                    setLeader(<span class="keyword">null</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                updateServerState();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>核心逻辑在 while循环中，判断节点的状态，分为 <code>LOOKING</code> 、 <code>OBSERVING</code> 、 <code>FOLLOWING</code> 、<code>LEADING</code> ，当某个<code>QuorumPeerq</code>刚启动时，状态为 <code>LOOKING</code> ，启动线程将zk节点启动，然后进行leader选举，这是<code>zookeeper</code>的选举算法的核心，leader的选举在<code>org.apache.zookeeper.server.quorum.FastLeaderElection</code>的<code>lookForLeader</code>方法中</p>
+</li>
+</ul>
+<h2 id="1-3-leader选举"><a href="#1-3-leader选举" class="headerlink" title="1.3    leader选举"></a>1.3    leader选举</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 记录当前server接受其他server的本轮投票信息</span></span><br><span class="line">Map&lt;Long, Vote&gt; recvset = <span class="keyword">new</span> HashMap&lt;Long, Vote&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 选举结束后法定server的投票信息</span></span><br><span class="line">Map&lt;Long, Vote&gt; outofelection = <span class="keyword">new</span> HashMap&lt;Long, Vote&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 选举超时时间</span></span><br><span class="line"><span class="keyword">int</span> notTimeout = minNotificationInterval;</span><br><span class="line"></span><br><span class="line"><span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">    <span class="comment">// 逻辑时钟 +1</span></span><br><span class="line">    logicalclock.incrementAndGet();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//初始化选票 给自己投票</span></span><br><span class="line">    updateProposal(getInitId(), getInitLastLoggedZxid(), getPeerEpoch());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LOG.info(<span class="string">"New election. My id =  "</span> + self.getId() + <span class="string">", proposed zxid=0x"</span> + Long.toHexString(proposedZxid));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sendNotifications();</span><br></pre></td></tr></table></figure>
+
+<p>此处两个变量，一个 <code>recvset</code>，用来保存当前server的接受其他server的本轮投票信息，<code>key</code>为当前<code>server</code>的<code>id</code>，也即是我们在配置文件中配置的<code>myid</code>，而另外一个变量<code>outofelection</code>保存选举结束以后法定的<code>server</code>的投票信息，这里的法定指的是<code>FOLLOWING</code>和<code>LEADING</code>状态的<code>server</code>，不包活<code>OBSERVING</code>状态的<code>server</code>。</p>
+<p>更新逻辑时钟，此处逻辑时钟是为了在选举<code>leader</code>时比较其他选票中的<code>server</code>中的<code>epoch</code>和本地谁最新，然后将自己的选票<code>proposal</code>发送给其他所有<code>server</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendNotifications</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> sid : self.getCurrentAndNextConfigVoters()) &#123;</span><br><span class="line">        QuorumVerifier qv = self.getQuorumVerifier();</span><br><span class="line">        ToSend notmsg = <span class="keyword">new</span> ToSend(ToSend.mType.notification,</span><br><span class="line">                                   proposedLeader,</span><br><span class="line">                                   proposedZxid,</span><br><span class="line">                                   logicalclock.get(),</span><br><span class="line">                                   QuorumPeer.ServerState.LOOKING,</span><br><span class="line">                                   sid,</span><br><span class="line">                                   proposedEpoch, qv.toString().getBytes());</span><br><span class="line">        <span class="keyword">if</span> (LOG.isDebugEnabled()) &#123;</span><br><span class="line">            LOG.debug(<span class="string">"Sending Notification: "</span> + proposedLeader + <span class="string">" (n.leader), 0x"</span> +</span><br><span class="line">                      Long.toHexString(proposedZxid) + <span class="string">" (n.zxid), 0x"</span> + Long.toHexString(logicalclock.get()) +</span><br><span class="line">                      <span class="string">" (n.round), "</span> + sid + <span class="string">" (recipient), "</span> + self.getId() +</span><br><span class="line">                      <span class="string">" (myid), 0x"</span> + Long.toHexString(proposedEpoch) + <span class="string">" (n.peerEpoch)"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        sendqueue.offer(notmsg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此方法遍历所有投票参与者集合，将选票信息构造成一个 <code>ToSend</code>对象，分别发送消息放置到队列<code>sendqueue</code>中。同理集群中每一个<code>server</code>节点都会将自己的选票发送给其他<code>server</code>，那么既然有发送选票，肯定存在接受选票信息，并选出<code>leader</code>，接下来我们就来看看每一个<code>server</code>如何接受选票并处理的。</p>
+<p>首先我们应该从队列出取出选票信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从队列中取出选票信息</span></span><br><span class="line">Notification n = recvqueue.poll(notTimeout, TimeUnit.MILLISECONDS);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Sends more notifications if haven't received enough.</span></span><br><span class="line"><span class="comment"> * Otherwise processes new notification.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//判断选票信息是否为空 如果为空</span></span><br><span class="line"><span class="keyword">if</span> (n == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 判断是否投递过选票信息</span></span><br><span class="line">    <span class="keyword">if</span> (manager.haveDelivered()) &#123;</span><br><span class="line">        <span class="comment">// 重新发送选票信息</span></span><br><span class="line">        sendNotifications();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//重连所有server</span></span><br><span class="line">        manager.connectAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Exponential backoff</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">int</span> tmpTimeOut = notTimeout * <span class="number">2</span>;</span><br><span class="line">    notTimeout = (tmpTimeOut &lt; maxNotificationInterval ? tmpTimeOut : maxNotificationInterval);</span><br><span class="line">    LOG.info(<span class="string">"Notification time out: "</span> + notTimeout);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>选出的选票信息封装在一个 <code>Notification</code> 对象中，如果取出的选票为null，我们通过<code>QuorumCnxManager</code>检查发送队列中是否投递过选票，如果投递过说明连接并没有断开，则重新发送选票到其他<code>sever</code>，否则，说明连接断开，重连所有<code>server</code>即可。那么连接没有断开，为什么会收不到选票信息呢，有可能是选票超时时限导致没有收到选票，所有将选票时限延长了一倍。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//校验选票中选举server和选举的leader sever是否合法       </span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(validVoter(n.sid) &amp;&amp; validVoter(n.leader)) &#123;          </span><br><span class="line">    <span class="comment">/*      </span></span><br><span class="line"><span class="comment">    * Only proceed if the vote comes from a replica in the current or next </span></span><br><span class="line"><span class="comment">    * voting view for a replica in the current or next voting view.           </span></span><br><span class="line"><span class="comment">    */</span>          </span><br><span class="line">    <span class="keyword">switch</span> (n.state) &#123;       </span><br><span class="line">        <span class="keyword">case</span> LOOKING:          </span><br><span class="line">            ......            </span><br><span class="line">            <span class="keyword">break</span>;   </span><br><span class="line">        <span class="keyword">case</span> OBSERVING:            </span><br><span class="line">            LOG.debug(<span class="string">"Notification from observer: "</span> + n.sid);            </span><br><span class="line">            <span class="keyword">break</span>;          </span><br><span class="line">        <span class="keyword">case</span> FOLLOWING:          </span><br><span class="line">        <span class="keyword">case</span> LEADING:          </span><br><span class="line">            ......     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果选出的选票 <code>Notification</code>不为<code>null</code>，校验投票<code>server</code>和选举<code>leader</code>是否合法，然后根据选票状态执行<br>不同分支，选举过程走<code>LOOKING</code>分支，接下来比较选票<code>epoch</code>和当前逻辑时钟，如果选票 <code>epoch</code>&gt;逻辑时钟，说明选票是最新的，自己的选票这一轮已经过时，应该更新当前自己<code>server</code>的逻辑时钟，并清空当前收到的其他<code>server</code>的选票，然后比较自己和选票中谁更适合做<code>leader</code>，发送新的投票给其他所有<code>server</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (getInitLastLoggedZxid() == -<span class="number">1</span>) &#123;</span><br><span class="line">    LOG.debug(<span class="string">"Ignoring notification as our zxid is -1"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (n.zxid == -<span class="number">1</span>) &#123;</span><br><span class="line">    LOG.debug(<span class="string">"Ignoring notification from member with -1 zxid &#123;&#125;"</span>, n.sid);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// If notification &gt; current, replace and send messages out</span></span><br><span class="line"><span class="keyword">if</span> (n.electionEpoch &gt; logicalclock.get()) &#123;</span><br><span class="line">    logicalclock.set(n.electionEpoch);</span><br><span class="line">    recvset.clear();</span><br><span class="line">    <span class="comment">//比较选票和自己谁更适合做leader，比较规则epoch&gt;zxid&gt;sid</span></span><br><span class="line">    <span class="keyword">if</span> (totalOrderPredicate(n.leader, n.zxid, n.peerEpoch, getInitId(), getInitLastLoggedZxid(), getPeerEpoch())) &#123;</span><br><span class="line">        updateProposal(n.leader, n.zxid, n.peerEpoch);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        updateProposal(getInitId(), getInitLastLoggedZxid(), getPeerEpoch());</span><br><span class="line">    &#125;</span><br><span class="line">    sendNotifications();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果选票 <code>epoch</code>&lt;逻辑时钟,zk放弃此次选票，不做任何处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (n.electionEpoch &lt; logicalclock.get()) &#123;</span><br><span class="line">    <span class="keyword">if</span> (LOG.isDebugEnabled()) &#123;</span><br><span class="line">        LOG.debug(<span class="string">"Notification election epoch is smaller than logicalclock. n.electionEpoch = 0x"</span></span><br><span class="line">                  + Long.toHexString(n.electionEpoch)</span><br><span class="line">                  + <span class="string">", logicalclock=0x"</span> + Long.toHexString(logicalclock.get()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果选票 <code>epoch</code>=逻辑时钟,仍然是比较选票和当前自己server谁更适合当<code>leader</code>，并重新更新选票，发送给其他所有的<code>server</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (totalOrderPredicate(n.leader, n.zxid, n.peerEpoch, proposedLeader, proposedZxid, proposedEpoch)) &#123;</span><br><span class="line">    updateProposal(n.leader, n.zxid, n.peerEpoch);</span><br><span class="line">    sendNotifications();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来将收到的选票放入 <code>recvset</code>的<code>map</code>中保存。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recvset.put(n.sid, <span class="keyword">new</span> Vote(n.leader, n.zxid, n.electionEpoch, n.peerEpoch));</span><br></pre></td></tr></table></figure>
+
+<p>接下来是判断本轮选举是否结束，如果超过半数的，则 <code>leader</code>预选举结束，注意此时还要比较其他少半选票中有没有谁更适合做<code>leader</code>？如果在选票找不到任何一个<code>server</code>比当前<code>server</code>更适合做<code>leader</code>，则更新更新<code>server</code>状态，清空<code>recvqueue</code>队列，确定最终选票并返回，否则将更适合做<code>leader</code>的<code>Notification</code>放回队列开始新一轮的选举。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">voteSet = getVoteTracker(recvset, <span class="keyword">new</span> Vote(proposedLeader, proposedZxid, logicalclock.get(), proposedEpoch));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (voteSet.hasAllQuorums()) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Verify if there is any change in the proposed leader</span></span><br><span class="line">    <span class="comment">//比较剩下少数的server是否更适合做leader   </span></span><br><span class="line">    <span class="keyword">while</span> ((n = recvqueue.poll(finalizeWait, TimeUnit.MILLISECONDS)) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (totalOrderPredicate(n.leader, n.zxid, n.peerEpoch, proposedLeader, proposedZxid, proposedEpoch)) &#123;</span><br><span class="line">            recvqueue.put(n);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * This predicate is true once we don't read any new</span></span><br><span class="line"><span class="comment">     * relevant message from the reception queue</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//如果全部比较都没有当前谁比当前server更适合做leader，则更新server状态</span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//更新状态</span></span><br><span class="line">        setPeerState(proposedLeader, voteSet);</span><br><span class="line">        <span class="comment">//构建最终选票，便于其他server同步  </span></span><br><span class="line">        Vote endVote = <span class="keyword">new</span> Vote(proposedLeader, proposedZxid, logicalclock.get(), proposedEpoch);</span><br><span class="line">        leaveInstance(endVote);</span><br><span class="line">        <span class="comment">//清空队列</span></span><br><span class="line">        <span class="keyword">return</span> endVote;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更新状态后，若选票中的服务器状态为 <code>FOLLOWING</code>或者<code>LEADING</code>时，其大致步骤会再次判断选举<code>epoch</code>是否等于逻辑时钟.如果相等，再次盘检查选中的leader过半</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (n.electionEpoch == logicalclock.get()) &#123;</span><br><span class="line">    recvset.put(n.sid, <span class="keyword">new</span> Vote(n.leader, n.zxid, n.electionEpoch, n.peerEpoch));</span><br><span class="line">    voteSet = getVoteTracker(recvset, <span class="keyword">new</span> Vote(n.version, n.leader, n.zxid, n.electionEpoch, n.peerEpoch, n.state));</span><br><span class="line">    <span class="keyword">if</span> (voteSet.hasAllQuorums() &amp;&amp; checkLeader(outofelection, n.leader, n.electionEpoch)) &#123;</span><br><span class="line">        setPeerState(n.leader, voteSet);</span><br><span class="line">        Vote endVote = <span class="keyword">new</span> Vote(n.leader, n.zxid, n.electionEpoch, n.peerEpoch);</span><br><span class="line">        leaveInstance(endVote);</span><br><span class="line">        <span class="keyword">return</span> endVote;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Before joining an established ensemble, verify that</span></span><br><span class="line"><span class="comment"> * a majority are following the same leader.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">outofelection.put(n.sid, <span class="keyword">new</span> Vote(n.version, n.leader, n.zxid, n.electionEpoch, n.peerEpoch, n.state));</span><br><span class="line">voteSet = getVoteTracker(outofelection, <span class="keyword">new</span> Vote(n.version, n.leader, n.zxid, n.electionEpoch, n.peerEpoch, n.state));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (voteSet.hasAllQuorums() &amp;&amp; checkLeader(outofelection, n.leader, n.electionEpoch)) &#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        logicalclock.set(n.electionEpoch);</span><br><span class="line">        setPeerState(n.leader, voteSet);</span><br><span class="line">    &#125;</span><br><span class="line">    Vote endVote = <span class="keyword">new</span> Vote(n.leader, n.zxid, n.electionEpoch, n.peerEpoch);</span><br><span class="line">    leaveInstance(endVote);</span><br><span class="line">    <span class="keyword">return</span> endVote;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-zookeeper应用场景"><a href="#2-zookeeper应用场景" class="headerlink" title="2.    zookeeper应用场景"></a>2.    zookeeper应用场景</h1><h2 id="2-1-配置中心"><a href="#2-1-配置中心" class="headerlink" title="2.1    配置中心"></a>2.1    配置中心</h2><p>在平常的业务开发过程中，我们通常需要将系统的一些通用的全局配置，例如机器列表配置，运行时开关配置，数据库配置信息等统一集中存储，让集群所有机器共享配置信息，系统在启动会首先从配置中心读取配置信息，进行初始化。传统的实现方式将配置存储在本地文件和内存中，一旦机器规模更大，配置变更频繁情况下，本地文件和内存方式的配置维护成本较高，使用zookeeper作为分布式的配置中心就可以解决这个问题。</p>
+<p>我们将配置信息存在zk中的一个节点中，同时给该节点注册一个数据节点变更的watcher监听，一旦节点数据发生变更，所有的订阅该节点的客户端都可以获取数据变更通知。</p>
+<h2 id="2-2-负载均衡"><a href="#2-2-负载均衡" class="headerlink" title="2.2    负载均衡"></a>2.2    负载均衡</h2><p>建立server节点，并建立监听器监视servers子节点的状态（用于在服务器增添时及时同步当前集群中服务器列表）。在每个服务器启动时，在servers节点下建立具体服务器地址的子节点,并在对应的字节点下存入服务器的相关信息。这样，我们在zookeeper服务器上可以获取当前集群中的服务器列表及相关信息，可以自定义一个负载均衡算法，在每个请求过来时从zookeeper服务器中获取当前集群服务器列表，根据算法选出其中一个服务器来处理请求。</p>
+<p><img src="https://p.pstatp.com/origin/137cd00006d7a815eb690" alt="image-20200805144500427"></p>
+<h2 id="2-3-命名服务"><a href="#2-3-命名服务" class="headerlink" title="2.3    命名服务"></a>2.3    命名服务</h2><p>命名服务是分布式系统中的基本功能之一。被命名的实体通常可以是集群中的机器、提供的服务地址或者远程对象，这些都可以称作为名字。常见的就是一些分布式服务框架（RPC、RMI）中的服务地址列表，通过使用名称服务客户端可以获取资源的实体、服务地址和提供者信息。命名服务就是通过一个资源引用的方式来实现对资源的定位和使用。在分布式环境中，上层应用仅仅需要一个全局唯一名称，就像数据库中的主键。</p>
+<p>在单库单表系统中可以通过自增ID来标识每一条记录，但是随着规模变大分库分表很常见，那么自增ID有仅能针对单一表生成ID，所以在这种情况下无法依靠这个来标识唯一ID。UUID就是一种全局唯一标识符。但是长度过长不易识别。</p>
+<p><img src="https://p.pstatp.com/origin/ff550002d3a73938034c" alt="image-20200805144706036"></p>
+<ul>
+<li>在 Zookeeper中通过创建顺序节点就可以实现，所有客户端都会根据自己的任务类型来创建一个顺序节点，例如 job-00000001</li>
+<li>节点创建完毕后， create()接口会返回一个完整的节点名，例如：job-00000002<ul>
+<li>拼接 type类型和完整节点名作为全局唯一的ID</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-4-DNS服务"><a href="#2-4-DNS服务" class="headerlink" title="2.4    DNS服务"></a>2.4    DNS服务</h2><h3 id="2-4-1-域名配置"><a href="#2-4-1-域名配置" class="headerlink" title="2.4.1    域名配置"></a>2.4.1    域名配置</h3><p>在分布式系统应用中，每一个应用都需要分配一个域名，日常开发中，往往使用本地HOST绑定域名解析，开发阶段可以随时修改域名和IP的映射，大大提高开发的调试效率。如果应用的机器规模达到一定程度后，需要频繁更新域名时，需要在规模的集群中变更，无法保证实时性。所有我们在zk上创建一个节点来进行域名配置</p>
+<p><img src="https://p.pstatp.com/origin/fe760002b77afcb137ba" alt="image-20200805145020398"></p>
+<h3 id="2-4-2-域名解析"><a href="#2-4-2-域名解析" class="headerlink" title="2.4.2    域名解析"></a>2.4.2    域名解析</h3><p>应用解析时，首先从zk域名节点中获取域名映射的IP和端口。</p>
+<h3 id="2-4-3-域名变更"><a href="#2-4-3-域名变更" class="headerlink" title="2.4.3    域名变更"></a>2.4.3    域名变更</h3><p>每个应用都会在在对应的域名节点注册一个数据变更的<code>watcher</code>监听，一旦监听的域名节点数据变更，zk会向所有订阅的客户端发送域名变更通知。</p>
+<h2 id="2-5-集群管理"><a href="#2-5-集群管理" class="headerlink" title="2.5    集群管理"></a>2.5    集群管理</h2><p>随着分布式系统规模日益扩大，集群中机器的数量越来越多。有效的集群管理越来越重要了，<code>zookeeper</code>集群管理主要利用了<code>watcher</code>机制和创建临时节点来实现。以机器上下线和机器监控为例：</p>
+<p><img src="https://p.pstatp.com/origin/137d20000b60cf8a6dcd4" alt="image-20200805145807510"></p>
+<h3 id="2-5-1-机器上下线"><a href="#2-5-1-机器上下线" class="headerlink" title="2.5.1    机器上下线"></a>2.5.1    机器上下线</h3><p>新增机器的时候，将Agent部署到新增的机器上，当Agent部署启动时，会向zookeeper指定的节点下创建一个临时子节点，当Agent在zk上创建完这个临时节点后，当关注的节点<code>zookeeper/machines</code>下的子节点新加入新的节点时或删除都会发送通知，这样就对机器的上下线进行监控。</p>
+<p><img src="https://p.pstatp.com/origin/1379f00007439636871cf" alt="image-20200805145839821"></p>
+<h3 id="2-5-2-机器监控"><a href="#2-5-2-机器监控" class="headerlink" title="2.5.2    机器监控"></a>2.5.2    机器监控</h3><p>在机器运行过程中，Agent会定时将主机的的运行状态信息写入到<code>/machines/hostn</code>主机节点，监控中心通过订阅这些节点的数据变化来获取主机的运行信息。</p>
+<h2 id="2-6-分布式锁"><a href="#2-6-分布式锁" class="headerlink" title="2.6    分布式锁"></a>2.6    分布式锁</h2><h3 id="2-6-1-数据库实现分布式锁"><a href="#2-6-1-数据库实现分布式锁" class="headerlink" title="2.6.1    数据库实现分布式锁"></a>2.6.1    数据库实现分布式锁</h3><p><img src="https://p.pstatp.com/origin/1000b0002714c665df7a5" alt="image-20200805150426778"></p>
+<p>首先我们创建一张锁表，锁表中字段设置唯一约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;lock_record&#96; (</span><br><span class="line">    &#96;id&#96; bigint(20) NOT NULL AUTO_INCREMENT COMMENT &#39;主键&#39;, </span><br><span class="line">    &#96;lock_name&#96; varchar(50) DEFAULT NULL COMMENT &#39;锁名称&#39;, </span><br><span class="line">    PRIMARY KEY (&#96;id&#96;), </span><br><span class="line">    UNIQUE KEY &#96;lock_name&#96; (&#96;lock_name&#96;)</span><br><span class="line">) ENGINE&#x3D;InnoDB AUTO_INCREMENT&#x3D;38 DEFAULT CHARSET&#x3D;utf8</span><br></pre></td></tr></table></figure>
+
+<p>定义锁，实现 <code>Lock</code>接口，<code>tryLock()</code>尝试获取锁，从锁表中查询指定的锁记 录，如果查询到记录，说明已经上锁，不能再上锁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//尝试获取锁</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//查询lockRecord的记录</span></span><br><span class="line">    Example example = <span class="keyword">new</span> Example(LockRecord<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    Example.Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andEqualTo(<span class="string">"lockName"</span>,LOCK_NAME);</span><br><span class="line">    LockRecord lockRecord = lockRecordMapper.selectOneByExample(example);</span><br><span class="line">    <span class="keyword">if</span>(lockRecord==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>lock</code>方法获取锁之前先调用<code>tryLock()</code>方法尝试获取锁，如果未加锁则向锁表中插入一条锁记录来获取锁，这里我们通过循环，如果上锁我们一致等待锁的释放</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//上锁</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(tryLock())&#123;</span><br><span class="line">            <span class="comment">//向锁表中插入一条记录</span></span><br><span class="line">            LockRecord lockRecord = <span class="keyword">new</span> LockRecord();</span><br><span class="line">            lockRecord.setLockName(LOCK_NAME);</span><br><span class="line">            lockRecordMapper.insertSelective(lockRecord);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"等待锁......."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>释放锁，即是将数据库中对应的锁表记录删除</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//释放锁的操作</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Example example = <span class="keyword">new</span> Example(LockRecord<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    Example.Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andEqualTo(<span class="string">"lockName"</span>,LOCK_NAME);</span><br><span class="line">    lockRecordMapper.deleteByExample(example);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意在尝试获取锁的方法 <code>tryLock</code>中，存在多个线程同时获取锁的情况，可以简单通过<code>synchronized</code>解决</p>
+<h3 id="2-6-2-redis实现分布式锁"><a href="#2-6-2-redis实现分布式锁" class="headerlink" title="2.6.2    redis实现分布式锁"></a>2.6.2    redis实现分布式锁</h3><p>redis分布式锁的实现基于setnx（set if not exists），设置成功，返回1；设置失败，返回0，释放锁的操作通过del指令来完成</p>
+<p>如果设置锁后在执行中间过程时，程序抛出异常，导致del指令没有调用，锁永远无法释放，这样就会陷入死锁。所以我们拿到锁之后会给锁加上一个过期时间，这样即使中间出现异常，过期时间到后会自动释放锁。</p>
+<p>同时在setnx 和 expire 如果进程挂掉，expire不能执行也会死锁。所以要保证setnx和expire是一个原子性操作即可。redis 2.8之后推出了setnx和expire的组合指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> key value ex 5 nx</span><br></pre></td></tr></table></figure>
+
+<p>lock获取锁方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        <span class="comment">//上锁 setnx</span></span><br><span class="line">        <span class="comment">//  Boolean isLock = redisTemplate.opsForValue().setIfAbsent("lockName", LOCK_NAME);</span></span><br><span class="line">        Boolean isLock =  redisTemplate.opsForValue().setIfAbsent(<span class="string">"lockName"</span>,LOCK_NAME,<span class="number">10</span>,TimeUnit.SECONDS);</span><br><span class="line">        <span class="keyword">if</span>(isLock)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"等待锁........"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>释放锁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 删除指定的锁的key</span></span><br><span class="line">    redisTemplate.delete(<span class="string">"lockName"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>redis 实现分布式锁存在的问题，为了解决redis单点问题，我们会部署redis集群，在 Sentinel 集群中，主节点突然挂掉了。同时主节点中有把锁还没有来得及同步到从节点。这样就会导致系统中同样一把锁被两个客户端同时持有，不安全性由此产生。redis官方为了解决这个问题，推出了Redlock 算法解决这个问题。但是带来的网络消耗较大。</p>
+<p>分布式锁的redisson实现：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.redisson<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>redisson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.6.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>获取锁释放锁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Config config = <span class="keyword">new</span> Config();</span><br><span class="line">config.useSingleServer().setAddress(<span class="string">"redis://127.0.0.1:6379"</span>).setDatabase(<span class="number">0</span>);</span><br><span class="line">Redisson redisson = (Redisson) Redisson.create(config);</span><br><span class="line">RLock mylock = redisson.getLock(<span class="string">"redisson_lock"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取锁mylock.lock();</span></span><br><span class="line"><span class="comment">//释放锁mylock.unlock();</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-3-zookeeper实现分布式锁"><a href="#2-6-3-zookeeper实现分布式锁" class="headerlink" title="2.6.3    zookeeper实现分布式锁"></a>2.6.3    zookeeper实现分布式锁</h3><p>原理：zookeeper通过创建临时序列节点来实现分布式锁，适用于顺序执行的程序，大体思路就是创建临时序列节点，找出最小的序列节点，获取分布式锁，程序执行完成之后此序列节点消失，通过watch来监控节点的变化，从剩下的节点的找到最小的序列节点，获取分布式锁，执行相应处理，依次类推……</p>
+<p><img src="https://p.pstatp.com/origin/13758000235878cc9c24c" alt="image-20200805154746534"></p>
+<h4 id="2-6-3-1-原生实现"><a href="#2-6-3-1-原生实现" class="headerlink" title="2.6.3.1    原生实现"></a>2.6.3.1    原生实现</h4><p>首先在ZkLock的构造方法中，连接zk,创建lock根节点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//zk客户端</span></span><br><span class="line"><span class="keyword">private</span> ZooKeeper zk;</span><br><span class="line"><span class="comment">//zk是一个目录结构，locks</span></span><br><span class="line"><span class="keyword">private</span> String root = <span class="string">"/locks"</span>;</span><br><span class="line"><span class="comment">//锁的名称</span></span><br><span class="line"><span class="keyword">private</span> String lockName;</span><br><span class="line"><span class="comment">//当前线程创建的序列node</span></span><br><span class="line"><span class="keyword">private</span> ThreadLocal&lt;String&gt; nodeId = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br><span class="line"><span class="comment">//用来同步等待zkclient链接到了服务端</span></span><br><span class="line"><span class="keyword">private</span> CountDownLatch connectedSignal = <span class="keyword">new</span> CountDownLatch(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> sessionTimeout = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] data= <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ZkLock</span><span class="params">(String config, String lockName)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.lockName = lockName;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        zk = <span class="keyword">new</span> ZooKeeper(config, sessionTimeout, <span class="keyword">new</span> Watcher() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(WatchedEvent event)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 建立连接</span></span><br><span class="line">                <span class="keyword">if</span> (event.getState() == Event.KeeperState.SyncConnected) &#123;</span><br><span class="line">                    connectedSignal.countDown();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        connectedSignal.await();</span><br><span class="line">        Stat stat = zk.exists(root, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == stat) &#123;</span><br><span class="line">            <span class="comment">// 创建根节点</span></span><br><span class="line">            zk.create(root, data, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加 watch监听临时顺序节点的删除</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LockWatcher</span> <span class="keyword">implements</span> <span class="title">Watcher</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> CountDownLatch latch = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LockWatcher</span><span class="params">(CountDownLatch latch)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.latch = latch;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(WatchedEvent event)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (event.getType() == Event.EventType.NodeDeleted)</span><br><span class="line">            latch.countDown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取锁操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 创建临时子节点</span></span><br><span class="line">        String myNode = zk.create(root + <span class="string">"/"</span> + lockName , data, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);</span><br><span class="line"></span><br><span class="line">        System.out.println(Thread.currentThread().getName()+myNode+ <span class="string">"created"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 取出所有子节点</span></span><br><span class="line">        List&lt;String&gt; subNodes = zk.getChildren(root, <span class="keyword">false</span>);</span><br><span class="line">        TreeSet&lt;String&gt; sortedNodes = <span class="keyword">new</span> TreeSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(String node :subNodes) &#123;</span><br><span class="line">            sortedNodes.add(root +<span class="string">"/"</span> +node);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String smallNode = sortedNodes.first();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (myNode.equals( smallNode)) &#123;</span><br><span class="line">            <span class="comment">// 如果是最小的节点,则表示取得锁</span></span><br><span class="line">            System.out.println(Thread.currentThread().getName()+ myNode+<span class="string">"get lock"</span>);</span><br><span class="line">            <span class="keyword">this</span>.nodeId.set(myNode);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String preNode = sortedNodes.lower(myNode);</span><br><span class="line"></span><br><span class="line">        CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">1</span>);</span><br><span class="line">        Stat stat = zk.exists(preNode, <span class="keyword">new</span> LockWatcher(latch));<span class="comment">// 同时注册监听。</span></span><br><span class="line">        <span class="comment">// 判断比自己小一个数的节点是否存在,如果不存在则无需等待锁,同时注册监听</span></span><br><span class="line">        <span class="keyword">if</span> (stat != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+ myNode + <span class="string">" waiting for "</span> + root + <span class="string">"/"</span> + preNode + <span class="string">" released lock"</span>);</span><br><span class="line"></span><br><span class="line">            latch.await();<span class="comment">// 等待，这里应该一直等待其他线程释放锁</span></span><br><span class="line">            nodeId.set(myNode);</span><br><span class="line">            latch = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>释放锁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName()+ <span class="string">"unlock "</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != nodeId) &#123;</span><br><span class="line">            zk.delete(nodeId.get(), -<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        nodeId.remove();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (KeeperException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-6-3-2-基于-curator实现分布式锁"><a href="#2-6-3-2-基于-curator实现分布式锁" class="headerlink" title="2.6.3.2    基于 curator实现分布式锁"></a>2.6.3.2    基于 curator实现分布式锁</h4><p>maven依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-recipes<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>锁操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建zookeeper的客户端</span></span><br><span class="line">RetryPolicy retryPolicy = <span class="keyword">new</span> ExponentialBackoffRetry(<span class="number">1000</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">//集群通过，分割</span></span><br><span class="line">CuratorFramework client =CuratorFrameworkFactory.newClient(<span class="string">"127.0.0.1:2181"</span>, retryPolicy);</span><br><span class="line">client.start();</span><br><span class="line"><span class="comment">//创建分布式锁, 锁空间的根节点路径为/curator/lock </span></span><br><span class="line">InterProcessMutex mutex = <span class="keyword">new</span> InterProcessMutex(client, <span class="string">"/curator/lock"</span>); </span><br><span class="line">mutex.acquire();</span><br><span class="line"><span class="comment">//获得了锁, 进行业务流程</span></span><br><span class="line"><span class="comment">//完成业务流程, 释放锁</span></span><br><span class="line">mutex.release();</span><br><span class="line"><span class="comment">//关闭客户端</span></span><br><span class="line">client.close();</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-7-分布式队列"><a href="#2-7-分布式队列" class="headerlink" title="2.7    分布式队列"></a>2.7    分布式队列</h2><p>队列特性：FIFO（先入先出），zookeeper实现分布式队列的步骤</p>
+<p><img src="https://p.pstatp.com/origin/1383c00001a486232479b" alt="image-20200805154827324"></p>
+<ul>
+<li>在队列节点下创建临时顺序节点 例如/queue_info/192.168.1.1-0000001</li>
+<li>调用 getChildren()接口来获取/queue_info节点下所有子节点，获取队列中所有元素</li>
+<li>比较自己节点是否是序号最小的节点，如果不是，则等待其他节点出队列，在序号最小的节点注册watcher</li>
+<li>获取 watcher通知后，重复步骤</li>
+</ul>
+<p><img src="https://p.pstatp.com/origin/10003000272c3d6417543" alt="image-20200805155040838"></p>
+
       
       <!-- 添加本文结束标记-->
       
+           
+             <div class="essayending">
+               <div>
+                <div style="text-align:center;color: #ccc;font-size:22px;">
+                <br/>
+                <br/>
+                -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+                <br/>
+                <br/>
+                 <br/>
+                 <br/>
+                </div>
+               </div>
+             </div>
+           
+       
        <!-- 添加完成 -->
       <!-- 增加版权声明 -->
       
       
-        <div class="declare" hidden="hidden"></div>
+        <div class="declare">
+          <strong>本文作者：</strong>
+          
+            Wgy
+          
+          <br>
+          <strong>本文标题：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/4ebc2ef7.html">zookeeper(二)</a>
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/4ebc2ef7.html">https://wgy1993.gitee.io/archives/4ebc2ef7.html</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
+        </div>
       
       <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -212,16 +455,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/4ebc2ef7.html">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wgy1993.gitee.io/archives/4ebc2ef7.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/archives/e18db595.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">zookeeper(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -236,471 +538,57 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zookeeper-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/e18db595.html">zookeeper(一)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/e18db595.html" class="archive-article-date">
-  	<time datetime="2020-08-01T10:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-zookeeper简介"><a href="#1-zookeeper简介" class="headerlink" title="1.    zookeeper简介"></a>1.    zookeeper简介</h1><h2 id="1-1-分布式概述"><a href="#1-1-分布式概述" class="headerlink" title="1.1    分布式概述"></a>1.1    分布式概述</h2><p>早期我们使用单体架构，即所有服务部署在一台服务器的一个进程中，随着互联网的发展，逐步演进为分布式架构，多个服务分别部署在不同机器的不同进程中。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/e18db595.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-zookeeper源码解析"><span class="toc-number">1.</span> <span class="toc-text">1.    zookeeper源码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-下载zookeeper源码，导入IDEA中"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    下载zookeeper源码，导入IDEA中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-启动"><span class="toc-number">1.2.</span> <span class="toc-text">1.2    启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-leader选举"><span class="toc-number">1.3.</span> <span class="toc-text">1.3    leader选举</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-zookeeper应用场景"><span class="toc-number">2.</span> <span class="toc-text">2.    zookeeper应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-配置中心"><span class="toc-number">2.1.</span> <span class="toc-text">2.1    配置中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-负载均衡"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-命名服务"><span class="toc-number">2.3.</span> <span class="toc-text">2.3    命名服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-DNS服务"><span class="toc-number">2.4.</span> <span class="toc-text">2.4    DNS服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-域名配置"><span class="toc-number">2.4.1.</span> <span class="toc-text">2.4.1    域名配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-域名解析"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.4.2    域名解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-域名变更"><span class="toc-number">2.4.3.</span> <span class="toc-text">2.4.3    域名变更</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-集群管理"><span class="toc-number">2.5.</span> <span class="toc-text">2.5    集群管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-机器上下线"><span class="toc-number">2.5.1.</span> <span class="toc-text">2.5.1    机器上下线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-机器监控"><span class="toc-number">2.5.2.</span> <span class="toc-text">2.5.2    机器监控</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-分布式锁"><span class="toc-number">2.6.</span> <span class="toc-text">2.6    分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-数据库实现分布式锁"><span class="toc-number">2.6.1.</span> <span class="toc-text">2.6.1    数据库实现分布式锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2-redis实现分布式锁"><span class="toc-number">2.6.2.</span> <span class="toc-text">2.6.2    redis实现分布式锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-3-zookeeper实现分布式锁"><span class="toc-number">2.6.3.</span> <span class="toc-text">2.6.3    zookeeper实现分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-3-1-原生实现"><span class="toc-number">2.6.3.1.</span> <span class="toc-text">2.6.3.1    原生实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-3-2-基于-curator实现分布式锁"><span class="toc-number">2.6.3.2.</span> <span class="toc-text">2.6.3.2    基于 curator实现分布式锁</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-分布式队列"><span class="toc-number">2.7.</span> <span class="toc-text">2.7    分布式队列</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-SpringMVC-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/94a25162.html">SpringMVC(三)</a>
-    </h1>
   
 
-        
-        <a href="/archives/94a25162.html" class="archive-article-date">
-  	<time datetime="2020-06-26T07:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-SSM-整合"><a href="#1-SSM-整合" class="headerlink" title="1.    SSM 整合"></a>1.    SSM 整合</h1><h2 id="1-1-搭建整合环境"><a href="#1-1-搭建整合环境" class="headerlink" title="1.1    搭建整合环境"></a>1.1    搭建整合环境</h2><h3 id="1-1-1-整合说明"><a href="#1-1-1-整合说明" class="headerlink" title="1.1.1    整合说明"></a>1.1.1    整合说明</h3><p>SSM整合可以使用多种方式，选择XML + 注解的方式</p>
-<h3 id="1-1-2-整合的思路"><a href="#1-1-2-整合的思路" class="headerlink" title="1.1.2    整合的思路"></a>1.1.2    整合的思路</h3><ul>
-<li>先搭建整合的环境 </li>
-<li>先把Spring的配置搭建完成 </li>
-<li>再使用Spring整合SpringMVC框架 </li>
-<li>最后使用Spring整合MyBatis框架</li>
-</ul>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/94a25162.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringMVC-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/ea517149.html">SpringMVC(二)</a>
-    </h1>
   
 
-        
-        <a href="/archives/ea517149.html" class="archive-article-date">
-  	<time datetime="2020-06-25T15:07:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-响应数据和结果视图"><a href="#1-响应数据和结果视图" class="headerlink" title="1.    响应数据和结果视图"></a>1.    响应数据和结果视图</h1><h2 id="1-1-返回值分类"><a href="#1-1-返回值分类" class="headerlink" title="1.1    返回值分类"></a>1.1    返回值分类</h2><h3 id="1-1-1-void"><a href="#1-1-1-void" class="headerlink" title="1.1.1    void"></a>1.1.1    void</h3><p>如果控制器的方法返回值编写成void，执行程序报404的异常，默认查找JSP页面没有找到。</p>
-<p>默认会跳转到@RequestMapping(value=”/testVoid”) testVoid的页面。</p>
-<p>可以使用请求转发或者重定向跳转到指定的页面</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/ea517149.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringMVC-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/4560ea2b.html">SpringMVC(一)</a>
-    </h1>
   
 
-        
-        <a href="/archives/4560ea2b.html" class="archive-article-date">
-  	<time datetime="2020-06-24T11:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-SpringMVC-的基本概念"><a href="#1-SpringMVC-的基本概念" class="headerlink" title="1.    SpringMVC 的基本概念"></a>1.    SpringMVC 的基本概念</h1><h2 id="1-1-三层架构和MVC"><a href="#1-1-三层架构和MVC" class="headerlink" title="1.1    三层架构和MVC"></a>1.1    三层架构和MVC</h2><h3 id="1-1-1-三层架构"><a href="#1-1-1-三层架构" class="headerlink" title="1.1.1    三层架构"></a>1.1.1    三层架构</h3><p>开发服务器端程序，一般都基于两种形式，一种C/S(客户端/服务器)架构程序，一种B/S(浏览器/服务器)架构程序。</p>
-<p>使用Java语言基本上都是开发B/S架构的程序，B/S架构又分成了三层架构 ：</p>
-<ul>
-<li>表现层：WEB层，用来和客户端进行数据交互的。表现层一般会采用MVC的设计模型 </li>
-<li>业务层：处理公司具体的业务逻辑的</li>
-<li>持久层：用来操作数据库的</li>
-</ul>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/4560ea2b.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MyBatis-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/bf2fe2d.html">MyBatis(四)</a>
-    </h1>
   
 
-        
-        <a href="/archives/bf2fe2d.html" class="archive-article-date">
-  	<time datetime="2020-06-23T14:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Mybatis-延迟加载策略"><a href="#1-Mybatis-延迟加载策略" class="headerlink" title="1.    Mybatis 延迟加载策略"></a>1.    Mybatis 延迟加载策略</h1><h2 id="1-1-何为延迟加载"><a href="#1-1-何为延迟加载" class="headerlink" title="1.1    何为延迟加载"></a>1.1    何为延迟加载</h2><p>就是在需要用到数据时才进行加载，不需要用到数据时就不加载数据。延迟加载也称懒加载。</p>
-<ul>
-<li>好处：先从单表查询，需要时再从关联表去关联查询，大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。</li>
-<li>坏处 ：因为只有当需要用到数据时，才会进行数据库查询，这样在大批量数据查询时，因为查询工作也要消耗时间，所以可能造成用户等待时间变长，造成用户体验下降。</li>
-</ul>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/bf2fe2d.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
-    </nav>
   
 
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a01b13554e910b682a17',
+  	clientSecret: 'ed78fef4c5012669cf340214fd17d583601a9aa1',
+  	repo: 'wgy1993.github.io',
+  	owner: 'wgy1993',
+  	admin: ['wgy1993'],
+  	id: 'Wed Aug 05 2020 16:55:24 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+  <br/>
 
 
           </div>
@@ -731,8 +619,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
