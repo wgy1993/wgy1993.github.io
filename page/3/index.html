@@ -157,6 +157,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MyBatis-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/2073aa6b.html">MyBatis(一)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/2073aa6b.html" class="archive-article-date">
+  	<time datetime="2020-06-20T07:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-单独使用jdbc编程问题总结"><a href="#1-单独使用jdbc编程问题总结" class="headerlink" title="1.    单独使用jdbc编程问题总结"></a>1.    单独使用jdbc编程问题总结</h1><h2 id="1-1-jdbc编程步骤"><a href="#1-1-jdbc编程步骤" class="headerlink" title="1.1    jdbc编程步骤"></a>1.1    jdbc编程步骤</h2><ol>
+<li>加载数据库驱动</li>
+<li>创建并获取数据库链接</li>
+<li>创建jdbc statement对象</li>
+<li>设置sql语句</li>
+<li>设置sql语句中的参数(使用preparedStatement)</li>
+<li>通过statement执行sql并获取结果</li>
+<li>对sql执行结果进行解析处理</li>
+<li>释放资源(resultSet、preparedstatement、connection)</li>
+</ol>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/2073aa6b.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Maven-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -604,94 +703,6 @@
 
 
   
-    <article id="post-Spring-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/680971a4.html">Spring(三)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/680971a4.html" class="archive-article-date">
-  	<time datetime="2020-06-13T10:27:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-AOP的相关概念"><a href="#1-AOP的相关概念" class="headerlink" title="1.    AOP的相关概念"></a>1.    AOP的相关概念</h1><h2 id="1-1-AOP概述"><a href="#1-1-AOP概述" class="headerlink" title="1.1    AOP概述"></a>1.1    AOP概述</h2><h3 id="1-1-1-什么是AOP"><a href="#1-1-1-什么是AOP" class="headerlink" title="1.1.1    什么是AOP"></a>1.1.1    什么是AOP</h3><blockquote>
-<p>在软件业，AOP为Aspect Oriented Programming的缩写，意为：<a href="https://baike.baidu.com/item/面向切面编程/6016335" target="_blank" rel="noopener">面向切面编程</a>，通过<a href="https://baike.baidu.com/item/预编译/3191547" target="_blank" rel="noopener">预编译</a>方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP是<a href="https://baike.baidu.com/item/OOP" target="_blank" rel="noopener">OOP</a>的延续，是软件开发中的一个热点，也是<a href="https://baike.baidu.com/item/Spring" target="_blank" rel="noopener">Spring</a>框架中的一个重要内容，是<a href="https://baike.baidu.com/item/函数式编程/4035031" target="_blank" rel="noopener">函数式编程</a>的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的<a href="https://baike.baidu.com/item/耦合度/2603938" target="_blank" rel="noopener">耦合度</a>降低，提高程序的可重用性，同时提高了开发的效率。</p>
-</blockquote>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/680971a4.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
@@ -921,6 +932,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Lucene</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ElasticStack</a>
               </li>
             
             <div class="clearfix"></div>
