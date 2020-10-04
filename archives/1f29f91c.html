@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wgy1993.gitee.io">
-  <title>Archives | Wgy的博客</title>
+  <title>网络爬虫(三) | Wgy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wgy的博客">
-<meta property="og:url" content="https://wgy1993.gitee.io/archives/page/3/index.html">
+  <meta name="description" content="1.    案例扩展1.1    定时任务在案例中我们使用的是Spring内置的Spring Task，这是Spring3.0加入的定时任务功能。我们使用注解的方式定时启动爬虫进行数据爬取。 我们使用的是@Scheduled注解，其属性如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络爬虫(三)">
+<meta property="og:url" content="https://wgy1993.gitee.io/archives/1f29f91c.html">
 <meta property="og:site_name" content="Wgy的博客">
+<meta property="og:description" content="1.    案例扩展1.1    定时任务在案例中我们使用的是Spring内置的Spring Task，这是Spring3.0加入的定时任务功能。我们使用注解的方式定时启动爬虫进行数据爬取。 我们使用的是@Scheduled注解，其属性如下：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201004124623447.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201004124639415.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201004124654969.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201004124710599.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201004124731558.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201004124749394.png">
+<meta property="article:published_time" content="2020-10-04T04:48:31.000Z">
+<meta property="article:modified_time" content="2020-10-04T04:51:18.101Z">
 <meta property="article:author" content="Wgy">
+<meta property="article:tag" content="网络爬虫">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201004124623447.png">
   
     <link rel="alternative" href="/atom.xml" title="Wgy的博客" type="application/atom+xml">
   
@@ -155,471 +167,393 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-网络爬虫-三" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络爬虫(三)
+    </h1>
+  
+
+        
+        <a href="/archives/1f29f91c.html" class="archive-article-date">
+  	<time datetime="2020-10-04T04:48:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-案例扩展"><a href="#1-案例扩展" class="headerlink" title="1.    案例扩展"></a>1.    案例扩展</h1><h2 id="1-1-定时任务"><a href="#1-1-定时任务" class="headerlink" title="1.1    定时任务"></a>1.1    定时任务</h2><p>在案例中我们使用的是Spring内置的Spring Task，这是Spring3.0加入的定时任务功能。我们使用注解的方式定时启动爬虫进行数据爬取。</p>
+<p>我们使用的是@Scheduled注解，其属性如下：</p>
+<a id="more"></a>
+
+<ul>
+<li><strong>cron</strong>：cron表达式，指定任务在特定时间执行；</li>
+<li><strong>fixedDelay</strong>：上一次任务执行完后多久再执行，参数类型为long，单位ms</li>
+<li><strong>fixedDelayString</strong>：与fixedDelay含义一样，只是参数类型变为String</li>
+<li><strong>fixedRate</strong>：按一定的频率执行任务，参数类型为long，单位ms</li>
+<li><strong>fixedRateString</strong>: 与fixedRate的含义一样，只是将参数类型变为String</li>
+<li><strong>initialDelay</strong>：延迟多久再第一次执行任务，参数类型为long，单位ms</li>
+<li><strong>initialDelayString</strong>：与initialDelay的含义一样，只是将参数类型变为String</li>
+<li><strong>zone</strong>：时区，默认为当前时区，一般没有用到</li>
+</ul>
+<p>我们这里的使用比较简单，固定的间隔时间来启动爬虫。例如可以实现项目启动后，每隔一小时启动一次爬虫。</p>
+<p>但是有可能业务要求更高，并不是定时定期处理，而是在特定的时间进行处理，这个时候我们之前的使用方式就不能满足需求了。例如我要在工作日（周一到周五）的晚上八点执行。这时我们就需要Cron表达式了。</p>
+<h3 id="1-1-1-Cron表达式"><a href="#1-1-1-Cron表达式" class="headerlink" title="1.1.1    Cron表达式"></a>1.1.1    Cron表达式</h3><p>cron的表达式是字符串，实际上是由七子表达式，描述个别细节的时间表。这些子表达式是分开的空白，代表：</p>
+<p>1、Seconds</p>
+<p>2、Minutes</p>
+<p>3、Hours</p>
+<p>4、Day-of-Month</p>
+<p>5、Month</p>
+<p>6、Day-of-Week</p>
+<p>7、Year (可选字段)</p>
+<p>例 “0 0 12 ? * WED” 在每星期三下午12:00 执行, “*” 代表整个时间段</p>
+<p>每一个字段都有一套可以指定有效值，如</p>
+<p>Seconds (秒)      ：可以用数字0－59 表示，</p>
+<p>Minutes(分)       ：可以用数字0－59 表示，</p>
+<p>Hours(时)         ：可以用数字0-23表示,</p>
+<p>Day-of-Month(天)  ：可以用数字1-31 中的任一一个值，但要注意一些特别的月份</p>
+<p>Month(月)       ：可以用0-11 或用字符串:JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC </p>
+<p>Day-of-Week(天)   ：可以用数字1-7表示（1 ＝ 星期日）或用字符口串:SUN, MON, TUE, WED, THU, FRI, SAT</p>
+<p>“/”：为特别单位，表示为“每”如“0/15”表示每隔15分钟执行一次,“0”表示为从“0”分开始, “3/20”表示表示每隔20分钟执行一次，“3”表示从第3分钟开始执行</p>
+<p>“?”：表示每月的某一天，或第周的某一天</p>
+<p>“L”：用于每月，或每周，表示为每月的最后一天，或每个月的最后星期几如“6L”表示“每月的最后一个星期五” </p>
+<h3 id="1-1-2-Cron测试"><a href="#1-1-2-Cron测试" class="headerlink" title="1.1.2    Cron测试"></a>1.1.2    Cron测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定时任务</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Scheduled</span>(cron = <span class="string">"0/5 * * * * *"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(LocalDateTime.now() + <span class="string">"任务执行了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-网页去重"><a href="#1-2-网页去重" class="headerlink" title="1.2    网页去重"></a>1.2    网页去重</h2><p>之前我们对下载的url地址进行了去重操作，避免同样的url下载多次。其实不光url需要去重，我们对下载的内容也需要去重。</p>
+<p>在网上我们可以找到许多内容相似的文章。但是实际我们只需要其中一个即可，同样的内容没有必要下载多次，那么如何进行去重就需要进行处理了</p>
+<h3 id="1-2-1-去重方案介绍"><a href="#1-2-1-去重方案介绍" class="headerlink" title="1.2.1    去重方案介绍"></a>1.2.1    去重方案介绍</h3><ul>
+<li><p><strong>指纹码对比</strong></p>
+<p>最常见的去重方案是生成文档的指纹门。例如对一篇文章进行MD5加密生成一个字符串，我们可以认为这是文章的指纹码，再和其他的文章指纹码对比，一致则说明文章重复。</p>
+<p>但是这种方式是完全一致则是重复的，如果文章只是多了几个标点符号，那仍旧被认为是重复的，这种方式并不合理。</p>
+</li>
+<li><p><strong>BloomFilter</strong></p>
+<p>这种方式就是我们之前对url进行去重的方式，使用在这里的话，也是对文章进行计算得到一个数，再进行对比，缺点和方法1是一样的，如果只有一点点不一样，也会认为不重复，这种方式不合理。</p>
+</li>
+<li><p><strong>KMP算法</strong></p>
+<p>KMP算法是一种改进的字符串匹配算法。KMP算法的关键是利用匹配失败后的信息，尽量减少模式串与主串的匹配次数以达到快速匹配的目的。能够找到两个文章有哪些是一样的，哪些不一样。</p>
+<p>这种方式能够解决前面两个方式的“只要一点不一样就是不重复”的问题。但是它的时空复杂度太高了，不适合大数据量的重复比对。</p>
+</li>
+</ul>
+<p>还有一些其他的去重方式：最长公共子串、后缀数组、字典树、DFA等等，但是这些方式的空复杂度并不适合数据量较大的工业应用场景。我们需要找到一款性能高速度快，能够进行相似度对比的去重方案</p>
+<p>Google 的 <strong>simhash 算法</strong>产生的签名，可以满足上述要求。这个算法并不深奥，比较容易理解。这种算法也是目前Google搜索引擎所目前所使用的网页去重算法。</p>
+<h3 id="1-2-2-SimHash"><a href="#1-2-2-SimHash" class="headerlink" title="1.2.2    SimHash"></a>1.2.2    SimHash</h3><h4 id="1-2-2-1-流程介绍"><a href="#1-2-2-1-流程介绍" class="headerlink" title="1.2.2.1    流程介绍"></a>1.2.2.1    流程介绍</h4><p>simhash是由 Charikar 在2002年提出来的，为了便于理解尽量不使用数学公式，分为这几步：</p>
+<p><strong>1、分词</strong>，把需要判断文本分词形成这个文章的特征单词。</p>
+<p><strong>2、hash</strong>，通过hash算法把每个词变成hash值，比如“美国”通过hash算法计算为 100101,“51区”通过hash算法计算为 101011。这样我们的字符串就变成了一串串数字。</p>
+<p><strong>3、加权</strong>，通过 2步骤的hash生成结果，需要按照单词的权重形成加权数字串，“美国”的hash值为“100101”，通过加权计算为“4 -4 -4 4 -4 4”，“51区”计算为 “ 5 -5 5 -5 5 5”。</p>
+<p><strong>4、合并</strong>，把上面各个单词算出来的序列值累加，变成只有一个序列串。 “美国”的 “4 -4 -4 4 -4 4”，“51区”的 “ 5 -5 5 -5 5 5”，把每一位进行累加， “4+5 -4+-5 -4+5 4+-5 -4+5 4+5”–&gt;“9 -9 1 -1 1 9”</p>
+<p><strong>5、降维</strong>，把算出来的 “9 -9 1 -1 1 9”变成 0 1 串，形成最终的simhash签名。 </p>
+<p><img src="https://img-blog.csdnimg.cn/20201004124623447.png" alt="image-20201004121653047"></p>
+<h4 id="1-2-2-2-签名距离计算"><a href="#1-2-2-2-签名距离计算" class="headerlink" title="1.2.2.2    签名距离计算"></a>1.2.2.2    签名距离计算</h4><p>我们把库里的文本都转换为simhash签名，并转换为long类型存储，空间大大减少。现在我们虽然解决了空间，但是如何计算两个simhash的相似度呢？</p>
+<p>我们通过海明距离（Hamming distance）就可以计算出两个simhash到底相似不相似。两个simhash对应二进制（01串）取值不同的数量称为这两个simhash的海明距离。</p>
+<p>举例如下： 10101 和 00110 从第一位开始依次有第一位、第四、第五位不同，则海明距离为3。对于二进制字符串的a和b，海明距离为等于在a XOR b运算结果中1的个数（普遍算法）。</p>
+<h4 id="1-2-2-3-导入simhash工程"><a href="#1-2-2-3-导入simhash工程" class="headerlink" title="1.2.2.3    导入simhash工程"></a>1.2.2.3    导入simhash工程</h4><p>参考项目：<a href="https://github.com/CreekLou/simhash.git" target="_blank" rel="noopener">https://github.com/CreekLou/simhash.git</a></p>
+<p>导入工程simhash，并打开测试用例。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201004124639415.png" alt="image-20201004121854013"></p>
+<h4 id="1-2-2-4-案例整合"><a href="#1-2-2-4-案例整合" class="headerlink" title="1.2.2.4    案例整合"></a>1.2.2.4    案例整合</h4><p>需要先把simhash安装到本地仓库</p>
+<p><img src="https://img-blog.csdnimg.cn/20201004124654969.png" alt="image-20201004121958144"></p>
+<p>在案例的pom.xml中加入以下依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--simhash网页去重--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>simhasher<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定时任务</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试用</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> filename 名字</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">readAllFile</span><span class="params">(String filename)</span> </span>&#123;</span><br><span class="line">        String everything = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(filename);</span><br><span class="line">            everything = IOUtils.toString(inputStream);</span><br><span class="line">            inputStream.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> everything;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Scheduled</span>(cron = <span class="string">"0/5 * * * * *"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String str1 = readAllFile(<span class="string">"D:/test/testin.txt"</span>);</span><br><span class="line">        SimHasher hash1 = <span class="keyword">new</span> SimHasher(str1);</span><br><span class="line">        <span class="comment">//打印simhash签名</span></span><br><span class="line">        System.out.println(hash1.getSignature());</span><br><span class="line">        System.out.println(<span class="string">"============================"</span>);</span><br><span class="line"></span><br><span class="line">        String str2 = readAllFile(<span class="string">"D:/test/testin2.txt"</span>);</span><br><span class="line">        <span class="comment">//打印simhash签名</span></span><br><span class="line">        SimHasher hash2 = <span class="keyword">new</span> SimHasher(str2);</span><br><span class="line">        System.out.println(hash2.getSignature());</span><br><span class="line">        System.out.println(<span class="string">"============================"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印海明距离</span></span><br><span class="line">        System.out.println(hash1.getHammingDistance(hash2.getSignature()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-代理的使用"><a href="#1-3-代理的使用" class="headerlink" title="1.3    代理的使用"></a>1.3    代理的使用</h2><p>有些网站不允许爬虫进行数据爬取，因为会加大服务器的压力。其中一种最有效的方式是通过ip+时间进行鉴别，因为正常人不可能短时间开启太多的页面，发起太多的请求。</p>
+<p>我们使用的WebMagic可以很方便的设置爬取数据的时间（参考第二天的的爬虫的配置、启动和终止）。但是这样会大大降低我们爬取数据的效率，如果不小心ip被禁了，会让我们无法爬去数据，那么我们就有必要使用代理服务器来爬取数据。</p>
+<h3 id="1-3-1-代理服务器"><a href="#1-3-1-代理服务器" class="headerlink" title="1.3.1    代理服务器"></a>1.3.1    代理服务器</h3><p>代理（英语：Proxy），也称网络代理，是一种特殊的网络服务，允许一个网络终端（一般为客户端）通过这个服务与另一个网络终端（一般为服务器）进行非直接的连接。</p>
+<p>提供代理服务的电脑系统或其它类型的网络终端称为代理服务器（英文：Proxy Server）。一个完整的代理请求过程为：客户端首先与代理服务器创建连接，接着根据代理服务器所使用的代理协议，请求对目标服务器创建连接、或者获得目标服务器的指定资源。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201004124710599.png" alt="image-20201004122253194"></p>
+<p>我们就需要知道代理服务器在哪里（ip和端口号）才可以使用。网上有很多代理服务器的提供商，但是大多是免费的不好用，付费的还行。</p>
+<p>米扑代理：<a href="https://proxy.mimvp.com/free.php" target="_blank" rel="noopener">https://proxy.mimvp.com/free.php</a></p>
+<h3 id="1-3-2-使用代理"><a href="#1-3-2-使用代理" class="headerlink" title="1.3.2    使用代理"></a>1.3.2    使用代理</h3><p>WebMagic使用的代理APIProxyProvider。因为相对于Site的“配置”，ProxyProvider定位更多是一个“组件”，所以代理不再从Site设置，而是由HttpClientDownloader设置。</p>
+<table>
+<thead>
+<tr>
+<th><strong>API</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HttpClientDownloader.setProxyProvider(ProxyProvider  proxyProvider)</td>
+<td>设置代理</td>
+</tr>
+</tbody></table>
+<p>ProxyProvider有一个默认实现：SimpleProxyProvider。它是一个基于简单Round-Robin的、没有失败检查的ProxyProvider。可以配置任意个候选代理，每次会按顺序挑选一个代理使用。它适合用在自己搭建的比较稳定的代理的场景。</p>
+<p>如果需要根据实际使用情况对代理服务器进行管理（例如校验是否可用，定期清理、添加代理服务器等），只需要自己实现APIProxyProvider即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 代理测试</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyTest</span> <span class="keyword">implements</span> <span class="title">PageProcessor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Site site = Site.me();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Scheduled</span>(fixedDelay = <span class="number">1000</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Process</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建下载器Downloader</span></span><br><span class="line">        HttpClientDownloader httpClientDownloader = <span class="keyword">new</span> HttpClientDownloader();</span><br><span class="line">        <span class="comment">//给下载器设置代理服务器信息</span></span><br><span class="line">        httpClientDownloader.setProxyProvider(SimpleProxyProvider.from(<span class="keyword">new</span> Proxy(<span class="string">"112.109.198.105"</span>, <span class="number">3128</span>)));</span><br><span class="line"></span><br><span class="line">        Spider.create(<span class="keyword">new</span> ProxyTest())</span><br><span class="line">                .addUrl(<span class="string">"http://ip.chinaz.com/"</span>)</span><br><span class="line">                .setDownloader(httpClientDownloader)<span class="comment">//设置下载器</span></span><br><span class="line">                .run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//打印获取到的结果以测试代理服务器是否生效</span></span><br><span class="line">        System.out.println(page.getHtml().toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Site <span class="title">getSite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> site;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-查询案例实现"><a href="#2-查询案例实现" class="headerlink" title="2.    查询案例实现"></a>2.    查询案例实现</h1><p>把上一次上课抓取到的招聘数据作为数据源，实现招聘信息查询功能。首先需要把MySQL的数据添加到索引库中，然后再实现查询功能。我们这里使用的是SpringBoot，需要把Spring Data ElasticSearch 和项目进行整合。</p>
+<h2 id="2-1-开发准备"><a href="#2-1-开发准备" class="headerlink" title="2.1    开发准备"></a>2.1    开发准备</h2><p>需要修改之前的配置，网页去重排除lucene依赖，同时去重的依赖必须放在pom.xml的最下部。因为现在要使用ElasticSearch，需要用到新的lucene依赖。</p>
+<p>添加ES依赖和单元测试依赖，并修改以前的去重依赖，pom.xml效果：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--SpringMVC--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--SpringData Jpa--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--MySQL连接包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--WebMagic核心包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>us.codecraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>webmagic-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--WebMagic扩展--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>us.codecraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>webmagic-extension<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--WebMagic对布隆过滤器的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>16.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--工具包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang3<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--ElasticSearch--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--单元测试--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--simhash--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>simhasher<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.lucene<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lucene-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件application.properties，添加以下内容</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#DB Configuration:</span></span><br><span class="line"><span class="meta">spring.datasource.driverClassName</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://127.0.0.1:3306/crawler</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">root</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#JPA Configuration:</span></span><br><span class="line"><span class="meta">spring.jpa.database</span>=<span class="string">MySQL</span></span><br><span class="line"><span class="meta">spring.jpa.show-sql</span>=<span class="string">true</span></span><br><span class="line"></span><br><span class="line"><span class="meta">server.port</span>=<span class="string">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ElasticSearch Configuration</span></span><br><span class="line"><span class="meta">spring.data.elasticsearch.cluster-nodes</span>=<span class="string">192.168.142.128:9700</span></span><br><span class="line"><span class="meta">spring.data.elasticsearch.cluster-name</span>=<span class="string">wgy-es</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-导入数据到索引库"><a href="#2-2-导入数据到索引库" class="headerlink" title="2.2    导入数据到索引库"></a>2.2    导入数据到索引库</h2><h3 id="2-2-1-编写pojo"><a href="#2-2-1-编写pojo" class="headerlink" title="2.2.1    编写pojo"></a>2.2.1    编写pojo</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 招聘信息实体类es</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Document</span>(indexName = <span class="string">"jobinfo"</span>, type = <span class="string">"JobInfoField"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobInfoField</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, type = FieldType.Long)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, analyzer = <span class="string">"ik_smart"</span>, searchAnalyzer = <span class="string">"ik_smart"</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String companyName;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, analyzer = <span class="string">"ik_smart"</span>, searchAnalyzer = <span class="string">"ik_smart"</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String companyAddr;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, analyzer = <span class="string">"ik_smart"</span>, searchAnalyzer = <span class="string">"ik_smart"</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String companyInfo;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, analyzer = <span class="string">"ik_smart"</span>, searchAnalyzer = <span class="string">"ik_smart"</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String jobName;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, analyzer = <span class="string">"ik_smart"</span>, searchAnalyzer = <span class="string">"ik_smart"</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String jobAddr;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, analyzer = <span class="string">"ik_smart"</span>, searchAnalyzer = <span class="string">"ik_smart"</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String jobInfo;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, type = FieldType.Integer)</span><br><span class="line">    <span class="keyword">private</span> Integer salaryMin;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, type = FieldType.Integer)</span><br><span class="line">    <span class="keyword">private</span> Integer salaryMax;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="meta">@Field</span>(index = <span class="keyword">true</span>, store = <span class="keyword">true</span>, type = FieldType.Text)</span><br><span class="line">    <span class="keyword">private</span> String time;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//get/set/toString</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-2-编写dao"><a href="#2-2-2-编写dao" class="headerlink" title="2.2.2    编写dao"></a>2.2.2    编写dao</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 招聘信息持久层接口es</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">JobRepository</span> <span class="keyword">extends</span> <span class="title">ElasticsearchRepository</span>&lt;<span class="title">JobInfoField</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-3-编写Service"><a href="#2-2-3-编写Service" class="headerlink" title="2.2.3    编写Service"></a>2.2.3    编写Service</h3><p>编写Service接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 招聘信息业务接口es</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">JobRepositoryService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存一条数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jobInfoField</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(JobInfoField jobInfoField)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 批量保存数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> list</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveAll</span><span class="params">(List&lt;JobInfoField&gt; list)</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写Service实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 招聘信息业务实现es</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobRepositoryServiceImpl</span> <span class="keyword">implements</span> <span class="title">JobRepositoryService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JobRepository jobRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(JobInfoField jobInfoField)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.jobRepository.save(jobInfoField);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveAll</span><span class="params">(List&lt;JobInfoField&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.jobRepository.saveAll(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-4-编写测试用例"><a href="#2-2-4-编写测试用例" class="headerlink" title="2.2.4    编写测试用例"></a>2.2.4    编写测试用例</h3><p>先执行createIndex()方法创建索引，再执行jobData()导入数据到索引库</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * es测试</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">SpringBootTest</span>(<span class="title">classes</span> </span>= Application<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ESTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ElasticsearchTemplate elasticsearchTemplate;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JobInfoService jobInfoService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JobRepositoryService jobRepositoryService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建索引和映射</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.elasticsearchTemplate.createIndex(JobInfoField<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="keyword">this</span>.elasticsearchTemplate.putMapping(JobInfoField<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 导入数据到索引库</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jobInfoData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//声明页码数，从1开始</span></span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//声明查询到的数据条数</span></span><br><span class="line">        <span class="keyword">int</span> pageSize = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="comment">//从数据库中查询数据</span></span><br><span class="line">            Page&lt;JobInfo&gt; page = <span class="keyword">this</span>.jobInfoService.findJobInfoByPage(p, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//声明容器存放JobInfoField</span></span><br><span class="line">            List&lt;JobInfoField&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//把查询到的数据封装为JobInfoField</span></span><br><span class="line">            <span class="keyword">for</span> (JobInfo jobInfo : page.getContent()) &#123;</span><br><span class="line">                <span class="comment">//声明对象</span></span><br><span class="line">                JobInfoField jobInfoField = <span class="keyword">new</span> JobInfoField();</span><br><span class="line">                <span class="comment">//封装数据,复制数据</span></span><br><span class="line">                BeanUtils.copyProperties(jobInfo, jobInfoField);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//把封装好数据的对象放到list容器中</span></span><br><span class="line">                list.add(jobInfoField);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//把封装好的数据保存到索引库中</span></span><br><span class="line">            <span class="keyword">this</span>.jobRepositoryService.saveAll(list);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//页码数加一</span></span><br><span class="line">            p++;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取查询结果集的数据条数</span></span><br><span class="line">            pageSize = page.getContent().size();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">while</span> (pageSize == <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-查询案例实现"><a href="#2-3-查询案例实现" class="headerlink" title="2.3    查询案例实现"></a>2.3    查询案例实现</h2><h3 id="2-3-1-页面跳转实现"><a href="#2-3-1-页面跳转实现" class="headerlink" title="2.3.1    页面跳转实现"></a>2.3.1    页面跳转实现</h3><p>添加静态资源到项目中</p>
+<p><img src="https://img-blog.csdnimg.cn/20201004124731558.png" alt="image-20201004124008295"></p>
+<h3 id="2-3-2-编写pojo"><a href="#2-3-2-编写pojo" class="headerlink" title="2.3.2    编写pojo"></a>2.3.2    编写pojo</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查询结果封装类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobResult</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;JobInfoField&gt; rows;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer pageTotal;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//get/set/toString</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-3-编写Controller"><a href="#2-3-3-编写Controller" class="headerlink" title="2.3.3    编写Controller"></a>2.3.3    编写Controller</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 查询controller</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wgy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JobRepositoryService jobRepositoryService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//salary: *-*</span></span><br><span class="line">    <span class="comment">//page: 1</span></span><br><span class="line">    <span class="comment">//jobaddr: 北京</span></span><br><span class="line">    <span class="comment">//keyword: java</span></span><br><span class="line">    <span class="comment">//Request URL: http://127.0.0.1:80/search</span></span><br><span class="line">    <span class="comment">//Request Method: POST</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据条件分页查询招聘信息</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> salary</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jobaddr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> keyword</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> page</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"search"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JobResult <span class="title">search</span><span class="params">(String salary, String jobaddr, String keyword, Integer page)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        JobResult jobResult = <span class="keyword">this</span>.jobRepositoryService.search(salary, jobaddr, keyword, page);</span><br><span class="line">        <span class="keyword">return</span> jobResult;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-4-编写Service"><a href="#2-3-4-编写Service" class="headerlink" title="2.3.4    编写Service"></a>2.3.4    编写Service</h3><p>在JobRepositoryService编写接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据条件分页查询招聘信息</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> salary</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> jobaddr</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> keyword</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> page</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">JobResult <span class="title">search</span><span class="params">(String salary, String jobaddr, String keyword, Integer page)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>在JobRepositoryServiceImpl实现接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//salary: *-*</span></span><br><span class="line"><span class="comment">//page: 1</span></span><br><span class="line"><span class="comment">//jobaddr: 北京</span></span><br><span class="line"><span class="comment">//keyword: java</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JobResult <span class="title">search</span><span class="params">(String salary, String jobaddr, String keyword, Integer page)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//解析参数薪资</span></span><br><span class="line">    String[] salarys = salary.split(<span class="string">"-"</span>);</span><br><span class="line">    <span class="keyword">int</span> salaryMin = <span class="number">0</span>, salaryMax = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取最低薪资</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"*"</span>.equals(salarys[<span class="number">0</span>])) &#123;</span><br><span class="line">        <span class="comment">//如果最小值是*，表示最低薪资是0</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//如果最小值不是*，需要转为数字类型，乘以10000</span></span><br><span class="line">        salaryMin = Integer.parseInt(salarys[<span class="number">0</span>]) * <span class="number">10000</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取最高薪资</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"*"</span>.equals(salarys[<span class="number">1</span>])) &#123;</span><br><span class="line">        <span class="comment">//如果最大值是*，代表最大的数也包含,设置为1000万</span></span><br><span class="line">        salaryMax = <span class="number">10000000</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//如果最大值不是*，需要转为数字类型，乘以10000</span></span><br><span class="line">        salaryMax = Integer.parseInt(salarys[<span class="number">0</span>]) * <span class="number">10000</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断工作地点是否为空</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(jobaddr)) &#123;</span><br><span class="line">        <span class="comment">//如果为空，设置为*</span></span><br><span class="line">        jobaddr = <span class="string">"*"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断查询关键词是否为空</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(keyword)) &#123;</span><br><span class="line">        <span class="comment">//如果为空，设置为*</span></span><br><span class="line">        keyword = <span class="string">"*"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用dao的方法执行查询</span></span><br><span class="line">    Page&lt;JobInfoField&gt; pages = <span class="keyword">this</span>.jobRepository.findBySalaryMinBetweenAndSalaryMaxBetweenAndJobAddrAndJobNameAndJobInfo(salaryMin, salaryMax, salaryMin, salaryMax, jobaddr, keyword, keyword, PageRequest.of(page - <span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//封装结果对象jobResult</span></span><br><span class="line">    JobResult jobResult = <span class="keyword">new</span> JobResult();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置结果集</span></span><br><span class="line">    jobResult.setRows(pages.getContent());</span><br><span class="line">    <span class="comment">//设置总页数</span></span><br><span class="line">    jobResult.setPageTotal(pages.getTotalPages());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> jobResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-5-编写Dao"><a href="#2-3-5-编写Dao" class="headerlink" title="2.3.5    编写Dao"></a>2.3.5    编写Dao</h3><p>在JobRepository编写接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据条件分页查询数据</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> salaryMin 薪资下限最小值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> salaryMax 薪资下限最高值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> salaryMin1    薪资上限最小值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> salaryMax1    薪资上限最大值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> jobaddr   工作地</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> keyword   职位名称</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> keyword1  职位信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> pageable  分页数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  JobInfoField</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Page&lt;JobInfoField&gt; <span class="title">findBySalaryMinBetweenAndSalaryMaxBetweenAndJobAddrAndJobNameAndJobInfo</span><span class="params">(<span class="keyword">int</span> salaryMin, <span class="keyword">int</span> salaryMax, <span class="keyword">int</span> salaryMin1, <span class="keyword">int</span> salaryMax1, String jobaddr, String keyword, String keyword1, Pageable pageable)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-6-测试"><a href="#2-3-6-测试" class="headerlink" title="2.3.6    测试"></a>2.3.6    测试</h3><p><img src="https://img-blog.csdnimg.cn/20201004124749394.png" alt="image-20201004124427619"></p>
+
+      
+      <!-- 添加本文结束标记-->
+      
+           
+             <div class="essayending">
+               <div>
+                <div style="text-align:center;color: #ccc;font-size:22px;">
+                <br/>
+                <br/>
+                -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+                <br/>
+                <br/>
+                 <br/>
+                 <br/>
+                </div>
+               </div>
+             </div>
+           
+       
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/bf2fe2d.html" class="archive-article-date">
-  	<time datetime="2020-06-23T14:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/bf2fe2d.html">MyBatis(四)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        <div class="declare">
+          <strong>本文作者：</strong>
           
+            Wgy
+          
+          <br>
+          <strong>本文标题：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/1f29f91c.html">网络爬虫(三)</a>
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="https://wgy1993.gitee.io/archives/1f29f91c.html">https://wgy1993.gitee.io/archives/1f29f91c.html</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
+        </div>
+      
+      <!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wgy1993.gitee.io/archives/1f29f91c.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/f1b11122.html" class="archive-article-date">
-  	<time datetime="2020-06-22T04:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/archives/61dad937.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网络爬虫(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/f1b11122.html">MyBatis(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-案例扩展"><span class="toc-number">1.</span> <span class="toc-text">1.    案例扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-定时任务"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    定时任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-Cron表达式"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1    Cron表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-Cron测试"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2    Cron测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-网页去重"><span class="toc-number">1.2.</span> <span class="toc-text">1.2    网页去重</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-去重方案介绍"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1    去重方案介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-SimHash"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2    SimHash</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-1-流程介绍"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">1.2.2.1    流程介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-2-签名距离计算"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">1.2.2.2    签名距离计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-3-导入simhash工程"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">1.2.2.3    导入simhash工程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-4-案例整合"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">1.2.2.4    案例整合</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-代理的使用"><span class="toc-number">1.3.</span> <span class="toc-text">1.3    代理的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-代理服务器"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1    代理服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-使用代理"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2    使用代理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-查询案例实现"><span class="toc-number">2.</span> <span class="toc-text">2.    查询案例实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-开发准备"><span class="toc-number">2.1.</span> <span class="toc-text">2.1    开发准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-导入数据到索引库"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    导入数据到索引库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-编写pojo"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1    编写pojo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-编写dao"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2    编写dao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-编写Service"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3    编写Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-编写测试用例"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4    编写测试用例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-查询案例实现"><span class="toc-number">2.3.</span> <span class="toc-text">2.3    查询案例实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-页面跳转实现"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1    页面跳转实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-编写pojo"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2    编写pojo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-编写Controller"><span class="toc-number">2.3.3.</span> <span class="toc-text">2.3.3    编写Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-编写Service"><span class="toc-number">2.3.4.</span> <span class="toc-text">2.3.4    编写Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-5-编写Dao"><span class="toc-number">2.3.5.</span> <span class="toc-text">2.3.5    编写Dao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-6-测试"><span class="toc-number">2.3.6.</span> <span class="toc-text">2.3.6    测试</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/8f423109.html" class="archive-article-date">
-  	<time datetime="2020-06-21T14:11:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/8f423109.html">MyBatis(二)</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/2073aa6b.html" class="archive-article-date">
-  	<time datetime="2020-06-20T07:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/2073aa6b.html">MyBatis(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/898b4292.html" class="archive-article-date">
-  	<time datetime="2020-06-18T16:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/898b4292.html">Maven(三)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Maven</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/f77862b9.html" class="archive-article-date">
-  	<time datetime="2020-06-18T14:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/f77862b9.html">Maven(二)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Maven</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/5849f9db.html" class="archive-article-date">
-  	<time datetime="2020-06-17T08:21:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/5849f9db.html">Maven(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Maven</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/782a8ece.html" class="archive-article-date">
-  	<time datetime="2020-06-16T05:58:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/782a8ece.html">SSH</a>
-    </h1>
-  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
 
-          
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a01b13554e910b682a17',
+  	clientSecret: 'ed78fef4c5012669cf340214fd17d583601a9aa1',
+  	repo: 'wgy1993.github.io',
+  	owner: 'wgy1993',
+  	admin: ['wgy1993'],
+  	id: 'Sun Oct 04 2020 12:48:31 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/924a9eab.html" class="archive-article-date">
-  	<time datetime="2020-06-14T09:18:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/924a9eab.html">Spring(四)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/680971a4.html" class="archive-article-date">
-  	<time datetime="2020-06-13T10:27:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/680971a4.html">Spring(三)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">« Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/4/">Next »</a>
-    </nav>
-  
-
+  <br/>
 
 
           </div>
@@ -651,8 +585,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
