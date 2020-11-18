@@ -157,6 +157,293 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hibernate-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/3e87eb50.html">Hibernate(三)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/3e87eb50.html" class="archive-article-date">
+  	<time datetime="2020-05-31T08:27:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-多表设计"><a href="#1-多表设计" class="headerlink" title="1.    多表设计"></a>1.    多表设计</h1><h2 id="1-1-表之间的关系划分"><a href="#1-1-表之间的关系划分" class="headerlink" title="1.1    表之间的关系划分"></a>1.1    表之间的关系划分</h2><ul>
+<li>一对一</li>
+<li>一对多（多对一）</li>
+<li>多对多</li>
+</ul>
+<h1 id="2-如何确立和实现数据库中的表关系"><a href="#2-如何确立和实现数据库中的表关系" class="headerlink" title="2.    如何确立和实现数据库中的表关系"></a>2.    如何确立和实现数据库中的表关系</h1><h2 id="2-1-一对多的表关系在数据库中如何实现"><a href="#2-1-一对多的表关系在数据库中如何实现" class="headerlink" title="2.1    一对多的表关系在数据库中如何实现?"></a>2.1    一对多的表关系在数据库中如何实现?</h2><p>使用外键约束。我们一般习惯把一的方称为主表，把多的一方称为从表。</p>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/3e87eb50.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/4074cb7b.html">Hibernate(二)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/4074cb7b.html" class="archive-article-date">
+  	<time datetime="2020-05-28T16:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Hibernate的持久化类和对象标识符"><a href="#1-Hibernate的持久化类和对象标识符" class="headerlink" title="1.    Hibernate的持久化类和对象标识符"></a>1.    Hibernate的持久化类和对象标识符</h1><h2 id="1-1-持久化类的编写规范"><a href="#1-1-持久化类的编写规范" class="headerlink" title="1.1    持久化类的编写规范"></a>1.1    持久化类的编写规范</h2><h3 id="1-1-1-什么是持久化类"><a href="#1-1-1-什么是持久化类" class="headerlink" title="1.1.1    什么是持久化类"></a>1.1.1    什么是持久化类</h3><p>Hibernate是持久层的ORM映射框架，专注于数据的持久化工作。</p>
+<ul>
+<li>持久化就是将内存中的数据永久存储到关系型数据库中。</li>
+<li>持久化类指的是一个Java类与数据库表建立了映射关系，那么这个类称为是持久化类。其实你可以简单的理解为持久化类就是一个Java类有了一个映射文件与数据库的表建立了关系。</li>
+</ul>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/4074cb7b.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/ef455019.html">Hibernate(一)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/ef455019.html" class="archive-article-date">
+  	<time datetime="2020-05-28T06:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Hibernate和ORM的概念"><a href="#1-Hibernate和ORM的概念" class="headerlink" title="1.    Hibernate和ORM的概念"></a>1.    Hibernate和ORM的概念</h1><h2 id="1-1-Hibrenate概述"><a href="#1-1-Hibrenate概述" class="headerlink" title="1.1    Hibrenate概述"></a>1.1    Hibrenate概述</h2><p>它是一个轻量级，企业级，开源的ORM持久层框架。是可以操作数据库的框架。</p>
+<ul>
+<li>框架：它就是一个架构。</li>
+<li>通常情况下，软件工程的持久层解决方案，一个为主一个为辅。两者并存（写SQL语句的和不写SQL语句的</li>
+<li>轻量级：指的是使用时依赖的资源很少。（目前我们使用的阶段，只依赖log4j，c3p0连接池）</li>
+<li>企业级：指的是在企业级应用中使用的比较多</li>
+<li>开源的：开放源代码。</li>
+<li>ORM的操作方式：建立对象关系映射，实现操作实体类就相当于操作数据库表。</li>
+</ul>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/ef455019.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Sharding-JDBC分库分表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -417,284 +704,9 @@
 
 
   
-    <article id="post-MySQL高级教程-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/621b99dc.html">MySQL高级教程(二)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/621b99dc.html" class="archive-article-date">
-  	<time datetime="2020-05-19T09:27:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Mysql的体系结构概览"><a href="#1-Mysql的体系结构概览" class="headerlink" title="1.    Mysql的体系结构概览"></a>1.    Mysql的体系结构概览</h1><p>整个MySQL Server由以下组成</p>
-<ul>
-<li>Connection Pool : 连接池组件</li>
-<li>Management Services &amp; Utilities : 管理服务和工具组件</li>
-<li>SQL Interface : SQL接口组件</li>
-<li>Parser : 查询分析器组件</li>
-<li>Optimizer : 优化器组件</li>
-<li>Caches &amp; Buffers : 缓冲池组件</li>
-<li>Pluggable Storage Engines : 存储引擎</li>
-<li>File System : 文件系统</li>
-</ul>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/621b99dc.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL高级教程-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/cd2a02be.html">MySQL高级教程(一)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/cd2a02be.html" class="archive-article-date">
-  	<time datetime="2020-05-18T03:20:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-索引"><a href="#1-索引" class="headerlink" title="1.    索引"></a>1.    索引</h1><h2 id="1-1-索引概述"><a href="#1-1-索引概述" class="headerlink" title="1.1    索引概述"></a>1.1    索引概述</h2><p>MySQL官方对索引的定义为：索引（index）是帮助MySQL高效获取数据的数据结构（有序）。在数据之外，数据库系统还维护者满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据， 这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/cd2a02be.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用hexo-github搭建免费个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/52429b60.html">使用hexo+github搭建免费个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/archives/52429b60.html" class="archive-article-date">
-  	<time datetime="2020-05-15T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
-<ol>
-<li>全是静态文件，访问速度快；</li>
-<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
-<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
-<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
-<li>博客内容可以轻松打包、转移、发布到其它平台</li>
-</ol>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/52429b60.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/8/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next »</a>
     </nav>
   
 
@@ -989,6 +1001,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生活常识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">我国民族节日及文化习俗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">航天史和古代天文历法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">新《公务员法》考点梳理</a>
               </li>
             
             <div class="clearfix"></div>
