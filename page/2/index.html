@@ -157,6 +157,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-新《公务员法》考点梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/8e85f58f.html">新《公务员法》考点梳理</a>
+    </h1>
+  
+
+        
+        <a href="/archives/8e85f58f.html" class="archive-article-date">
+  	<time datetime="2020-11-18T11:37:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-概要"><a href="#1-概要" class="headerlink" title="1.    概要"></a>1.    概要</h1><ul>
+<li>本节课讲解新的《公务员法》，新法自2019年6月1日起施行，如果有些题目或资料和讲解不同，按照老师讲解为准。</li>
+<li>授课思路：对于未修改的地方学习怎么考，哪里是出题点：哪里修改哪里是重要考点；面对比较难背的地方用口诀快速记忆。</li>
+</ul>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">公务员</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">常识</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">新《公务员法》考点梳理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/8e85f58f.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-航天史和古代天文历法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -605,95 +698,6 @@
 
 
   
-    <article id="post-SpringCloud-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/6f583e1f.html">SpringCloud(二)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/6f583e1f.html" class="archive-article-date">
-  	<time datetime="2020-11-04T07:46:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-服务调用Feign入门"><a href="#1-服务调用Feign入门" class="headerlink" title="1.    服务调用Feign入门"></a>1.    服务调用Feign入门</h1><p>前面我们使用的RestTemplate实现REST API调用，代码大致如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/buy/&#123;id&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Product <span class="title">findById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">    Product product = <span class="keyword">null</span>;</span><br><span class="line">    product = restTemplate.getForObject(<span class="string">"http://service-product/product/1"</span>, Product<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    <span class="keyword">return</span> product;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由代码可知，我们是使用拼接字符串的方式构造URL的，该URL只有一个参数。但是，在现实中，URL中往往含有多个参数。这时候我们如果还用这种方式构造URL，那么就会非常痛苦。那应该如何解决？我们带着这样的问题进入到本章的学习。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/6f583e1f.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
@@ -709,7 +713,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Wgy
+    		&copy; 2021 Wgy
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1031,6 +1035,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">申论基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">言语理解与表达</a>
               </li>
             
             <div class="clearfix"></div>
