@@ -157,27 +157,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringMVC-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/b9cbcaed.html">Spring(一)</a>
+      <a class="article-title" href="/archives/ea517149.html">SpringMVC(二)</a>
     </h1>
   
 
         
-        <a href="/archives/b9cbcaed.html" class="archive-article-date">
-  	<time datetime="2020-06-10T15:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
+        <a href="/archives/ea517149.html" class="archive-article-date">
+  	<time datetime="2020-06-25T15:07:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Spring概述"><a href="#1-Spring概述" class="headerlink" title="1.    Spring概述"></a>1.    Spring概述</h1><h2 id="1-1-Spring概述"><a href="#1-1-Spring概述" class="headerlink" title="1.1    Spring概述"></a>1.1    Spring概述</h2><h3 id="1-1-1-Spring介绍"><a href="#1-1-1-Spring介绍" class="headerlink" title="1.1.1    Spring介绍"></a>1.1.1    Spring介绍</h3><p>Spring是分层的Java SE/EE应用 full-stack轻量级开源框架，以IoC（Inverse Of Control：反转控制）和AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层Spring MVC和持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE企业应用开源框架。</p>
+        <h1 id="1-响应数据和结果视图"><a href="#1-响应数据和结果视图" class="headerlink" title="1.    响应数据和结果视图"></a>1.    响应数据和结果视图</h1><h2 id="1-1-返回值分类"><a href="#1-1-返回值分类" class="headerlink" title="1.1    返回值分类"></a>1.1    返回值分类</h2><h3 id="1-1-1-void"><a href="#1-1-1-void" class="headerlink" title="1.1.1    void"></a>1.1.1    void</h3><p>如果控制器的方法返回值编写成void，执行程序报404的异常，默认查找JSP页面没有找到。</p>
+<p>默认会跳转到@RequestMapping(value=”/testVoid”) testVoid的页面。</p>
+<p>可以使用请求转发或者重定向跳转到指定的页面</p>
         
       
       <!-- 添加本文结束标记-->
@@ -203,7 +205,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
         		</li>
       		
 		</ul>
@@ -213,7 +215,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/b9cbcaed.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/ea517149.html">展开全文 >></a>
         </p>
       
 
@@ -243,27 +245,33 @@
 
 
   
-    <article id="post-Struts2-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringMVC-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/bb3a06c4.html">Struts2(四)</a>
+      <a class="article-title" href="/archives/4560ea2b.html">SpringMVC(一)</a>
     </h1>
   
 
         
-        <a href="/archives/bb3a06c4.html" class="archive-article-date">
-  	<time datetime="2020-06-08T07:27:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
+        <a href="/archives/4560ea2b.html" class="archive-article-date">
+  	<time datetime="2020-06-24T11:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Struts2中的拦截器"><a href="#1-Struts2中的拦截器" class="headerlink" title="1.    Struts2中的拦截器"></a>1.    Struts2中的拦截器</h1><h2 id="1-1-Struts2的拦截器基本概念"><a href="#1-1-Struts2的拦截器基本概念" class="headerlink" title="1.1    Struts2的拦截器基本概念"></a>1.1    Struts2的拦截器基本概念</h2><h3 id="1-1-1-拦截器概述"><a href="#1-1-1-拦截器概述" class="headerlink" title="1.1.1    拦截器概述"></a>1.1.1    拦截器概述</h3><p>在Webwork的中文文档的解释为——拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者在定义的action执行的前后加入执行的代码，也可以在一个action执行前阻止其执行。也就是说它提供了一种可以<strong>提取action中可重用代码，统一管理和执行的方式</strong>。</p>
+        <h1 id="1-SpringMVC-的基本概念"><a href="#1-SpringMVC-的基本概念" class="headerlink" title="1.    SpringMVC 的基本概念"></a>1.    SpringMVC 的基本概念</h1><h2 id="1-1-三层架构和MVC"><a href="#1-1-三层架构和MVC" class="headerlink" title="1.1    三层架构和MVC"></a>1.1    三层架构和MVC</h2><h3 id="1-1-1-三层架构"><a href="#1-1-1-三层架构" class="headerlink" title="1.1.1    三层架构"></a>1.1.1    三层架构</h3><p>开发服务器端程序，一般都基于两种形式，一种C/S(客户端/服务器)架构程序，一种B/S(浏览器/服务器)架构程序。</p>
+<p>使用Java语言基本上都是开发B/S架构的程序，B/S架构又分成了三层架构 ：</p>
+<ul>
+<li>表现层：WEB层，用来和客户端进行数据交互的。表现层一般会采用MVC的设计模型 </li>
+<li>业务层：处理公司具体的业务逻辑的</li>
+<li>持久层：用来操作数据库的</li>
+</ul>
         
       
       <!-- 添加本文结束标记-->
@@ -289,7 +297,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
         		</li>
       		
 		</ul>
@@ -299,7 +307,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/bb3a06c4.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/4560ea2b.html">展开全文 >></a>
         </p>
       
 
@@ -329,27 +337,31 @@
 
 
   
-    <article id="post-Struts2-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MyBatis-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/4179e9cb.html">Struts2(三)</a>
+      <a class="article-title" href="/archives/bf2fe2d.html">MyBatis(四)</a>
     </h1>
   
 
         
-        <a href="/archives/4179e9cb.html" class="archive-article-date">
-  	<time datetime="2020-06-07T11:48:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
+        <a href="/archives/bf2fe2d.html" class="archive-article-date">
+  	<time datetime="2020-06-23T14:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-OGNL表达式"><a href="#1-OGNL表达式" class="headerlink" title="1.    OGNL表达式"></a>1.    OGNL表达式</h1><h2 id="1-1-OGNL表达式概述"><a href="#1-1-OGNL表达式概述" class="headerlink" title="1.1    OGNL表达式概述"></a>1.1    OGNL表达式概述</h2><h3 id="1-1-1-什么是OGNL表达式"><a href="#1-1-1-什么是OGNL表达式" class="headerlink" title="1.1.1    什么是OGNL表达式"></a>1.1.1    什么是OGNL表达式</h3><p>OGNL的全称是对象图导航语言（Object-Graph Navigation Language），它是一种功能强大的<strong>开源表达式语言</strong>，使用这种表达式语言，可以通过某种表达式语法，<strong>存取Java对象的任意属性</strong>，<strong>调用Java对象的方法</strong>，同时能够自动<strong>实现必要的类型转换</strong>。如果把表达式看作是一个带有语义的字符串，那么OGNL无疑成为了这个语义字符串与Java对象之间沟通的桥梁。</p>
+        <h1 id="1-Mybatis-延迟加载策略"><a href="#1-Mybatis-延迟加载策略" class="headerlink" title="1.    Mybatis 延迟加载策略"></a>1.    Mybatis 延迟加载策略</h1><h2 id="1-1-何为延迟加载"><a href="#1-1-何为延迟加载" class="headerlink" title="1.1    何为延迟加载"></a>1.1    何为延迟加载</h2><p>就是在需要用到数据时才进行加载，不需要用到数据时就不加载数据。延迟加载也称懒加载。</p>
+<ul>
+<li>好处：先从单表查询，需要时再从关联表去关联查询，大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。</li>
+<li>坏处 ：因为只有当需要用到数据时，才会进行数据库查询，这样在大批量数据查询时，因为查询工作也要消耗时间，所以可能造成用户等待时间变长，造成用户体验下降。</li>
+</ul>
         
       
       <!-- 添加本文结束标记-->
@@ -370,270 +382,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/4179e9cb.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Struts2-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/3f8ac9e0.html">Struts2(二)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/3f8ac9e0.html" class="archive-article-date">
-  	<time datetime="2020-06-05T09:14:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-结果视图的配置"><a href="#1-结果视图的配置" class="headerlink" title="1.    结果视图的配置"></a>1.    结果视图的配置</h1><h2 id="1-1-result标签"><a href="#1-1-result标签" class="headerlink" title="1.1    result标签"></a>1.1    result标签</h2><p>在sturts.xml文件中，Result的配置非常简单，使用<result>元素来配置Result逻辑视图与物理视图之间的映射，<result>元素可以有name和type属性，但这两种属性都不是必选的。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/3f8ac9e0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Struts2-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/90bb5282.html">Struts2(一)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/90bb5282.html" class="archive-article-date">
-  	<time datetime="2020-06-04T15:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Struts2基本概念"><a href="#1-Struts2基本概念" class="headerlink" title="1.    Struts2基本概念"></a>1.    Struts2基本概念</h1><h2 id="1-1-三层架构和三大框架各自的位置"><a href="#1-1-三层架构和三大框架各自的位置" class="headerlink" title="1.1    三层架构和三大框架各自的位置"></a>1.1    三层架构和三大框架各自的位置</h2><h3 id="1-1-1-三层架构"><a href="#1-1-1-三层架构" class="headerlink" title="1.1.1    三层架构"></a>1.1.1    三层架构</h3><p>我们的开发架构一般都是基于两种形式，一种是C/S架构，也就是客户端/服务器，另一种是B/S架构，也就是浏览器/服务器。在JavaEE开发中，几乎全都是基于B/S架构的开发。那么在B/S架构中，系统标准的三层架构包括：<strong>表现层、业务层、持久层</strong>。三层架构在我们的实际开发中使用的非常多。</p>
-<p>三层架构中，每一层各司其职，接下来我们就说说每层都负责哪些方面：</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/90bb5282.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate-四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/c4c4045f.html">Hibernate(四)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/c4c4045f.html" class="archive-article-date">
-  	<time datetime="2020-06-03T14:33:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-JPA相关概念"><a href="#1-JPA相关概念" class="headerlink" title="1.    JPA相关概念"></a>1.    JPA相关概念</h1><h2 id="1-1-JPA概述"><a href="#1-1-JPA概述" class="headerlink" title="1.1    JPA概述"></a>1.1    JPA概述</h2><p>全称是：Java Persistence API。是SUN公司推出的一套基于ORM的规范。Hibernate框架中提供了JPA的实现。</p>
-<p>JPA通过JDK 5.0注解或XML描述对象—关系表的映射关系，并将运行期的实体<a href="http://baike.baidu.com/item/对象持久化" target="_blank" rel="noopener">对象持久化</a>到数据库中。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
         		</li>
@@ -641,6 +389,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -649,7 +401,291 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/c4c4045f.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/bf2fe2d.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MyBatis-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/f1b11122.html">MyBatis(三)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/f1b11122.html" class="archive-article-date">
+  	<time datetime="2020-06-22T04:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Mybatis-连接池与事务深入"><a href="#1-Mybatis-连接池与事务深入" class="headerlink" title="1.    Mybatis  连接池与事务深入"></a>1.    Mybatis  连接池与事务深入</h1><h2 id="1-1-Mybatis-的连接池技术"><a href="#1-1-Mybatis-的连接池技术" class="headerlink" title="1.1    Mybatis 的连接池技术"></a>1.1    Mybatis 的连接池技术</h2><p>在 Mybatis 的 SqlMapConfig.xml 配置文件中，通过<code>&lt;dataSource type=&quot;pooled&quot;&gt;</code>来实现 Mybatis 中连接池的配置。</p>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/f1b11122.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MyBatis-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/8f423109.html">MyBatis(二)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/8f423109.html" class="archive-article-date">
+  	<time datetime="2020-06-21T14:11:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-基于代理-Dao-实现-CRUD-操作"><a href="#1-基于代理-Dao-实现-CRUD-操作" class="headerlink" title="1.    基于代理 Dao 实现 CRUD 操作"></a>1.    基于代理 Dao 实现 CRUD 操作</h1><p>使用要求：</p>
+<ol>
+<li>持久层接口和持久层接口的映射配置必须在相同的包下</li>
+<li>持久层映射配置中 mapper 标签的 namespace 属性取值必须是持久层接口的全限定类名</li>
+<li>SQL 语句的配置标签<code>&lt;select&gt;</code>,<code>&lt;insert&gt;</code>,<code>&lt;delete&gt;</code>,<code>&lt;update&gt;</code>的 id 属性必须和持久层接口的方法名相同。</li>
+</ol>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/8f423109.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MyBatis-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/2073aa6b.html">MyBatis(一)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/2073aa6b.html" class="archive-article-date">
+  	<time datetime="2020-06-20T07:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-单独使用jdbc编程问题总结"><a href="#1-单独使用jdbc编程问题总结" class="headerlink" title="1.    单独使用jdbc编程问题总结"></a>1.    单独使用jdbc编程问题总结</h1><h2 id="1-1-jdbc编程步骤"><a href="#1-1-jdbc编程步骤" class="headerlink" title="1.1    jdbc编程步骤"></a>1.1    jdbc编程步骤</h2><ol>
+<li>加载数据库驱动</li>
+<li>创建并获取数据库链接</li>
+<li>创建jdbc statement对象</li>
+<li>设置sql语句</li>
+<li>设置sql语句中的参数(使用preparedStatement)</li>
+<li>通过statement执行sql并获取结果</li>
+<li>对sql执行结果进行解析处理</li>
+<li>释放资源(resultSet、preparedstatement、connection)</li>
+</ol>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ORM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/2073aa6b.html">展开全文 >></a>
         </p>
       
 
@@ -681,7 +717,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/8/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next »</a>
     </nav>
   
 
@@ -1020,6 +1056,62 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">言语理解与表达</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数量关系与资料分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单一题（问题）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单一题（对策）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">单一题（其他题型）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">综合题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">综合题（其他题型）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（方案类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（宣传类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（总结类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（评论类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大公文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单一题</a>
               </li>
             
             <div class="clearfix"></div>

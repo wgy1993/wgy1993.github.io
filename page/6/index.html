@@ -157,30 +157,28 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Lucene-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-网络爬虫-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/c330d3d2.html">Lucene(一)</a>
+      <a class="article-title" href="/archives/1f29f91c.html">网络爬虫(三)</a>
     </h1>
   
 
         
-        <a href="/archives/c330d3d2.html" class="archive-article-date">
-  	<time datetime="2020-08-15T07:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
+        <a href="/archives/1f29f91c.html" class="archive-article-date">
+  	<time datetime="2020-10-04T04:48:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-搜索技术理论基础"><a href="#1-搜索技术理论基础" class="headerlink" title="1.    搜索技术理论基础"></a>1.    搜索技术理论基础</h1><h2 id="1-1-为什么要学习Lucene"><a href="#1-1-为什么要学习Lucene" class="headerlink" title="1.1    为什么要学习Lucene"></a>1.1    为什么要学习Lucene</h2><p>原来的方式实现搜索功能，我们的搜索流程如下图：</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081515031765.png" alt="image-20200815130627095"></p>
-<p>上图就是原始搜索引擎技术，如果用户比较少而且数据库的数据量比较小，那么这种方式实现搜索功能在企业中是比较常见的。</p>
-<p>但是数据量过多时，数据库的压力就会变得很大，查询速度会变得非常慢。我们需要使用更好的解决方案来分担数据库的压力。</p>
+        <h1 id="1-案例扩展"><a href="#1-案例扩展" class="headerlink" title="1.    案例扩展"></a>1.    案例扩展</h1><h2 id="1-1-定时任务"><a href="#1-1-定时任务" class="headerlink" title="1.1    定时任务"></a>1.1    定时任务</h2><p>在案例中我们使用的是Spring内置的Spring Task，这是Spring3.0加入的定时任务功能。我们使用注解的方式定时启动爬虫进行数据爬取。</p>
+<p>我们使用的是@Scheduled注解，其属性如下：</p>
         
       
       <!-- 添加本文结束标记-->
@@ -202,11 +200,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">业务解决方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Lucene</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
         		</li>
       		
 		</ul>
@@ -216,7 +210,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/c330d3d2.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/1f29f91c.html">展开全文 >></a>
         </p>
       
 
@@ -246,27 +240,27 @@
 
 
   
-    <article id="post-SpringBoot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-网络爬虫-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/6f2612a2.html">SpringBoot</a>
+      <a class="article-title" href="/archives/61dad937.html">网络爬虫(二)</a>
     </h1>
   
 
         
-        <a href="/archives/6f2612a2.html" class="archive-article-date">
-  	<time datetime="2020-08-12T06:17:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-12</time>
+        <a href="/archives/61dad937.html" class="archive-article-date">
+  	<time datetime="2020-10-03T05:40:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-SpringBoot简介"><a href="#1-SpringBoot简介" class="headerlink" title="1.    SpringBoot简介"></a>1.    SpringBoot简介</h1><p>Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用来简化老的Spring 应用开发。该框架使用了自动方式来对开发工程进行配置，减少开发人员定义配置复杂度。</p>
+        <h1 id="1-WebMagic介绍"><a href="#1-WebMagic介绍" class="headerlink" title="1.    WebMagic介绍"></a>1.    WebMagic介绍</h1><p>昨天完成了爬虫的入门的学习，是一个最基本的爬虫案例，今天我们要学习一款爬虫框架的使用就是WebMagic。其底层用到了我们上一天课程所使用的HttpClient和Jsoup，让我们能够更方便的开发爬虫。</p>
         
       
       <!-- 添加本文结束标记-->
@@ -288,11 +282,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
         		</li>
       		
 		</ul>
@@ -302,7 +292,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/6f2612a2.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/61dad937.html">展开全文 >></a>
         </p>
       
 
@@ -332,27 +322,27 @@
 
 
   
-    <article id="post-zookeeper-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-网络爬虫-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/4ebc2ef7.html">zookeeper(二)</a>
+      <a class="article-title" href="/archives/ceeb4255.html">网络爬虫(一)</a>
     </h1>
   
 
         
-        <a href="/archives/4ebc2ef7.html" class="archive-article-date">
-  	<time datetime="2020-08-05T08:55:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
+        <a href="/archives/ceeb4255.html" class="archive-article-date">
+  	<time datetime="2020-10-02T05:04:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-zookeeper源码解析"><a href="#1-zookeeper源码解析" class="headerlink" title="1.    zookeeper源码解析"></a>1.    zookeeper源码解析</h1><h2 id="1-1-下载zookeeper源码，导入IDEA中"><a href="#1-1-下载zookeeper源码，导入IDEA中" class="headerlink" title="1.1    下载zookeeper源码，导入IDEA中"></a>1.1    下载zookeeper源码，导入IDEA中</h2><p>下载地址：<a href="https://github.com/apache/zookeeper" target="_blank" rel="noopener">https://github.com/apache/zookeeper</a></p>
+        <h1 id="1-网络爬虫"><a href="#1-网络爬虫" class="headerlink" title="1.    网络爬虫"></a>1.    网络爬虫</h1><h2 id="1-1-网络爬虫介绍"><a href="#1-1-网络爬虫介绍" class="headerlink" title="1.1    网络爬虫介绍"></a>1.1    网络爬虫介绍</h2><p>在大数据时代，信息的采集是一项重要的工作，而互联网中的数据是海量的，如果单纯靠人力进行信息采集，不仅低效繁琐，搜集的成本也会提高。如何自动高效地获取互联网中我们感兴趣的信息并为我们所用是一个重要的问题，而爬虫技术就是为了解决这些问题而生的。</p>
         
       
       <!-- 添加本文结束标记-->
@@ -374,11 +364,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
         		</li>
       		
 		</ul>
@@ -388,7 +374,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/4ebc2ef7.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/ceeb4255.html">展开全文 >></a>
         </p>
       
 
@@ -418,27 +404,27 @@
 
 
   
-    <article id="post-zookeeper-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mybatis-Plus-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/e18db595.html">zookeeper(一)</a>
+      <a class="article-title" href="/archives/1ea41e8e.html">Mybatis-Plus(二)</a>
     </h1>
   
 
         
-        <a href="/archives/e18db595.html" class="archive-article-date">
-  	<time datetime="2020-08-01T10:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
+        <a href="/archives/1ea41e8e.html" class="archive-article-date">
+  	<time datetime="2020-10-01T03:32:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-zookeeper简介"><a href="#1-zookeeper简介" class="headerlink" title="1.    zookeeper简介"></a>1.    zookeeper简介</h1><h2 id="1-1-分布式概述"><a href="#1-1-分布式概述" class="headerlink" title="1.1    分布式概述"></a>1.1    分布式概述</h2><p>早期我们使用单体架构，即所有服务部署在一台服务器的一个进程中，随着互联网的发展，逐步演进为分布式架构，多个服务分别部署在不同机器的不同进程中。</p>
+        <h1 id="1-ActiveRecord"><a href="#1-ActiveRecord" class="headerlink" title="1.    ActiveRecord"></a>1.    ActiveRecord</h1><p>ActiveRecord（简称AR）一直广受动态语言（ PHP 、 Ruby 等）的喜爱，而 Java 作为准静态语言，对于ActiveRecord 往往只能感叹其优雅，所以我们也在 AR 道路上进行了一定的探索，喜欢大家能够喜欢。</p>
         
       
       <!-- 添加本文结束标记-->
@@ -460,11 +446,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis-Plus</a>
         		</li>
       		
 		</ul>
@@ -474,7 +460,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/e18db595.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/1ea41e8e.html">展开全文 >></a>
         </p>
       
 
@@ -504,33 +490,114 @@
 
 
   
-    <article id="post-SpringMVC-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mybatis-Plus-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/94a25162.html">SpringMVC(三)</a>
+      <a class="article-title" href="/archives/b19585ec.html">Mybatis-Plus(一)</a>
     </h1>
   
 
         
-        <a href="/archives/94a25162.html" class="archive-article-date">
-  	<time datetime="2020-06-26T07:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
+        <a href="/archives/b19585ec.html" class="archive-article-date">
+  	<time datetime="2020-09-29T10:24:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-SSM-整合"><a href="#1-SSM-整合" class="headerlink" title="1.    SSM 整合"></a>1.    SSM 整合</h1><h2 id="1-1-搭建整合环境"><a href="#1-1-搭建整合环境" class="headerlink" title="1.1    搭建整合环境"></a>1.1    搭建整合环境</h2><h3 id="1-1-1-整合说明"><a href="#1-1-1-整合说明" class="headerlink" title="1.1.1    整合说明"></a>1.1.1    整合说明</h3><p>SSM整合可以使用多种方式，选择XML + 注解的方式</p>
-<h3 id="1-1-2-整合的思路"><a href="#1-1-2-整合的思路" class="headerlink" title="1.1.2    整合的思路"></a>1.1.2    整合的思路</h3><ul>
-<li>先搭建整合的环境 </li>
-<li>先把Spring的配置搭建完成 </li>
-<li>再使用Spring整合SpringMVC框架 </li>
-<li>最后使用Spring整合MyBatis框架</li>
-</ul>
+        <h1 id="1-了解Mybatis-Plus"><a href="#1-了解Mybatis-Plus" class="headerlink" title="1.    了解Mybatis-Plus"></a>1.    了解Mybatis-Plus</h1><h2 id="1-1-Mybatis-Plus介绍"><a href="#1-1-Mybatis-Plus介绍" class="headerlink" title="1.1    Mybatis-Plus介绍"></a>1.1    Mybatis-Plus介绍</h2><p>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<p>官网： <a href="https://mybatis.plus/" target="_blank" rel="noopener">https://mybatis.plus/</a> 或 <a href="https://mp.baomidou.com/" target="_blank" rel="noopener">https://mp.baomidou.com/</a></p>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis-Plus</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/b19585ec.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringData-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/dc35f26.html">SpringData(二)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/dc35f26.html" class="archive-article-date">
+  	<time datetime="2020-09-27T11:25:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-SpringData-Redis"><a href="#1-SpringData-Redis" class="headerlink" title="1.    SpringData Redis"></a>1.    SpringData Redis</h1><h2 id="1-1-SpringData-Redis-简介"><a href="#1-1-SpringData-Redis-简介" class="headerlink" title="1.1    SpringData Redis 简介"></a>1.1    SpringData Redis 简介</h2><p>Redis是一个基于内存的数据结构存储系统，它可以用作数据库或者缓存。它支持多种类型的数据结构，这些数据结构类型分别为String（字符串）、List（列表）、Set（集合）、Hash（散列）和Zset（有序集合）。</p>
         
       
       <!-- 添加本文结束标记-->
@@ -556,95 +623,23 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/94a25162.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringMVC-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/ea517149.html">SpringMVC(二)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/ea517149.html" class="archive-article-date">
-  	<time datetime="2020-06-25T15:07:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-响应数据和结果视图"><a href="#1-响应数据和结果视图" class="headerlink" title="1.    响应数据和结果视图"></a>1.    响应数据和结果视图</h1><h2 id="1-1-返回值分类"><a href="#1-1-返回值分类" class="headerlink" title="1.1    返回值分类"></a>1.1    返回值分类</h2><h3 id="1-1-1-void"><a href="#1-1-1-void" class="headerlink" title="1.1.1    void"></a>1.1.1    void</h3><p>如果控制器的方法返回值编写成void，执行程序报404的异常，默认查找JSP页面没有找到。</p>
-<p>默认会跳转到@RequestMapping(value=”/testVoid”) testVoid的页面。</p>
-<p>可以使用请求转发或者重定向跳转到指定的页面</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringData</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
         		</li>
       		
 		</ul>
@@ -654,7 +649,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/ea517149.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/dc35f26.html">展开全文 >></a>
         </p>
       
 
@@ -686,7 +681,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/5/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next »</a>
     </nav>
   
 
@@ -1025,6 +1020,62 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">言语理解与表达</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数量关系与资料分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单一题（问题）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单一题（对策）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">单一题（其他题型）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">综合题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">综合题（其他题型）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（方案类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（宣传类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（总结类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（评论类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大公文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单一题</a>
               </li>
             
             <div class="clearfix"></div>

@@ -157,28 +157,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-MongoDB-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringCloud-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/afe7047c.html">MongoDB(二)</a>
+      <a class="article-title" href="/archives/11ab1e34.html">SpringCloud(三)</a>
     </h1>
   
 
         
-        <a href="/archives/afe7047c.html" class="archive-article-date">
-  	<time datetime="2020-09-18T08:54:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-18</time>
+        <a href="/archives/11ab1e34.html" class="archive-article-date">
+  	<time datetime="2020-11-11T12:59:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-副本集-Replica-Sets"><a href="#1-副本集-Replica-Sets" class="headerlink" title="1.    副本集-Replica Sets"></a>1.    副本集-Replica Sets</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1    简介"></a>1.1    简介</h2><p>MongoDB中的副本集（Replica Set）是一组维护相同数据集的mongod服务。 副本集可提供冗余和高可用性，是所有生产部署的基础。</p>
-<p>也可以说，副本集类似于有自动故障恢复功能的主从集群。通俗的讲就是用多台机器进行同一数据的异步同步，从而使多台机器拥有同一数据的多个副本，并且当主库当掉时在不需要用户干预的情况下自动切换其他备份服务器做主库。而且还可以利用副本服务器做只读服务器，实现读写分离，提高负载。</p>
+        <h1 id="1-微服务网关概述"><a href="#1-微服务网关概述" class="headerlink" title="1.    微服务网关概述"></a>1.    微服务网关概述</h1><p>在学习完前面的知识后，微服务架构已经初具雏形。但还有一些问题：不同的微服务一般会有不同的网络地址，客户端在访问这些微服务时必须记住几十甚至几百个地址，这对于客户端方来说太复杂也难以维护。如下图：</p>
         
       
       <!-- 添加本文结束标记-->
@@ -200,15 +199,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">服务器中间件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">NoSQL存储</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
         		</li>
       		
 		</ul>
@@ -218,7 +213,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/afe7047c.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/11ab1e34.html">展开全文 >></a>
         </p>
       
 
@@ -248,30 +243,293 @@
 
 
   
-    <article id="post-Linux-三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringCloud-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/c09edc62.html">Linux(三)</a>
+      <a class="article-title" href="/archives/6f583e1f.html">SpringCloud(二)</a>
     </h1>
   
 
         
-        <a href="/archives/c09edc62.html" class="archive-article-date">
-  	<time datetime="2020-09-14T10:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-14</time>
+        <a href="/archives/6f583e1f.html" class="archive-article-date">
+  	<time datetime="2020-11-04T07:46:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-CentOS7扩容根分区"><a href="#1-CentOS7扩容根分区" class="headerlink" title="1.    CentOS7扩容根分区"></a>1.    CentOS7扩容根分区</h1><h2 id="1-1-LVM根分区扩容"><a href="#1-1-LVM根分区扩容" class="headerlink" title="1.1    LVM根分区扩容"></a>1.1    LVM根分区扩容</h2><ul>
-<li><p>查看现有分区大小</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -TH</span><br></pre></td></tr></table></figure>
+        <h1 id="1-服务调用Feign入门"><a href="#1-服务调用Feign入门" class="headerlink" title="1.    服务调用Feign入门"></a>1.    服务调用Feign入门</h1><p>前面我们使用的RestTemplate实现REST API调用，代码大致如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/buy/&#123;id&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Product <span class="title">findById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">    Product product = <span class="keyword">null</span>;</span><br><span class="line">    product = restTemplate.getForObject(<span class="string">"http://service-product/product/1"</span>, Product<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    <span class="keyword">return</span> product;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>由代码可知，我们是使用拼接字符串的方式构造URL的，该URL只有一个参数。但是，在现实中，URL中往往含有多个参数。这时候我们如果还用这种方式构造URL，那么就会非常痛苦。那应该如何解决？我们带着这样的问题进入到本章的学习。</p>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/6f583e1f.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringCloud-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/c069a57d.html">SpringCloud(一)</a>
+    </h1>
+  
+
+        
+        <a href="/archives/c069a57d.html" class="archive-article-date">
+  	<time datetime="2020-10-28T07:07:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-微服务基础知识"><a href="#1-微服务基础知识" class="headerlink" title="1.    微服务基础知识"></a>1.    微服务基础知识</h1><h2 id="1-1-系统架构的演变"><a href="#1-1-系统架构的演变" class="headerlink" title="1.1    系统架构的演变"></a>1.1    系统架构的演变</h2><p>随着互联网的发展，网站应用的规模不断扩大，常规的应用架构已无法应对，分布式服务架构以及微服务架构势在必行，亟需一个治理系统确保架构有条不紊的演进。</p>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/c069a57d.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Dubbo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/f6253398.html">Dubbo</a>
+    </h1>
+  
+
+        
+        <a href="/archives/f6253398.html" class="archive-article-date">
+  	<time datetime="2020-10-25T07:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-分布式基础理论"><a href="#1-分布式基础理论" class="headerlink" title="1.    分布式基础理论"></a>1.    分布式基础理论</h1><h2 id="1-1-什么是分布式系统"><a href="#1-1-什么是分布式系统" class="headerlink" title="1.1    什么是分布式系统"></a>1.1    什么是分布式系统</h2><p>分布式系统是若干独立计算机的集合，这些计算机对于用户来说就像单个相关系统</p>
+<p>分布式系统（distributed system）是建立在网络之上的软件系统。</p>
+<p>随着互联网的发展，网站应用的规模不断扩大，常规的垂直应用架构已无法应对，分布式服务架构以及流动计算架构势在必行，亟需<strong>一个治理系统</strong>确保架构有条不紊的演进</p>
+        
+      
+      <!-- 添加本文结束标记-->
+      
+       <!-- 添加完成 -->
+      <!-- 增加版权声明 -->
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      <!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式架构方案</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Dubbo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/f6253398.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-RabbitMQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/b543ced0.html">RabbitMQ</a>
+    </h1>
+  
+
+        
+        <a href="/archives/b543ced0.html" class="archive-article-date">
+  	<time datetime="2020-10-10T04:39:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1.    消息中间件概述"></a>1.    消息中间件概述</h1><h2 id="1-1-什么是消息中间件"><a href="#1-1-什么是消息中间件" class="headerlink" title="1.1    什么是消息中间件"></a>1.1    什么是消息中间件</h2><p>MQ全称为Message Queue，消息队列是应用程序和应用程序之间的通信方法。</p>
+<ul>
+<li><p>为什么使用MQ</p>
+<p>在项目中，可将一些无需即时返回且耗时的操作提取出来，进行<strong>异步处理</strong>，而这种异步处理的方式大大的节省了服务器的请求响应时间，从而<strong>提高</strong>了<strong>系统</strong>的<strong>吞吐量</strong>。</p>
 </li>
 </ul>
         
@@ -295,107 +553,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/c09edc62.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MongoDB-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/d69f1e.html">MongoDB(一)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/d69f1e.html" class="archive-article-date">
-  	<time datetime="2020-09-12T14:21:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-MongoDB-相关概念"><a href="#1-MongoDB-相关概念" class="headerlink" title="1.    MongoDB 相关概念"></a>1.    MongoDB 相关概念</h1><h2 id="1-1-业务应用场景"><a href="#1-1-业务应用场景" class="headerlink" title="1.1    业务应用场景"></a>1.1    业务应用场景</h2><p>传统的关系型数据库（如MySQL），在数据操作的“三高”需求以及应对Web2.0的网站需求面前，显得力不从心。</p>
-<p>解释：“三高”需求：</p>
-<ul>
-<li>High performance - 对数据库高并发读写的需求。</li>
-<li>Huge Storage - 对海量数据的高效率存储和访问的需求。</li>
-<li>High Scalability &amp;&amp; High Availability- 对数据库的高可扩展性和高可用性的需求。</li>
-</ul>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">服务器中间件</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">NoSQL存储</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RabbitMQ</a>
         		</li>
       		
 		</ul>
@@ -405,7 +567,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/d69f1e.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/b543ced0.html">展开全文 >></a>
         </p>
       
 
@@ -435,27 +597,27 @@
 
 
   
-    <article id="post-ElasticStack-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Docker-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/archives/1b8ebebc.html">ElasticStack(二)</a>
+      <a class="article-title" href="/archives/4021575d.html">Docker(一)</a>
     </h1>
   
 
         
-        <a href="/archives/1b8ebebc.html" class="archive-article-date">
-  	<time datetime="2020-09-03T11:10:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
+        <a href="/archives/4021575d.html" class="archive-article-date">
+  	<time datetime="2020-10-04T14:30:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Nginx日志分析系统"><a href="#1-Nginx日志分析系统" class="headerlink" title="1.    Nginx日志分析系统"></a>1.    Nginx日志分析系统</h1><h2 id="1-1-项目需求"><a href="#1-1-项目需求" class="headerlink" title="1.1    项目需求"></a>1.1    项目需求</h2><p>Nginx是一款非常优秀的web服务器，往往nginx服务会作为项目的访问入口，那么，nginx的性能保障就变得非常重要了，如果nginx的运行出现了问题就会对项目有较大的影响，所以，我们需要对nginx的运行有监控措施，实时掌握nginx的运行情况，那就需要收集nginx的运行指标和分析nginx的运行日志了。</p>
+        <h1 id="1-什么是虚拟化"><a href="#1-什么是虚拟化" class="headerlink" title="1.    什么是虚拟化"></a>1.    什么是虚拟化</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1    概念"></a>1.1    概念</h2><p>在计算机中，虚拟化（英语：Virtualization）是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存及存储等，予以抽象、转换后呈现出来，<strong>打破实体结构间的不可切割的障碍，使用户可以比原本的组态更好的方式来应用这些资源</strong>。这些资源的新虚拟部份是不受现有资源的架设方式，地域或物理组态所限制。一般所指的虚拟化资源包括计算能力和资料存储。</p>
         
       
       <!-- 添加本文结束标记-->
@@ -477,11 +639,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">业务解决方案</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ElasticStack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">容器技术</a>
         		</li>
       		
 		</ul>
@@ -491,180 +653,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/archives/1b8ebebc.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ElasticStack-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/b4bf25de.html">ElasticStack(一)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/b4bf25de.html" class="archive-article-date">
-  	<time datetime="2020-09-01T14:24:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Elastic-Stack简介"><a href="#1-Elastic-Stack简介" class="headerlink" title="1.    Elastic Stack简介"></a>1.    Elastic Stack简介</h1><p>如果你没有听说过Elastic Stack，那你一定听说过ELK，实际上ELK是三款软件的简称，分别是Elasticsearch、Logstash、Kibana组成，在发展的过程中，又有新成员Beats的加入，所以就形成了Elastic Stack。所以说，ELK是旧的称呼，Elastic Stack是新的名字。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">业务解决方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ElasticStack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/b4bf25de.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Lucene-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/6c0148b0.html">Lucene(二)</a>
-    </h1>
-  
-
-        
-        <a href="/archives/6c0148b0.html" class="archive-article-date">
-  	<time datetime="2020-08-31T04:02:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Lucene高级搜索"><a href="#1-Lucene高级搜索" class="headerlink" title="1.    Lucene高级搜索"></a>1.    Lucene高级搜索</h1><h2 id="1-1-文本搜索"><a href="#1-1-文本搜索" class="headerlink" title="1.1    文本搜索"></a>1.1    文本搜索</h2><p>QueryParser支持默认搜索域, 第一个参数为默认搜索域。</p>
-<p>如果在执行parse方法的时候，查询语法中包含域名则从指定的这个域名中搜索， 如果只有查询的关键字，则从默认搜索域中搜索结果。</p>
-        
-      
-      <!-- 添加本文结束标记-->
-      
-       <!-- 添加完成 -->
-      <!-- 增加版权声明 -->
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      <!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">业务解决方案</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Lucene</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/6c0148b0.html">展开全文 >></a>
+          <a class="article-more-a" href="/archives/4021575d.html">展开全文 >></a>
         </p>
       
 
@@ -696,7 +685,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/4/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next »</a>
     </nav>
   
 
@@ -1035,6 +1024,62 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">言语理解与表达</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数量关系与资料分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单一题（问题）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单一题（对策）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">单一题（其他题型）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">综合题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">综合题（其他题型）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（方案类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（宣传类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（总结类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公文题（评论类）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大公文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单一题</a>
               </li>
             
             <div class="clearfix"></div>
